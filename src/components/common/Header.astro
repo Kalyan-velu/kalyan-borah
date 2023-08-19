@@ -1,0 +1,42 @@
+---
+import Socials from './Socials.astro'
+import socials from '@data/socials.json'
+---
+
+<div class="nav z-[100] fixed top-0 min-w-full max-w-full p-4 sm:p-2">
+  <header class="flex items-center w-full justify-center md:justify-around">
+    <div class="w-fit hidden sm:inline-block my-4">
+      <Socials {socials} />
+    </div>
+    <div class="grow md:grow-0"></div>
+    <a href="/" class="animate-pulse">
+      <img class="st" src="/icons8/icons8-skull-gradient-32.png" alt="Logo" />
+    </a>
+
+    <div class="grow sm:grow-0"></div>
+    <nav
+      class="max-w-full w-fit flex font-display md:gap-3 md:justify-between items-center"
+    >
+      <ul class="flex gap-3 font-normal sm:items-center">
+        <li class="text-gray-400 hover:text-gray-100 delay-150">
+          <a href="/about/">about</a>
+        </li>
+        <li class="text-gray-400 hover:text-gray-100 delay-150">
+          <a href="/works/">works</a>
+        </li>
+        <li class="text-gray-400 hover:text-gray-100 delay-150">
+          <a href="#contact">contact</a>
+        </li>
+        <li class="grow sm:grow-0"></li>
+        <li>
+          <a
+            class="hover:animate-pulse outline outline-2 outline-blue-500 rounded-full py-1 px-2 md:py-2 md:px-4 md:ml-3 cursor-pointer flex gap-2 items-center"
+            href="/resume/"
+          >
+            <i class="fa-regular fa-file-pdf fa-shake"></i>Resume</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>

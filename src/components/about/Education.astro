@@ -1,0 +1,19 @@
+---
+import Card from '@components/about/Card.astro'
+import educationDetails from '@data/education.json'
+---
+
+<>
+  <div class="w-[90%] sm:w-[70%] m-auto">
+    <h2
+      class="text-left font-intro font-bold decoration-slate-500 text-gray-50 text-2xl md:text-3xl"
+    >
+      <i class="fa-solid fa-school"></i>{' '}Education Details
+    </h2>
+    <div
+      class="w-full sm:w-[90%] md:w-[90%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 m-auto py-8 columns-1 justify-center md:columns-2 items-center"
+    >
+      {educationDetails.map((course) => <Card {...course} />)}
+    </div>
+  </div>
+</>

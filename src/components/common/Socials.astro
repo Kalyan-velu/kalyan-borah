@@ -1,0 +1,21 @@
+---
+import type { Social } from "../../scripts/types";
+interface Props {
+  socials: Social[];
+}
+const { socials } = Astro.props;
+---
+
+<>
+  <ul class='flex gap-5'>
+    {
+      socials.map((social):Social => (
+        <li title={social.name}>
+          <a href={social.url} target="_blank" class='social-link hover:animate-spin'>
+            <i class=`text-zinc-400 hover:text-white fa-brands fa-${social.logo} fa-lg`/>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</>

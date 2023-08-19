@@ -1,0 +1,73 @@
+[
+  {
+    "issuer": "Vue School",
+    "title": "Certificate of Participation",
+    "issued": "May 2023",
+    "credentialID": "XOtCx1dJ3n",
+    "skills": [
+      "Vue",
+      "Nuxt",
+      "OpenAI API"
+    ]
+  },
+  {
+    "issuer": "Social (Formerly Script Foundation)",
+    "title": "SSOC Season 2",
+    "issued": "Apr 2023",
+    "credentialID": "fc8ae864-0201-4d2e-b469-34bd1f59aa1a"
+  },
+  {
+    "issuer": "Cockroach Labs",
+    "title": "Introduction to Serverless Databases and CockroachDB Serverless",
+    "issued": "Feb 2023",
+    "credentialID": "5602d29d01804eedb19bdf83022bd143",
+    "skills": [
+      "CockroachDB"
+    ]
+  },
+  {
+    "issuer": "HackerRank",
+    "title": "JavaScript (Basic) Certificate",
+    "issued": "Feb 2023",
+    "credentialID": "acc5b05b8323",
+    "skills": [
+      "JavaScript"
+    ]
+  },
+  {
+    "issuer": "Udemy",
+    "title": "Complete NodeJS course with express, socket io and MongoDB",
+    "issued": "Jan 2023",
+    "credentialID": "UC-f79f790c-600b-4e23-a630-5080663f12a7",
+    "skills": [
+      "Mongoose ODM",
+      "NoSQL",
+      "Back-End Web Development",
+      "Express.js",
+      "MongoDB",
+      "Socket.io",
+      "React.js"
+    ]
+  },
+  {
+    "issuer": "Udemy",
+    "title": "Git from Basics to Advanced: Practical Guide for Developers",
+    "issued": "Jan 2023",
+    "credentialID": "UC-a08b4bb7-d68f-4df3-9f8d-e81844864531",
+    "skills": [
+      "GitHub",
+      "Git",
+      "Git BASH"
+    ]
+  },
+  {
+    "issuer": "Udemy",
+    "title": "Complete Front-end web development Bootcamp -2020",
+    "issued": "Jan 2021",
+    "credentialID": "UC-7dff363a-aea6-44e2-81e3-e787bbb6417d",
+    "skills": [
+      "Cascading Style Sheets (CSS)",
+      "HTML5"
+    ]
+  }
+]

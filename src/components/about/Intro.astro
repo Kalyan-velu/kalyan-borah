@@ -1,0 +1,28 @@
+---
+import { getEntry } from 'astro:content'
+import Education from './Education.astro'
+import Certifications from './Certifications.astro'
+
+const intro = await getEntry('about', 'intro')
+
+const { Content, headings } = await intro.render()
+---
+
+<section id="about" class="font-display">
+  <div
+    class="grid items-center justify-center w-11/12 md:w-[80%] m-auto pt-[4.75rem]"
+  >
+    <h2
+      class="w-[90%] sm:w-[70%] m-auto text-left font-intro font-bold decoration-slate-500 text-gray-50 text-3xl"
+    >
+      <i class="fa-solid fa-circle-info"></i>{' '}{intro.data.title}
+    </h2>
+    <article
+      class="w-full prose prose-invert flex flex-col md:flex-r m-auto py-8 columns-1 md:columns-2 items-center"
+    >
+      <Content />
+    </article>
+    <Education />
+    <Certifications />
+  </div>
+</section>

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "High School",
+    "year": 2017,
+    "percentage": 76.67,
+    "institute": "Dikshu High School",
+    "address": "Dikshu, Sivasagar",
+    "from": 2012,
+    "to": 2017
+  },
+  {
+    "name": "Higher Secondary",
+    "year": 2019,
+    "percentage": 57.7,
+    "institute": "S P P College",
+    "address": "Namti Chariali, Sivasagar",
+    "from": 2017,
+    "to": 2019
+  },
+  {
+    "name": "Bachalor of Computer Application",
+    "year": 2022,
+    "percentage": 72.2,
+    "institute": "Sibsagar Commerce College",
+    "university": "Dibrugarh University",
+    "address": "Sivasagar, Assam",
+    "from": 2019,
+    "to": 2022
+  }
+]

@@ -1,0 +1,41 @@
+---
+import Separator from '@components/common/Separator.astro'
+interface Props {
+  name: string
+  year: number
+  percentage: number
+  institute: string
+  university?: string
+  address: string
+  from: number
+  to: number
+}
+
+const { name, year, percentage, institute, address, university, from, to } =
+  Astro.props
+---
+
+<div
+  class="flex gap-2 justify-start items-start rounded-lg min-h-[15rem] flex-col p-3"
+>
+  <Separator state="separator" />
+  <h2 class="font-semibold text-xl">
+    {name}
+    <span>({year})</span>
+  </h2>
+  <div class="w-full flex flex-col">
+    <p class="text-md">
+      <b>From:</b>
+      <span class="text-gray-400">{from}</span>
+    </p>
+    <p class="text-md"><b>To:</b> <span class="text-gray-400">{to}</span></p>
+  </div>
+  <p>
+    <b>Institute:</b>
+    {institute}
+    {university ? `(${university})` : null}
+  </p>
+  <p><b>Address:</b> <span class="text-gray-400">{address}</span></p>
+  <p class="text-left"><b>Percentage:</b>{percentage}</p>
+  <Separator state="rotated-separator" />
+</div>

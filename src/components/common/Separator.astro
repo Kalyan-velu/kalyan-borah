@@ -1,0 +1,46 @@
+---
+interface Props {
+  state: string
+}
+const { state } = Astro.props
+---
+
+<div class=`relative ${state} w-full md:w-[80%] m-auto`></div>
+<style>
+  @tailwind base;
+  @tailwind components;
+  @layer components {
+    .separator {
+      border-top-width: 1px;
+      border-image-source: linear-gradient(
+        to left,
+        var(--accent-dark-rich),
+        #f3f4f6,
+        var(--accent-dark-rich)
+      );
+      border-image-slice: 1;
+      background-image: radial-gradient(
+        at top center,
+        rgba(243, 244, 246, 0.15),
+        var(--accent-dark-rich) 60%
+      );
+      height: 2rem;
+    }
+    .rotated-separator {
+      border-bottom-width: 1px;
+      border-image-source: linear-gradient(
+        to left,
+        var(--accent-dark-rich),
+        #f3f4f6,
+        var(--accent-dark-rich)
+      );
+      border-image-slice: 1;
+      background-image: radial-gradient(
+        at bottom center,
+        rgba(243, 244, 246, 0.15),
+        var(--accent-dark-rich) 60%
+      );
+      height: 4rem;
+    }
+  }
+</style>

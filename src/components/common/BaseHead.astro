@@ -1,0 +1,103 @@
+---
+export interface Props {
+  title: string
+  description: string
+  permalink: string
+  canonicalUrl?: string
+  ograph: string
+}
+
+const { title, description, permalink, canonicalUrl, ograph } = Astro.props
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro description" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="../styles/global.css" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/icons8/icons8-skull-gradient-16.png"
+    sizes="16x16"
+  />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/icons8/icons8-skull-gradient-32.png"
+    sizes="32x32"
+  />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots" content="index, follow" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="kalyanborah.netlify.com" />
+  <meta property="twitter:url" content={permalink} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ograph} />
+  <meta property="twitter:creator" content="@kalyan_borah_RR" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata:wght@200;300;400&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<style is:global>
+  @tailwind components;
+  @tailwind base;
+  @tailwind variants;
+
+  :root {
+    --accent-light: #395756;
+    --azure-web: #e6fdff;
+    --accent-smoke: 242, 244, 243;
+    --accent-black: #0a0908;
+    --accent-dark: #212731;
+    --accent-dark-rich: #101318;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+
+  @layer base {
+    html,
+    body {
+      height: 100dvh;
+      background: var(--accent-dark-rich);
+      color: var(--azure-web);
+
+      font-family: 'Alata', sans-serif;
+    }
+  }
+
+  @layer components {
+    .nav {
+      /* From https://css.glass */
+      background-color: rgba(16, 19, 24, 0.5);
+      /* border-radius: 16px; */
+      /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+      border: 1px solid rgba(16, 19, 24, 0.25);
+    }
+  }
+</style>
