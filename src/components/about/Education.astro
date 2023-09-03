@@ -1,5 +1,5 @@
 ---
-import Card from '@components/about/Card.astro'
+import EduCard from '@components/about/EduCard.astro'
 import educationDetails from '@data/education.json'
 ---
 
@@ -13,7 +13,7 @@ import educationDetails from '@data/education.json'
     <div
       class="w-full sm:w-[90%] md:w-[90%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 m-auto py-8 columns-1 justify-center md:columns-2 items-center"
     >
-      {educationDetails.map((course) => <Card {...course} />)}
+      {educationDetails.map((course) => <EduCard {...course} />)}
     </div>
   </div>
 </>

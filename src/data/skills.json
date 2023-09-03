@@ -3,172 +3,206 @@
     {
       "name": "python",
       "imageUrl": "/skills/python.webp",
-      "color": "#ffde56"
+      "color": "#ffde56",
+      "rgbColor": "255, 222, 86"
     },
     {
       "name": "html",
       "imageUrl": "/skills/html.webp",
-      "color": "#fe7816"
+      "color": "#fe7816",
+      "rgbColor": "254, 120, 22"
     },
     {
       "name": "css",
       "imageUrl": "/skills/css.webp",
-      "color": "#2a65f0"
+      "color": "#2a65f0",
+      "rgbColor": "42, 101, 240"
     },
     {
       "name": "js",
       "imageUrl": "/skills/js.webp",
-      "color": "#ffdf00"
+      "color": "#ffdf00",
+      "rgbColor": "255, 223, 0"
     },
     {
       "name": "typescript",
       "imageUrl": "/skills/typescript.webp",
-      "color": "#3179c7"
+      "color": "#3179c7",
+      "rgbColor": "49, 121, 199"
     },
     {
       "name": "vite",
       "imageUrl": "/skills/vite.webp",
-      "color": "#9862fd"
+      "color": "#9862fd",
+      "rgbColor": "152, 98, 253"
     },
     {
       "name": "bootstrap",
       "imageUrl": "/skills/bootstrap.webp",
-      "color": "#8b13fd"
+      "color": "#8b13fd",
+      "rgbColor": "139, 19, 253"
     },
     {
       "name": "sass",
       "imageUrl": "/skills/sass.webp",
-      "color": "#cd689a"
+      "color": "#cd689a",
+      "rgbColor": "205, 104, 154"
     },
     {
       "name": "tailwind",
       "imageUrl": "/skills/tailwind.webp",
-      "color": "#00c0cd"
+      "color": "#00c0cd",
+      "rgbColor": "0, 192, 205"
     },
     {
       "name": "react",
       "imageUrl": "/skills/react.webp",
-      "color": "#05bfd5"
+      "color": "#05bfd5",
+      "rgbColor": "5, 191, 213"
     },
     {
       "name": "nodejs",
       "imageUrl": "/skills/nodejs.webp",
-      "color": "#8cc041"
+      "color": "#8cc041",
+      "rgbColor": "140, 192, 65"
     },
     {
       "name": "express",
       "imageUrl": "/skills/express.webp",
-      "color": "#494949"
+      "color": "#494949",
+      "rgbColor": "73, 73, 73"
     },
     {
       "name": "next",
       "imageUrl": "/skills/next.webp",
-      "color": "#222222"
+      "color": "#222222",
+      "rgbColor": "34, 34, 34"
     },
     {
       "name": "django",
       "imageUrl": "/skills/django.webp",
-      "color": "#113328"
+      "color": "#113328",
+      "rgbColor": "17, 51, 40"
     },
     {
       "name": "mysql",
       "imageUrl": "/skills/mysql.webp",
-      "color": "#3d5d69"
+      "color": "#3d5d69",
+      "rgbColor": "61, 93, 105"
     },
     {
       "name": "mongoDB",
       "imageUrl": "/skills/mongoDB.webp",
-      "color": "#7ec684"
+      "color": "#7ec684",
+      "rgbColor": "126, 198, 132"
     },
     {
       "name": "postgre",
       "imageUrl": "/skills/postgre.webp",
-      "color": "#326790"
+      "color": "#326790",
+      "rgbColor": "50, 103, 144"
     },
     {
       "name": "postman",
       "imageUrl": "/skills/postman.webp",
-      "color": "#ee6d3f"
+      "color": "#ee6d3f",
+      "rgbColor": "238, 109, 63"
     },
     {
       "name": "graphql",
       "imageUrl": "/skills/graphql.webp",
-      "color": "#ed9cb6"
+      "color": "#ed9cb6",
+      "rgbColor": "237, 156, 182"
     },
     {
       "name": "go",
       "imageUrl": "/skills/go.webp",
-      "color": "#6ad7e4"
+      "color": "#6ad7e4",
+      "rgbColor": "106, 215, 228"
     },
     {
       "name": "redux",
       "imageUrl": "/skills/redux.webp",
-      "color": "#764abb"
+      "color": "#764abb",
+      "rgbColor": "118, 74, 187"
     },
     {
       "name": "docker",
       "imageUrl": "/skills/docker.webp",
-      "color": "#2295ec"
+      "color": "#2295ec",
+      "rgbColor": "34, 149, 236"
     },
     {
       "name": "framerMotion",
       "imageUrl": "/skills/framerMotion.webp",
-      "color": "#bb4a97"
+      "color": "#bb4a97",
+      "rgbColor": "187, 74, 151"
     },
     {
       "name": "git",
       "imageUrl": "/skills/git.webp",
-      "color": "#ef5132"
+      "color": "#ef5132",
+      "rgbColor": "239, 81, 50"
     },
     {
       "name": "github",
       "imageUrl": "/skills/github.webp",
-      "color": "#000000"
+      "color": "#000000",
+      "rgbColor": "0, 0, 0"
     },
     {
       "name": "githubActions",
       "imageUrl": "/skills/githubActions.webp",
-      "color": "#79b8ff"
+      "color": "#79b8ff",
+      "rgbColor": "121, 184, 255"
     },
     {
       "name": "gitlab",
       "imageUrl": "/skills/gitlab.webp",
-      "color": "#fc6d24"
+      "color": "#fc6d24",
+      "rgbColor": "252, 109, 36"
     },
     {
       "name": "netlify",
       "imageUrl": "/skills/netlify.webp",
-      "color": "#40b5bb"
+      "color": "#40b5bb",
+      "rgbColor": "64, 181, 187"
     },
     {
       "name": "replit",
       "imageUrl": "/skills/replit.webp",
-      "color": "#f26301"
+      "color": "#f26301",
+      "rgbColor": "242, 99, 1"
     },
     {
       "name": "heroku",
       "imageUrl": "/skills/heroku.webp",
-      "color": "#7d57c1"
+      "color": "#7d57c1",
+      "rgbColor": "125, 87, 193"
     },
     {
       "name": "vercel",
       "imageUrl": "/skills/vercel.webp",
-      "color": "#2a2a2a"
+      "color": "#2a2a2a",
+      "rgbColor": "42, 42, 42"
     },
     {
       "name": "markdown",
       "imageUrl": "/skills/markdown.webp",
-      "color": "#3e3e3e"
+      "color": "#3e3e3e",
+      "rgbColor": "62, 62, 62"
     },
     {
-      "name": "Adobe Photoshop",
+      "name": "Photoshop",
       "imageUrl": "/skills/photoshop.webp",
-      "color": "#05a8f3"
+      "color": "#05a8f3",
+      "rgbColor": "5, 168, 243"
     },
     {
       "name": "figma",
       "imageUrl": "/skills/figma.webp",
-      "color": "#a25aff"
+      "color": "#a25aff",
+      "rgbColor": "162, 90, 255"
     }
   ]
 }

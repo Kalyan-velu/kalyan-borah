@@ -12,11 +12,24 @@ import data from '@data/skills.json'
       >
         Skills
       </h2>
-      <ul class="">
+      <ul class="flex flex-wrap gap-3">
         {
           data.skills.map((skill) => (
-            <li class={`py-2 px-3 gap-2 bg-[${skill.color}] rounded`}>
-              {skill.name}
+            <li>
+              <span
+                class="flex items-center justify-center py-[0.4375rem] gap-2 hover:font-bold hover:bg-[rgba(var(--skill-color),0.32)] hover:cursor-pointer px-[0.6875rem] text-3xs rounded-full border border-divider bg-[var(--accent-dark)] transition leading-[1.65] truncate dark:bg-[var(--ac)]/[0.036] focus:underline-none focus:text-primary-txt focus:transform hocus:scale-[1.015] focus:bg-[rgba(var(--skill-color),0.12)] dark:hocus:bg-[rgba(var(--skill-color),0.18)] border-[rgba(var(--skill-color),0.56)]"
+                style={`--skill-color: ${skill.rgbColor}`}
+              >
+                <img
+                  class="w-[1rem] h-[1rem]"
+                  src={skill.imageUrl}
+                  alt={skill.name}
+                />
+                <span class="text-gray-300 font-semibold">
+                  {skill.name.charAt(0).toLocaleUpperCase() +
+                    skill.name.slice(1)}
+                </span>
+              </span>
             </li>
           ))
         }

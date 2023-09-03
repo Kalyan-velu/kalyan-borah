@@ -1,11 +1,12 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import { getEntry } from 'astro:content'
 import Education from './Education.astro'
 import Certifications from './Certifications.astro'
 
 const intro = await getEntry('about', 'intro')
 
-const { Content, headings } = await intro.render()
+const { Content } = await intro.render()
 ---
 
 <section id="about" class="font-display">
@@ -17,12 +18,13 @@ const { Content, headings } = await intro.render()
     >
       <i class="fa-solid fa-circle-info"></i>{' '}{intro.data.title}
     </h2>
-    <article
-      class="w-full prose prose-invert flex flex-col md:flex-r m-auto py-8 columns-1 md:columns-2 items-center"
+    <div
+      class="w-11/12 prose-h2:md:w-[666px] prose-lg prose-h2:text-left prose prose-invert [&>p]:md:w-[666px] flex flex-col md:flex-r m-auto py-8 items-center"
     >
       <Content />
-    </article>
+    </div>
     <Education />
     <Certifications />
   </div>
 </section>
+<ViewTransitions/>

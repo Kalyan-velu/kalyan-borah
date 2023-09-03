@@ -11,3 +11,7 @@ With personal projects like a real-time chat application and a social media web 
 
 My drive to learn and evolve extends beyond programming languages and frameworks. Proficient in `Golang`, `Python`, and `C++`, I bring a versatile skill set to the table. Backed by knowledge of backend development tools like `Node.js`, `Express.js`, and `Django`, and complemented by database expertise in MySQL and Firebase, I am well-equipped to tackle complex challenges.
 This portfolio serves as a testament to my journey so far—a journey characterized by curiosity, hands-on learning, and a commitment to growth. As I aspire to make meaningful contributions in the tech world, I invite you to explore my projects, skills, and achievements. Let's connect and collaborate to bring innovative ideas to life. Thank you for being a part of my journey.
+
+## Github Status
+
+![Profile Details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kalyan-velu&theme=github_dark)
