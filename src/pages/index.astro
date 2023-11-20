@@ -10,7 +10,18 @@ const ograph = ''
 ---
 
 <Layout {title} {description} {permalink} {ograph}>
-  <section class="relative overflow-hidden h-screen">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-PK4HB89SDH');
+    </script>
+
+    <section class="relative overflow-hidden h-screen">
     <div
       class="h-[calc(100dvh-4.75rem)] grid items-center justify-center w-[80%] m-auto pt-[4.75rem]"
     >

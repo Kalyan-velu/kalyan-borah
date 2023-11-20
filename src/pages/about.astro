@@ -9,5 +9,16 @@ const ograph = ''
 ---
 
 <Layout {title} {description} {permalink} {ograph}>
-  <Intro />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-PK4HB89SDH');
+    </script>
+
+    <Intro />
 </Layout>
