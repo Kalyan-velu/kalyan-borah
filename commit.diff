@@ -1,0 +1,485 @@
+diff --git a/astro.config.mjs b/astro.config.mjs
+index 5a28494..f13af55 100644
+--- a/astro.config.mjs
++++ b/astro.config.mjs
+@@ -1,13 +1,13 @@
+-import { defineConfig } from 'astro/config';
+-import tailwind from "@astrojs/tailwind";
+-import markdoc from "@astrojs/markdoc";
+-import react from "@astrojs/react";
++import markdoc from "@astrojs/markdoc"
++import react from "@astrojs/react"
++import tailwind from "@astrojs/tailwind"
++import { defineConfig } from 'astro/config'
+ 
+-import netlify from "@astrojs/netlify/functions";
++import netlify from "@astrojs/netlify"
+ 
+ // https://astro.build/config
+ export default defineConfig({
+   integrations: [tailwind(), markdoc(), react()],
+   output: "server",
+   adapter: netlify()
+-});
+\ No newline at end of file
++})
+\ No newline at end of file
+diff --git a/package.json b/package.json
+index ff0b8b3..4e822f4 100644
+--- a/package.json
++++ b/package.json
+@@ -12,26 +12,26 @@
+     "lint": "npx eslint src"
+   },
+   "dependencies": {
+-    "@astrojs/markdoc": "^0.7.2",
+-    "@astrojs/netlify": "^3.0.4",
+-    "@astrojs/preact": "^3.0.1",
+-    "@astrojs/react": "^3.0.5",
+-    "@astrojs/tailwind": "^5.0.2",
+-    "@supabase/supabase-js": "^2.38.4",
+-    "@types/react": "^18.2.37",
+-    "@types/react-dom": "^18.2.15",
+-    "astro": "^3.5.5",
++    "@astrojs/markdoc": "^0.11.0",
++    "@astrojs/netlify": "^5.2.0",
++    "@astrojs/preact": "^3.2.0",
++    "@astrojs/react": "^3.3.1",
++    "@astrojs/tailwind": "^5.1.0",
++    "@supabase/supabase-js": "^2.42.7",
++    "@types/react": "^18.3.1",
++    "@types/react-dom": "^18.3.0",
++    "astro": "^4.7.0",
+     "class-variance-authority": "^0.7.0",
+-    "clsx": "^2.0.0",
+-    "lucide-react": "^0.292.0",
+-    "react": "^18.2.0",
+-    "react-dom": "^18.2.0",
+-    "tailwind-merge": "^2.0.0",
+-    "tailwindcss": "^3.3.5",
++    "clsx": "^2.1.1",
++    "lucide-react": "^0.376.0",
++    "react": "^18.3.1",
++    "react-dom": "^18.3.1",
++    "tailwind-merge": "^2.3.0",
++    "tailwindcss": "^3.4.3",
+     "tailwindcss-animate": "^1.0.7"
+   },
+   "devDependencies": {
+-    "@tailwindcss/typography": "^0.5.10",
+-    "prettier-plugin-astro": "^0.12.2"
++    "@tailwindcss/typography": "^0.5.13",
++    "prettier-plugin-astro": "^0.13.0"
+   }
+ }
+\ No newline at end of file
+diff --git a/src/components/common/Header.astro b/src/components/common/Header.astro
+index 6295fc1..fede43f 100644
+--- a/src/components/common/Header.astro
++++ b/src/components/common/Header.astro
+@@ -1,42 +1,56 @@
+ ---
+-import Socials from './Socials.astro'
+-import socials from '@data/socials.json'
++import socials from '@data/socials.json';
++import { Image } from 'astro:assets';
++import Socials from './Socials.astro';
+ ---
+ 
+-<div class="nav z-[100] fixed top-0 min-w-full max-w-full p-4 sm:p-2">
+-  <header class="flex items-center w-full justify-center md:justify-around">
+-    <div class="w-fit hidden sm:inline-block my-4">
++<header
++  class='nav z-[100] fixed flex items-center top-0 min-w-full max-w-full p-4 sm:p-2'
++>
++  <nav class='flex items-center w-full justify-center md:justify-around'>
++    <div class='w-fit hidden sm:inline-block my-4'>
+       <Socials {socials} />
+     </div>
+-    <div class="grow md:grow-0"></div>
+-    <a href="/" class="animate-pulse">
+-      <img class="st" src="/icons8/icons8-skull-gradient-32.png" alt="Logo" />
++    <div class='grow md:grow-0'></div>
++    <a
++      href='/'
++      class='animate-pulse'
++    >
++      <Image
++        height={'32'}
++        width={'32'}
++        class='st'
++        src='/icons8/icons8-skull-gradient-32.png'
++        alt='Logo'
++      />
+     </a>
+ 
+-    <div class="grow sm:grow-0"></div>
++    <div class='grow sm:grow-0'></div>
+     <nav
+-      class="max-w-full w-fit flex font-display md:gap-3 md:justify-between items-center"
++      class='max-w-full w-fit flex font-display md:gap-3 md:justify-between items-center'
+     >
+-      <ul class="flex gap-3 font-normal sm:items-center">
+-        <li class="text-gray-400 hover:text-gray-100 delay-150">
+-          <a href="/about/">about</a>
++      <ul class='flex gap-3 font-normal sm:items-center'>
++        <li class='text-gray-400 hover:text-gray-100 delay-150'>
++          <a href='/about/'>about</a>
+         </li>
+-        <li class="text-gray-400 hover:text-gray-100 delay-150">
+-          <a href="/works/">works</a>
++        <li class='text-gray-400 hover:text-gray-100 delay-150'>
++          <a href='/works/'>works</a>
+         </li>
+-        <li class="text-gray-400 hover:text-gray-100 delay-150">
+-          <a href="#contact">contact</a>
++        <li class='text-gray-400 hover:text-gray-100 delay-150'>
++          <a href='#contact'>contact</a>
+         </li>
+-        <li class="grow sm:grow-0"></li>
++        <li class='grow sm:grow-0'></li>
+         <li>
+           <a
+-            class="hover:animate-pulse outline outline-2 outline-blue-500 rounded-full py-1 px-2 md:py-2 md:px-4 md:ml-3 cursor-pointer flex gap-2 items-center"
+-            href="/resume/"
++            download='https://onedrive.live.com/?authkey=%21AOzfYmK8sZ6QPWQ&id=89A7470C9D85D813%211031&cid=89A7470C9D85D813&parId=root&parQt=sharedby&o=OneUp'
++            class='hover:animate-pulse outline outline-2 outline-blue-500 rounded-full py-1 px-2 md:py-2 md:px-4 md:ml-3 cursor-pointer flex gap-2 items-center'
++            target='_blank'
++            href='https://onedrive.live.com/?authkey=%21AOzfYmK8sZ6QPWQ&id=89A7470C9D85D813%211031&cid=89A7470C9D85D813&parId=root&parQt=sharedby&o=OneUp'
+           >
+-            <i class="fa-regular fa-file-pdf fa-shake"></i>Resume</a
++            <i class='fa-regular fa-file-pdf fa-shake'></i>Resume</a
+           >
+         </li>
+       </ul>
+     </nav>
+-  </header>
+-</div>
++  </nav>
++</header>
+diff --git a/src/components/common/Socials.astro b/src/components/common/Socials.astro
+index 8751907..9447844 100644
+--- a/src/components/common/Socials.astro
++++ b/src/components/common/Socials.astro
+@@ -1,5 +1,5 @@
+ ---
+-import type { Social } from "../../scripts/types";
++import type { Social } from "../../scripts/types"
+ interface Props {
+   socials: Social[];
+ }
+@@ -11,7 +11,7 @@ const { socials } = Astro.props;
+     {
+       socials.map((social):Social => (
+         <li title={social.name}>
+-          <a href={social.url} target="_blank" class='social-link hover:animate-spin'>
++          <a href={social.url} aria-label={`${social.name} link`}target="_blank" class='social-link hover:animate-spin'>
+             <i class=`text-zinc-400 hover:text-white fa-brands fa-${social.logo} fa-lg`/>
+           </a>
+         </li>
+diff --git a/src/components/home/Skills.astro b/src/components/home/Skills.astro
+index 27a89d1..3939056 100644
+--- a/src/components/home/Skills.astro
++++ b/src/components/home/Skills.astro
+@@ -1,31 +1,37 @@
+ ---
+-import data from '@data/skills.json'
++import data from '@data/skills.json';
++import { Image } from 'astro:assets';
+ ---
+ 
+-<section id="about" class="font-display">
++<section
++  id='about'
++  class='font-display'
++>
+   <div
+-    class="w-[80%] md:max-w-[666px] sm:w-[70%] flex flex-col md:flex-r m-auto py-8 columns-1 md:columns-2"
++    class='w-[80%] md:max-w-[666px] sm:w-[70%] flex flex-col md:flex-r m-auto py-8 columns-1 md:columns-2'
+   >
+-    <div class="flex flex-col gap-4 text-left">
++    <div class='flex flex-col gap-4 text-left'>
+       <h2
+-        class="text-gray-200 font-intro font-bold md:pb-4 text-2xl md:text-3xl"
++        class='text-gray-200 font-intro font-bold md:pb-4 text-2xl md:text-3xl'
+       >
+         Skills
+       </h2>
+-      <ul class="flex flex-wrap gap-3">
++      <ul class='flex flex-wrap gap-3'>
+         {
+           data.skills.map((skill) => (
+             <li>
+               <span
+-                class="flex items-center justify-center py-[0.2154rem] sm:py-[0.4375rem] gap-2 hover:font-bold hover:bg-[rgba(var(--skill-color),0.32)] hover:cursor-pointer px-[0.3432rem] sm:px-[0.6875rem] text-xs sm:text-3xs rounded-full border border-divider bg-[var(--accent-dark)] transition leading-[1.65] truncate dark:bg-[var(--ac)]/[0.036] focus:underline-none focus:text-primary-txt focus:transform hocus:scale-[1.015] focus:bg-[rgba(var(--skill-color),0.12)] dark:hocus:bg-[rgba(var(--skill-color),0.18)] border-[rgba(var(--skill-color),0.56)]"
++                class='flex items-center justify-center py-[0.2154rem] sm:py-[0.4375rem] gap-2 hover:font-bold hover:bg-[rgba(var(--skill-color),0.32)] hover:cursor-pointer px-[0.3432rem] sm:px-[0.6875rem] text-xs sm:text-3xs rounded-full border border-divider bg-[var(--accent-dark)] transition leading-[1.65] truncate dark:bg-[var(--ac)]/[0.036] focus:underline-none focus:text-primary-txt focus:transform hocus:scale-[1.015] focus:bg-[rgba(var(--skill-color),0.12)] dark:hocus:bg-[rgba(var(--skill-color),0.18)] border-[rgba(var(--skill-color),0.56)]'
+                 style={`--skill-color: ${skill.rgbColor}`}
+               >
+-                <img
+-                  class="w-[1rem] h-[1rem]"
++                <Image
++                  width={'1'}
++                  height={'1'}
++                  class='w-[1rem] h-[1rem]'
+                   src={skill.imageUrl}
+                   alt={skill.name}
+                 />
+-                <span class="text-gray-300 font-semibold">
++                <span class='text-gray-300 font-semibold'>
+                   {skill.name.charAt(0).toLocaleUpperCase() +
+                     skill.name.slice(1)}
+                 </span>
+diff --git a/src/pages/index.astro b/src/pages/index.astro
+index 05f402b..1048817 100644
+--- a/src/pages/index.astro
++++ b/src/pages/index.astro
+@@ -1,44 +1,53 @@
+ ---
+-import Layout from '@layouts/Layout.astro'
+-import ShortIntro from '@components/home/ShortIntro.astro'
+-import Skills from '@components/home/Skills.astro'
++import Layout from '@layouts/Layout.astro';
++import ShortIntro from '@components/home/ShortIntro.astro';
++import Skills from '@components/home/Skills.astro';
+ 
+-const title = 'Kalyan Jyoti Borah'
+-const description = "The Homepage of Kalyan Jyoti Borah's Portfolio"
+-const permalink = ''
+-const ograph = ''
++const title = 'Kalyan Jyoti Borah';
++const description = "The Homepage of Kalyan Jyoti Borah's Portfolio";
++const permalink = '';
++const ograph = '';
+ ---
+ 
+-<Layout {title} {description} {permalink} {ograph}>
++<Layout
++  {title}
++  {description}
++  {permalink}
++  {ograph}
++>
++  <!-- Google tag (gtag.js) -->
++  <script
++    async
++    src='https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH'
++  ></script>
++  <script is:inline>
++    window.dataLayer = window.dataLayer || [];
++    function gtag() {
++      dataLayer.push(arguments);
++    }
++    gtag('js', new Date());
+ 
+-    <!-- Google tag (gtag.js) -->
+-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"></script>
+-    <script is:inline>
+-      window.dataLayer = window.dataLayer || [];
+-      function gtag(){dataLayer.push(arguments);}
+-      gtag('js', new Date());
+-      
+-      gtag('config', 'G-PK4HB89SDH');
+-    </script>
++    gtag('config', 'G-PK4HB89SDH');
++  </script>
+ 
+-    <section class="relative overflow-hidden h-screen">
++  <section class='relative overflow-hidden h-screen'>
+     <div
+-      class="h-[calc(100dvh-4.75rem)] grid items-center justify-center w-[80%] m-auto pt-[4.75rem]"
++      class='h-[calc(100dvh-4.75rem)] grid items-center justify-center w-[80%] m-auto pt-[4.75rem]'
+     >
+       <h1
+-        class="z-[80] flex flex-col my-24 md:m-auto w-full justify-center text-left font-intro text-4xl shadow-slate-500 font-bold md:text-6xl"
++        class='z-[80] flex flex-col my-24 md:m-auto w-full justify-center text-left font-intro text-4xl shadow-slate-500 font-bold md:text-6xl'
+       >
+         <span
+-          class="text-left text-gray-100 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
++          class='text-left text-gray-100 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'
+           >Building Tomorrow's World</span
+         >
+         <span
+-          class="text-left text-gray-100 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
++          class='text-left text-gray-100 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'
+         >
+           with Today's Code:</span
+         >
+         <span
+-          class="text-left text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pt-3 text-2xl md:text-3xl"
++          class='text-left animate-scale-in-hor-center text-gray-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pt-3 text-2xl md:text-3xl'
+           >A Programmer's Showcase</span
+         >
+       </h1>
+@@ -49,83 +58,7 @@ const ograph = ''
+     >
+       <i class="fa-solid fa-angles-down fa-bounce fa-xl"></i>
+     </a> -->
+-    <div class="cube"></div>
+-    <div class="cube"></div>
+-    <div class="cube"></div>
+-    <div class="cube"></div>
+-    <div class="cube"></div>
+-    <div class="cube"></div>
+   </section>
+   <ShortIntro />
+   <Skills />
+ </Layout>
+-
+-<style>
+-  .cube {
+-    position: absolute;
+-    top: 80vh;
+-    left: 45vw;
+-    width: 10px;
+-    height: 10px;
+-    border: solid 1px #003298;
+-    transform-origin: top left;
+-    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+-    -webkit-animation: cube 12s ease-in forwards infinite;
+-    animation: cube 12s ease-in forwards infinite;
+-  }
+-  .cube:nth-child(2n) {
+-    border-color: #0051f4;
+-  }
+-  .cube:nth-child(2) {
+-    -webkit-animation-delay: 2s;
+-    animation-delay: 2s;
+-    left: 25vw;
+-    top: 40vh;
+-  }
+-  .cube:nth-child(3) {
+-    -webkit-animation-delay: 4s;
+-    animation-delay: 4s;
+-    left: 75vw;
+-    top: 50vh;
+-  }
+-  .cube:nth-child(4) {
+-    -webkit-animation-delay: 6s;
+-    animation-delay: 6s;
+-    left: 90vw;
+-    top: 10vh;
+-  }
+-  .cube:nth-child(5) {
+-    -webkit-animation-delay: 8s;
+-    animation-delay: 8s;
+-    left: 10vw;
+-    top: 85vh;
+-  }
+-  .cube:nth-child(6) {
+-    -webkit-animation-delay: 10s;
+-    animation-delay: 10s;
+-    left: 50vw;
+-    top: 10vh;
+-  }
+-
+-  @-webkit-keyframes cube {
+-    from {
+-      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+-      opacity: 1;
+-    }
+-    to {
+-      transform: scale(20) rotate(960deg) translate(-50%, -50%);
+-      opacity: 0;
+-    }
+-  }
+-
+-  @keyframes cube {
+-    from {
+-      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+-      opacity: 1;
+-    }
+-    to {
+-      transform: scale(20) rotate(960deg) translate(-50%, -50%);
+-      opacity: 0;
+-    }
+-  }
+-</style>
+diff --git a/tailwind.config.js b/tailwind.config.js
+index 29f8d7c..c207fd4 100644
+--- a/tailwind.config.js
++++ b/tailwind.config.js
+@@ -21,6 +21,10 @@ module.exports = {
+       },
+     },
+     extend: {
++      backgroundImage: {
++        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
++        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
++      },
+       colors: {
+         border: "hsl(var(--border))",
+         input: "hsl(var(--input))",
+@@ -72,9 +76,73 @@ module.exports = {
+         },
+       },
+       animation: {
++        'tracking-in-contract-bck-bottom': 'tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both',
++        'tracking-in-expand-fwd-top': 'tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both',
++        'kenburns-top': 'kenburns-top 5s ease-out both',
+         "accordion-down": "accordion-down 0.2s ease-out",
+         "accordion-up": "accordion-up 0.2s ease-out",
++        'scale-in-hor-center': 'scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+       },
++      keyframes: {
++        'tracking-in-contract-bck-bottom': {
++          '0%': {
++            'letter-spacing': '1em',
++            '-webkit-transform': 'translateZ(400px) translateY(300px)',
++            'transform': 'translateZ(400px) translateY(300px)',
++            'opacity': '0',
++          },
++          '40%': {
++            'opacity': '0.6',
++          },
++          '100%': {
++            '-webkit-transform': 'translateZ(0) translateY(0)',
++            'transform': 'translateZ(0) translateY(0)',
++            'opacity': '1',
++          },
++        },
++        'tracking-in-expand-fwd-top': {
++          '0%': {
++            'letter-spacing': '-0.5em',
++            '-webkit-transform': 'translateZ(-700px) translateY(-500px)',
++            'transform': 'translateZ(-700px) translateY(-500px)',
++            'opacity': '0',
++          },
++          '40%': {
++            'opacity': '0.6',
++          },
++          '100%': {
++            '-webkit-transform': 'translateZ(0) translateY(0)',
++            'transform': 'translateZ(0) translateY(0)',
++            'opacity': '1',
++          },
++        },
++        'kenburns-top': {
++          '0%': {
++            '-webkit-transform': 'scale(1) translateY(0)',
++            'transform': 'scale(1) translateY(0)',
++            '-webkit-transform-origin': '50% 16%',
++            'transform-origin': '50% 16%',
++          },
++          '100%': {
++            '-webkit-transform': 'scale(1.25) translateY(-15px)',
++            'transform': 'scale(1.25) translateY(-15px)',
++            '-webkit-transform-origin': 'top',
++            'transform-origin': 'top',
++          },
++        },
++        'scale-in-hor-center': {
++          '0%': {
++            '-webkit-transform': 'scaleX(0)',
++            'transform': 'scaleX(0)',
++            'opacity': '1',
++          },
++          '100%': {
++            '-webkit-transform': 'scaleX(1)',
++            'transform': 'scaleX(1)',
++            'opacity': '1',
++          },
++        },
++      }
+     },
+   },
+   plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')]
