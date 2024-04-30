@@ -12,26 +12,26 @@
     "lint": "npx eslint src"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.7.2",
-    "@astrojs/netlify": "^3.0.4",
-    "@astrojs/preact": "^3.0.1",
-    "@astrojs/react": "^3.0.5",
-    "@astrojs/tailwind": "^5.0.2",
-    "@supabase/supabase-js": "^2.38.4",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
-    "astro": "^3.5.5",
+    "@astrojs/markdoc": "^0.11.0",
+    "@astrojs/netlify": "^5.2.0",
+    "@astrojs/preact": "^3.2.0",
+    "@astrojs/react": "^3.3.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "@supabase/supabase-js": "^2.42.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.7.0",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "lucide-react": "^0.292.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwind-merge": "^2.0.0",
-    "tailwindcss": "^3.3.5",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.376.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
-    "prettier-plugin-astro": "^0.12.2"
+    "@tailwindcss/typography": "^0.5.13",
+    "prettier-plugin-astro": "^0.13.0"
   }
 }

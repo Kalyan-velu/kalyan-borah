@@ -1,31 +1,37 @@
 ---
-import data from '@data/skills.json'
+import data from '@data/skills.json';
+import { Image } from 'astro:assets';
 ---
 
-<section id="about" class="font-display">
+<section
+  id='about'
+  class='font-display'
+>
   <div
-    class="w-[80%] md:max-w-[666px] sm:w-[70%] flex flex-col md:flex-r m-auto py-8 columns-1 md:columns-2"
+    class='w-[80%] md:max-w-[666px] sm:w-[70%] flex flex-col md:flex-r m-auto py-8 columns-1 md:columns-2'
   >
-    <div class="flex flex-col gap-4 text-left">
+    <div class='flex flex-col gap-4 text-left'>
       <h2
-        class="text-gray-200 font-intro font-bold md:pb-4 text-2xl md:text-3xl"
+        class='text-gray-200 font-intro font-bold md:pb-4 text-2xl md:text-3xl'
       >
         Skills
       </h2>
-      <ul class="flex flex-wrap gap-3">
+      <ul class='flex flex-wrap gap-3'>
         {
           data.skills.map((skill) => (
             <li>
               <span
-                class="flex items-center justify-center py-[0.2154rem] sm:py-[0.4375rem] gap-2 hover:font-bold hover:bg-[rgba(var(--skill-color),0.32)] hover:cursor-pointer px-[0.3432rem] sm:px-[0.6875rem] text-xs sm:text-3xs rounded-full border border-divider bg-[var(--accent-dark)] transition leading-[1.65] truncate dark:bg-[var(--ac)]/[0.036] focus:underline-none focus:text-primary-txt focus:transform hocus:scale-[1.015] focus:bg-[rgba(var(--skill-color),0.12)] dark:hocus:bg-[rgba(var(--skill-color),0.18)] border-[rgba(var(--skill-color),0.56)]"
+                class='flex items-center justify-center py-[0.2154rem] sm:py-[0.4375rem] gap-2 hover:font-bold hover:bg-[rgba(var(--skill-color),0.32)] hover:cursor-pointer px-[0.3432rem] sm:px-[0.6875rem] text-xs sm:text-3xs rounded-full border border-divider bg-[var(--accent-dark)] transition leading-[1.65] truncate dark:bg-[var(--ac)]/[0.036] focus:underline-none focus:text-primary-txt focus:transform hocus:scale-[1.015] focus:bg-[rgba(var(--skill-color),0.12)] dark:hocus:bg-[rgba(var(--skill-color),0.18)] border-[rgba(var(--skill-color),0.56)]'
                 style={`--skill-color: ${skill.rgbColor}`}
               >
-                <img
-                  class="w-[1rem] h-[1rem]"
+                <Image
+                  width={'1'}
+                  height={'1'}
+                  class='w-[1rem] h-[1rem]'
                   src={skill.imageUrl}
                   alt={skill.name}
                 />
-                <span class="text-gray-300 font-semibold">
+                <span class='text-gray-300 font-semibold'>
                   {skill.name.charAt(0).toLocaleUpperCase() +
                     skill.name.slice(1)}
                 </span>
