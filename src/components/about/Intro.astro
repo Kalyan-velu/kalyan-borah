@@ -1,30 +1,29 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import { getEntry } from 'astro:content'
-import Education from './Education.astro'
-import Certifications from './Certifications.astro'
+import { ViewTransitions } from "astro:transitions";
+import { getEntry } from "astro:content";
+import Education from "./Education.astro";
+import Certifications from "./Certifications.astro";
 
-const intro = await getEntry('about', 'intro')
+const intro = await getEntry("about", "intro");
 
-const { Content } = await intro.render()
+const result = await intro?.render();
+const Content = result?.content;
 ---
 
 <section id="about" class="font-display">
   <div
-    class="grid items-center justify-center w-11/12 md:w-[80%] m-auto pt-[4.75rem]"
+    class="grid items-center justify-center w-11/12 md:w-[80%] m-auto pt-19"
   >
     <h2
       class="w-[90%] sm:w-[70%] m-auto text-left font-intro font-bold decoration-slate-500 text-gray-50 text-3xl"
     >
-      <i class="fa-solid fa-circle-info"></i>{' '}{intro.data.title}
+      <i class="fa-solid fa-circle-info"></i>{" "}{intro?.data.title}
     </h2>
     <div
-      class="w-11/12 prose-h2:md:w-[666px] prose-lg prose-h2:text-left prose prose-invert [&>p]:md:w-[666px] flex flex-col md:flex-r m-auto py-8 items-center"
+      class="w-11/12 md:prose-h2:w-[666px] prose-lg prose-h2:text-left prose prose-invert md:[&>p]:w-[666px] flex flex-col md:flex-r m-auto py-8 items-center"
     >
-      <Content />
+      {Content ? <Content /> : undefined}
     </div>
-    <Education />
-    <Certifications />
   </div>
 </section>
-<ViewTransitions/>
+<ViewTransitions />

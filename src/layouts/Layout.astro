@@ -1,21 +1,27 @@
 ---
 import BaseHead, {
-  Props as BaseHeadProps,
-} from '@components/common/BaseHead.astro'
-import Header from '@components/common/Header.astro'
+  type Props as BaseHeadProps,
+} from "@components/common/BaseHead.astro";
+import Header from "@components/common/Header.astro";
+// import "@styles-global";
 export interface Props extends BaseHeadProps {}
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <BaseHead {...Astro.props} />
   <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3ZGF3GZ"
-                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P3ZGF3GZ"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <Header />
-    <main>
+    <main class="container mx-auto">
       <slot />
     </main>
   </body>

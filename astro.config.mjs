@@ -1,13 +1,22 @@
-import markdoc from "@astrojs/markdoc"
-import react from "@astrojs/react"
-import tailwind from "@astrojs/tailwind"
-import { defineConfig } from 'astro/config'
+import markdoc from "@astrojs/markdoc";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
-import netlify from "@astrojs/netlify"
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), markdoc(), react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [markdoc()],
   output: "server",
-  adapter: netlify()
-})
+  adapter: netlify({
+    devFeatures: {
+      // Enable Netlify Image CDN support in dev. Defaults to true.
+      images: false,
+      // Inject Netlify environment variables in dev. Defaults to false.
+      environmentVariables: true,
+    },
+  }),
+});
