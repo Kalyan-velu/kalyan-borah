@@ -1,19 +1,17 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import ShortIntro from "@components/home/ShortIntro.astro";
-import Skills from "@components/home/Skills.astro";
-import Education from "@components/about/Education.astro";
-import Certifications from "@components/about/Certifications.astro";
+import Greetings from "@components/home/greetings.astro";
+import Skills from "@components/home/skills.astro";
 
 const title = "Kalyan Jyoti Borah";
-const description = "The Homepage of Kalyan Jyoti Borah's Portfolio";
+const description = "The Homepage of Kalyan Jyoti Borah\'s Portfolio";
 const permalink = "";
 const ograph = "";
 ---
 
 <Layout {title} {description} {permalink} {ograph}>
   <!-- <Goog></Goog>le tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"
+  <script src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"
   ></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -24,6 +22,6 @@ const ograph = "";
 
     gtag("config", "G-PK4HB89SDH");
   </script>
-  <ShortIntro />
-  <section class="container mx-auto"></section>
+  <Greetings />
+  <Skills />
 </Layout>

@@ -1,15 +1,11 @@
 ---
-import type { Social } from "../../scripts/types"
-interface Props {
-  socials: Social[];
-}
-const { socials } = Astro.props;
+import type { Social } from "@scripts/types.ts"
+import socials from "@data/socials.json"
 ---
 
-<>
-  <ul class='flex gap-5'>
-    {
-      socials.map((social):Social => (
+<div class="flex flex-col fixed left-8 bottom-0 items-center gap-5">
+  <ul class='flex flex-col gap-5'>
+    {socials.map((social):Social => (
         <li title={social.name}>
           <a href={social.url} aria-label={`${social.name} link`}target="_blank" class='social-link hover:animate-spin'>
             <i class=`text-zinc-400 hover:text-white fa-brands fa-${social.logo} fa-lg`/>
@@ -18,4 +14,7 @@ const { socials } = Astro.props;
       ))
     }
   </ul>
-</>
+    <div class="w-[1px] h-12 bg-white">
+    
+    </div>
+</div>

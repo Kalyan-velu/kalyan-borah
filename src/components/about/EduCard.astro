@@ -1,18 +1,18 @@
 ---
-import Separator from '@components/common/Separator.astro'
+import Separator from "@components/Separator.js";
 interface Props {
-  name: string
-  year: number
-  percentage: number
-  institute: string
-  university?: string
-  address: string
-  from: number
-  to: number
+  name: string;
+  year: number;
+  percentage: number;
+  institute: string;
+  university?: string;
+  address: string;
+  from: number;
+  to: number;
 }
 
 const { name, year, percentage, institute, address, university, from, to } =
-  Astro.props
+  Astro.props;
 ---
 
 <div

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --font-display: "Inconsolata", monospace;
+}
+
 :root {
   --accent-light: oklch(0.433 0.0356 193.28);
   --azure-web: oklch(0.9779 0.0241 203.09);
@@ -18,7 +22,7 @@
 :root {
   --radius: 0.65rem;
   --background: var(--accent-dark-rich);
-    --foreground: var(--azure-web);
+  --foreground: var(--azure-web);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
@@ -87,7 +91,7 @@
 @layer base {
   html,
   body {
-    height: 100dvh;
+      overflow-y:auto ;
     background: var(--background);
     color: var(--foreground);
 

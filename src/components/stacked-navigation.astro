@@ -1,0 +1,36 @@
+---
+const { hash } = Astro.url;
+console.log("Hash:", hash);
+const links = [
+  {
+    name: "About",
+    href: "#about",
+  },
+  {
+    name: "Experience",
+    href: "#experience",
+  },
+  {
+    name: "Education",
+    href: "#education",
+  },
+  {
+    name: "Hire Me",
+    href: "#hire-me",
+  },
+];
+---
+
+<nav class="flex flex-col fixed pr-4 top-2/5 right-0 gap-4">
+  {
+    links.map((link) => (
+      <a
+        data-active={hash?.includes(link.name)}
+        href={link.href}
+        class="capitalize flex items-center justify-end gap-x-2 text-gray-400 group/link  data-[active=true]:text-gray-100 hover:text-gray-100 delay-150"
+      >
+        <span>{link.name}</span> <div class="w-6 h-0.5 bg-white hidden" />
+      </a>
+    ))
+  }
+</nav>

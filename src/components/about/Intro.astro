@@ -1,29 +1,23 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import { getEntry } from "astro:content";
 import Education from "./Education.astro";
-import Certifications from "./Certifications.astro";
 
 const intro = await getEntry("about", "intro");
 
-const result = await intro?.render();
-const Content = result?.content;
+const { Content } = await intro?.render();
 ---
 
-<section id="about" class="font-display">
-  <div
-    class="grid items-center justify-center w-11/12 md:w-[80%] m-auto pt-19"
-  >
+<section id="about-full" class="w-full my-32 md:my-36 lg:my-40 h-full">
+  <div class="flex max-w-xl mx-auto flex-col md:flex-r columns-1 md:columns-2">
     <h2
-      class="w-[90%] sm:w-[70%] m-auto text-left font-intro font-bold decoration-slate-500 text-gray-50 text-3xl"
+      class="text-left font-intro font-bold decoration-slate-500 text-gray-50 text-3xl"
     >
       <i class="fa-solid fa-circle-info"></i>{" "}{intro?.data.title}
     </h2>
     <div
-      class="w-11/12 md:prose-h2:w-[666px] prose-lg prose-h2:text-left prose prose-invert md:[&>p]:w-[666px] flex flex-col md:flex-r m-auto py-8 items-center"
+      class="prose-lg prose-h2:text-left prose prose-invert md:[&>p]:w-[666px] flex flex-col md:flex-r m-auto py-8 items-center"
     >
-      {Content ? <Content /> : undefined}
+      <Content />
     </div>
   </div>
 </section>
-<ViewTransitions />
