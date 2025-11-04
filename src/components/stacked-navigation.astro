@@ -29,7 +29,8 @@ const links = [
         href={link.href}
         class="capitalize flex items-center justify-end gap-x-2 text-gray-400 group/link  data-[active=true]:text-gray-100 hover:text-gray-100 delay-150"
       >
-        <span>{link.name}</span> <div class="w-6 h-0.5 bg-white hidden" />
+        <span>{link.name}</span>{" "}
+        <div class="w-6 h-0.5 bg-foreground dark:bg-white hidden" />
       </a>
     ))
   }

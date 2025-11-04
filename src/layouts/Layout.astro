@@ -8,9 +8,11 @@ export interface Props extends BaseHeadProps {}
 ---
 
 <!doctype html>
-<html lang="en" class="font-display">
+<html lang="en" class="">
   <BaseHead {...Astro.props} />
-  <body>
+  <body
+    class="dark:bg-background bg-foreground text-background dark:text-foreground"
+  >
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -23,13 +25,13 @@ export interface Props extends BaseHeadProps {}
     <main class="min-h-dvh relative w-full">
       <a
         download="https://drive.google.com/file/d/1W-n6AucXTmftFXGd_DEipijMxpXo8DHd/view?usp=sharing"
-        class="border-foreground border fixed left-0 top-4 border-l-0 rounded-lg rounded-l-none py-1 self-end px-3 pr-2 md:py-1.5 md:px-4 md:pr-3 text-sm cursor-pointer flex gap-2 items-center"
+        class="border-background dark:border-foreground border fixed left-0 top-4 border-l-0 rounded-lg rounded-l-none py-1 self-end px-3 pr-2 md:py-1.5 md:px-4 md:pr-3 text-sm cursor-pointer flex gap-2 items-center"
         target="_blank"
         href="https://drive.google.com/file/d/1W-n6AucXTmftFXGd_DEipijMxpXo8DHd/view?usp=sharing"
       >
         <i class="fa-regular fa-file-pdf"></i> Download Resume
       </a>
-      <StackedNavigation />
+      <!--<StackedNavigation />-->
       <slot />
       <Socials />
     </main>

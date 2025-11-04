@@ -1,13 +1,13 @@
 ---
+import '@styles-global'
 export interface Props {
-  title: string;
-  description: string;
-  permalink: string;
-  canonicalUrl?: string;
-  ograph: string;
+  title: string
+  description: string
+  permalink: string
+  canonicalUrl?: string
+  ograph: string
 }
-import "@styles-global";
-const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
+const { title, description, permalink, canonicalUrl, ograph } = Astro.props
 ---
 
 <head>
@@ -81,6 +81,9 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
       j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, "script", "dataLayer", "GTM-P3ZGF3GZ");
+  </script>
+  <script>
+    import "iconify-icon";
   </script>
   <!-- End Google Tag Manager -->
 </head>
