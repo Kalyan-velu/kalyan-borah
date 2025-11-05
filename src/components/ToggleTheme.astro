@@ -1,0 +1,82 @@
+---
+import CustomTag from '@components/CustomTag.astro'
+import { cn } from '@lib/utils.ts'
+export interface Props {
+  className?: string
+}
+const className = cn(
+  'rounded-full fixed translate-all delay-150 right-4 top-4 p-2',
+  Astro.props.className,
+)
+---
+
+<CustomTag
+  as="button"
+  title="Toggle Theme"
+  size="icon"
+  id="toggle-theme"
+  aria-label="Toggle Theme"
+  class={className}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    viewBox="0 0 24 24"
+    ><path
+      data-toggle-type="path"
+      fill="currentColor"
+      stroke="currentColor"
+      d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22C6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981"
+    ></path>
+  </svg>
+</CustomTag>
+
+<script
+  is:inline
+  defer
+  slot="morph-svg-plugin"
+  src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"
+></script>
+<script>
+  import { gsap } from "gsap";
+  // import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
+  gsap.registerPlugin(MorphSVGPlugin);
+
+  const moonPath =
+    "M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22C6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981";
+
+  const sunPath =
+    "M12 4V2m0 20v-2m-8-8H2m20 0h-2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41m0 11.32l1.41 1.41M4.93 4.93l1.41 1.41M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z";
+  // const isDarkTheme = document.documentElement.classList.contains("dark")
+
+  const button = document.querySelector("#toggle-theme");
+  const svgPath = button.querySelector("path");
+  const onToggleTheme = (isDark: boolean) => {
+    if (isDark) {
+      document.documentElement.classList.remove("dark");
+      localStorage.removeItem("theme");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  };
+
+  button.addEventListener("click", (event: MouseEvent) => {
+    const isDark = localStorage.getItem("theme") === "dark";
+    gsap.to(svgPath, {
+      duration: 1,
+      morphSVG: {
+        shape: isDark ? sunPath : moonPath,
+        duration: 0.5,
+        ease: "power4.inOut",
+      },
+      strokeLinecap: "round",
+      strokeMiterlimit: "10",
+      strokeWidth: "1.5",
+      onComplete: () => {
+        onToggleTheme(isDark);
+      },
+    });
+  });
+</script>

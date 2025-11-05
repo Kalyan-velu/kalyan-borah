@@ -1,13 +1,13 @@
 ---
-import '@styles-global'
+import "@styles-global";
 export interface Props {
-  title: string
-  description: string
-  permalink: string
-  canonicalUrl?: string
-  ograph: string
+  title: string;
+  description: string;
+  permalink: string;
+  canonicalUrl?: string;
+  ograph: string;
 }
-const { title, description, permalink, canonicalUrl, ograph } = Astro.props
+const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
 ---
 
 <head>
@@ -55,6 +55,7 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props
     href="https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata:wght@200;300;400&display=swap"
     rel="stylesheet"
   />
+
   <script is:inline type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -81,6 +82,14 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props
       j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, "script", "dataLayer", "GTM-P3ZGF3GZ");
+  </script>
+  <script is:inline>
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
   </script>
   <script>
     import "iconify-icon";

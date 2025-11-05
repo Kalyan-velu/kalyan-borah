@@ -4,6 +4,7 @@ import BaseHead, {
 } from "@components/BaseHead.astro";
 import Socials from "@components/Socials.astro";
 import StackedNavigation from "@components/stacked-navigation.astro";
+import ToggleTheme from "@components/ToggleTheme.astro";
 export interface Props extends BaseHeadProps {}
 ---
 
@@ -31,9 +32,11 @@ export interface Props extends BaseHeadProps {}
       >
         <i class="fa-regular fa-file-pdf"></i> Download Resume
       </a>
+      <ToggleTheme />
       <!--<StackedNavigation />-->
       <slot />
       <Socials />
     </main>
+    <slot name="morph-svg-plugin" />
   </body>
 </html>
