@@ -1,8 +1,9 @@
 ---
-import Greetings from "@components/home/greetings.astro";
-import Skills from "@components/home/skills.astro";
+import Greetings from "@components/greetings.astro";
 import Layout from "@layouts/Layout.astro";
-
+import projects from "@data/projects.json";
+import ProjectCard from "@components/project-card.astro";
+import CustomTag from "@components/CustomTag.astro";
 const title = "Kalyan Jyoti Borah";
 const description = "The Homepage of Kalyan Jyoti Borah\'s Portfolio";
 const permalink = "";
@@ -23,5 +24,46 @@ const ograph = "";
     gtag("config", "G-PK4HB89SDH");
   </script>
   <Greetings />
-  <Skills />
+  <section
+    id="preview-projects "
+    class="md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mt-8 md:mt-12 px-4 mx-auto"
+  >
+    <div class="flex items-center justify-between">
+      <div class="inline-flex items-center gap-2">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            ><path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              class="animate-bounce"
+              d="m12 20l6-6m-6 6l-6-6m6 6V9.5M12 4v2.5"></path></svg
+          >
+        </div>
+        <p>Scroll To Explore</p>
+      </div>
+      <p>Featured</p>
+    </div>
+    <div class="flex flex-wrap items-stretch justify-center gap-8 mt-16">
+      {projects.slice(0, 3).map((project) => <ProjectCard {...project} />)}
+    </div>
+    <div class="flex items-center justify-center my-8 gap-y-4 flex-col">
+      <p class="text-md">Want to explore more ?</p>
+      <CustomTag
+        as="a"
+        size="lg"
+        class="rounded-2xl cursor-pointer"
+        aria-label="View All Projects"
+        href="/projects"
+      >
+        View All Projects</CustomTag
+      >
+    </div>
+  </section>
 </Layout>

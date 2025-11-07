@@ -1,13 +1,13 @@
 ---
-import CustomTag from '@components/CustomTag.astro'
-import { cn } from '@lib/utils.ts'
+import CustomTag from "@components/CustomTag.astro";
+import { cn } from "@lib/utils.ts";
 export interface Props {
-  className?: string
+  className?: string;
 }
 const className = cn(
-  'rounded-full fixed translate-all delay-150 right-4 top-4 p-2',
+  "rounded-full fixed z-50 translate-all delay-150 right-4 top-4 p-2",
   Astro.props.className,
-)
+);
 ---
 
 <CustomTag
@@ -55,7 +55,7 @@ const className = cn(
   const onToggleTheme = (isDark: boolean) => {
     if (isDark) {
       document.documentElement.classList.remove("dark");
-      localStorage.removeItem("theme");
+      localStorage.setItem("theme", "light");
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -68,7 +68,7 @@ const className = cn(
       duration: 1,
       morphSVG: {
         shape: isDark ? sunPath : moonPath,
-        duration: 0.5,
+        duration: 1,
         ease: "power4.inOut",
       },
       strokeLinecap: "round",

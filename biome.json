@@ -26,6 +26,18 @@
       "!**/.env",
       "!**/.env.production",
       "!**/.DS_Store",
+      "!**/.netlify",
+      "**",
+      "!**/dist/",
+      "!**/.astro/",
+      "!**/node_modules/",
+      "!**/npm-debug.log*",
+      "!**/yarn-debug.log*",
+      "!**/yarn-error.log*",
+      "!**/pnpm-debug.log*",
+      "!**/.env",
+      "!**/.env.production",
+      "!**/.DS_Store",
       "!**/.netlify"
     ]
   },
@@ -43,18 +55,36 @@
       "bracketSpacing": true
     }
   },
+  "css": {
+    "parser": { "tailwindDirectives": true },
+    "formatter": null,
+    "linter": null,
+    "assist": null
+  },
   "html": {
+    "experimentalFullSupportEnabled": true,
     "formatter": {
       "indentScriptAndStyle": false,
       "selfCloseVoidElements": "always"
     }
   },
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
+  "overrides": [
+    {
+      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
     }
-  },
-  "overrides": [{}, { "includes": ["*.astro"] }],
+  ],
   "assist": {
     "enabled": true,
     "actions": { "source": { "organizeImports": "on" } }

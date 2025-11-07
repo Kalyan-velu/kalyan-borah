@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Your Next Job",
+    "description": "A job portal is designed to simplify the process of finding and creating jobs for both employers and applicants. The platform aims to streamline employment opportunities and candidate management.",
+    "associated": "Personal Project",
+    "type": "web-application",
+    "image": "https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg",
+    "link": "https://jobs.kalyanjyotiborah.pro/",
+    "bgColor": "bg-pink-500",
+    "tags": [
+      "Railway",
+      "Typescript",
+      "Vite",
+      "Turbo-Repo",
+      "Monorepo",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "CSS",
+      "Redux",
+      "Socket IO",
+      "Redis",
+      "Redux Toolkit",
+      "RTK Query",
+      "Zod",
+      "JWT Authentication",
+      "Radix-UI",
+      "ExpressJS",
+      "Framer Motion",
+      "Prettier",
+      "MongoDB",
+      "Nodemailer",
+      "Git",
+      "Microsoft Azure",
+      "Azure App Service",
+      "Github Actions"
+    ]
+  },
+  {
+    "name": "Chat Application",
+    "description": "The Chat-Application is a real-time chat application built using React, Node.js, Express.js, and Socket.IO. It provides users with a platform to engage in instant messaging, enabling them to have real-time conversations with other users.",
+    "associated": "Personal Project",
+    "type": "web-application",
+    "image": "https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg",
+    "link": "https://chat.kalyanjyotiborah.pro/",
+    "bgColor": "bg-violet-500",
+    "tags": [
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Vite",
+      "Material UI",
+      "React Router v6",
+      "CSS",
+      "JWT Authentication",
+      "Redux",
+      "Socket IO",
+      "ExpressJS",
+      "MongoDB",
+      "Git",
+      "Microsoft Azure",
+      "Azure App Service",
+      "Github Actions"
+    ]
+  },
+  {
+    "name": "Resume Builder",
+    "description": "I developed this web application to empower users to effortlessly build their resumes using OpenAI's API. Leveraging the MERN (MongoDB, Express, React, and Node) stack and OpenAI's GPT-3 API, the application provides a streamlined resume-building experience.",
+    "associated": "Personal Project",
+    "bgColor": "bg-green-500",
+    "type": "web-application",
+    "image": "https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg",
+    "link": "https://resume-builder-kamh.onrender.com/",
+    "tags": [
+      "CRA",
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "OPENAI API",
+      "GPT-3.5 API",
+      "ExpressJS",
+      "Git"
+    ]
+  },
+  {
+    "name": "Smart Inbox: An AI powered email client",
+    "description": "A job search engine",
+    "bgColor": "bg-red-300",
+    "associated": {
+      "company": "Atozdebug",
+      "link": "https://atozdebug.com/"
+    },
+    "type": "web-application",
+    "image": "https://",
+    "link": "/projects/your-next-job",
+    "tags": ["React", "Typescript", "Tailwind CSS"]
+  }
+]

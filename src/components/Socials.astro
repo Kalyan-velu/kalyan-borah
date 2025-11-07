@@ -3,7 +3,7 @@ import socials from '@data/socials.json'
 import type { Social } from '@scripts/types.ts'
 ---
 
-<div class="flex flex-col fixed left-8 bottom-0 items-center gap-5">
+<div class="flex flex-col fixed left-3 md:left-8 bottom-0 items-center gap-5">
   <ul class='flex flex-col gap-5'>
     {socials.map((social):Social => (
         <li title={social.name}>
@@ -14,7 +14,5 @@ import type { Social } from '@scripts/types.ts'
       ))
     }
   </ul>
-    <div class="w-[1px] h-12 dark:bg-foreground bg-background">
-    
-    </div>
+    <div class="w-[1px] h-12 dark:bg-zinc-500 bg-background"/>
 </div>
