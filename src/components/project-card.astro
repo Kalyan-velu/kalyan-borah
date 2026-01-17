@@ -16,6 +16,7 @@ export interface Props {
   bgColor: string;
   link: string;
   associated: string | { company: string; link: string };
+  slug?: string;
 }
 const {
   name,
@@ -26,6 +27,7 @@ const {
   image,
   link,
   associated,
+  slug,
   ...props
 } = Astro.props;
 const projectType = type
@@ -44,8 +46,13 @@ const hiddenTags = tags.slice(3);
     <div class="flex items-center gap-x-2">
       <h3
         class="font-semibold text-neutral-700 hover:text-neutral-500 text-base"
+        transition:name={slug ? `${slug}-title` : undefined}
       >
-        <a href={link} title={`Visit ${name}`} target="_blank">{name}</a>
+        <a
+          href={link}
+          aria-label={`Visit ${name}`}
+          target={link.startsWith("http") ? "_blank" : "_self"}>{name}</a
+        >
       </h3>
       <div class="text-[60%] inline text-muted bg-muted-foreground px-1">
         {projectType}
@@ -64,7 +71,7 @@ const hiddenTags = tags.slice(3);
       <a
         href={`https://github.com/kalyan-velu/${props.github}`}
         target="_blank"
-        title=`Source Code of ${name}`
+        aria-label=`Source Code of ${name}`
         class={cn(
           "group hover:text-background",
           props.github ? "inline-block" : "hidden",

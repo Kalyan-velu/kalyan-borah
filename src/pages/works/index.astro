@@ -1,0 +1,119 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import ProjectCard from "@components/project-card.astro";
+import Section from "@components/section.astro";
+
+const projects = await getCollection("projects");
+const sortedProjects = projects.sort(
+  (a, b) => (a.data.order || 99) - (b.data.order || 99),
+);
+
+const allTags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
+
+const title = "Works | Kalyan Jyoti Borah";
+const description = "Projects built by Kalyan Jyoti Borah";
+---
+
+<Layout {title} {description}>
+  <Section title="Works" id="works">
+    <div class="mb-8">
+      <p class="text-sm text-neutral-600 mb-4">Filter by technology:</p>
+      <div class="flex flex-wrap gap-2" id="tag-filters">
+        <button
+          class="px-2 py-1 text-xs border rounded-md bg-neutral-200 active-filter"
+          data-tag="all"
+        >
+          All
+        </button>
+        {
+          allTags.map((tag) => (
+            <button
+              class="px-2 py-1 text-xs border rounded-md bg-white hover:bg-neutral-100 transition-colors"
+              data-tag={tag}
+            >
+              {tag}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid gap-y-8" id="projects-grid">
+      {
+        sortedProjects.map((project) => (
+          <div
+            class="project-item transition-all duration-300"
+            data-tags={JSON.stringify(project.data.tags)}
+          >
+            <ProjectCard
+              {...project.data}
+              link={`/works/${project.slug}`}
+              slug={project.slug}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <script>
+    function setupFilters() {
+      const buttons = document.querySelectorAll("#tag-filters button");
+      const projects = document.querySelectorAll(".project-item");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const tag = button.getAttribute("data-tag");
+
+          buttons.forEach((btn) => {
+            btn.classList.remove("bg-neutral-200", "active-filter");
+            btn.classList.add("bg-white");
+          });
+          button.classList.remove("bg-white");
+          button.classList.add("bg-neutral-200", "active-filter");
+
+          projects.forEach((project) => {
+            const htmlProject = project as HTMLElement;
+            if (tag === "all") {
+              htmlProject.style.display = "block";
+              setTimeout(() => {
+                htmlProject.style.opacity = "1";
+                htmlProject.style.transform = "translateY(0)";
+              }, 10);
+            } else {
+              const projectTags = JSON.parse(
+                project.getAttribute("data-tags") || "[]",
+              );
+              if (projectTags.includes(tag)) {
+                htmlProject.style.display = "block";
+                setTimeout(() => {
+                  htmlProject.style.opacity = "1";
+                  htmlProject.style.transform = "translateY(0)";
+                }, 10);
+              } else {
+                htmlProject.style.opacity = "0";
+                htmlProject.style.transform = "translateY(10px)";
+                setTimeout(() => {
+                  htmlProject.style.display = "none";
+                }, 300);
+              }
+            }
+          });
+        });
+      });
+    }
+
+    document.addEventListener("astro:page-load", setupFilters);
+  </script>
+</Layout>
+
+<style>
+  .active-filter {
+    border-color: #000;
+  }
+  .project-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

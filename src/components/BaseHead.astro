@@ -1,5 +1,6 @@
 ---
 import "@styles-global";
+import { ClientRouter } from "astro:transitions";
 export interface Props {
   title: string;
   description: string;
@@ -35,27 +36,19 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:domain" content="kalyanborah.netlify.com" />
+  <meta property="twitter:domain" content="kalyanjyotiborah.pro" />
   <meta property="twitter:url" content={permalink} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={ograph} />
   <meta property="twitter:creator" content="@kalyan_borah_RR" />
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata:wght@200;300;400&display=swap"
     rel="stylesheet"
   />
-  <script src="../scripts/reset.js"></script>
+  <script src="../scripts/reset.js" data-astro-rerun></script>
   <script is:inline type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -85,4 +78,5 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
   <script>
     import "iconify-icon";
   </script>
+  <ClientRouter />
 </head>

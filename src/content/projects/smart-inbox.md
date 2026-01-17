@@ -1,0 +1,31 @@
+---
+name: "Smart Inbox: An AI powered email client"
+description: An AI powered email client that send automated email replies.
+bgColor: bg-red-300
+associated:
+  company: A to Z debug
+  link: https://atozdebug.com/
+type: web-application
+image: https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg
+link: https://smartinbox.ai
+tags: ["React", "Typescript", "Tailwind CSS", "Redux", "Shadcn UI", "RTK Query", "Dashboard"]
+status: completed
+order: 4
+---
+
+## Overview
+An AI powered email client that send automated email replies.
+
+## Tech Stack
+- React
+- Typescript
+- Tailwind CSS
+- Redux
+- Shadcn UI
+- RTK Query
+
+## Problems Faced
+Integrating with various email providers and handling the asynchronous nature of AI response generation while keeping the UI responsive.
+
+## What I Learned
+Improved my skills in building complex dashboards and managing global state with Redux Toolkit.

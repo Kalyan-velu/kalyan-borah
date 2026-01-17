@@ -3,18 +3,25 @@ import BaseHead, {
   type Props as BaseHeadProps,
 } from "@components/BaseHead.astro";
 import Socials from "@components/Socials.astro";
-export type Props = BaseHeadProps;
+import { cn } from "@lib/utils.ts";
+
+export interface Props extends BaseHeadProps {}
+const props = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = (path: string) =>
+  pathname === path || pathname.startsWith(`${path}/`);
 ---
 
 <!doctype html>
 <html lang="en" class="light">
-  <BaseHead {...Astro.props} />
+  <BaseHead {...props} />
   <body
     class="dark:bg-background scheme-only-light bg-foreground text-background dark:text-foreground"
   >
     <noscript>
       <iframe
-        src="https://www.googletagman;ager.com/ns.html?id=GTM-P3ZGF3GZ"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P3ZGF3GZ"
         height="0"
         width="0"
         style="display:none;visibility:hidden"></iframe></noscript
@@ -26,14 +33,20 @@ export type Props = BaseHeadProps;
         <a
           href="/"
           title="Overview of Kalyan Jyoti Borah"
-          class="py-4 text-xl md:text-2xl">Kalyan J. Borah's</a
+          class="py-4 text-xl md:text-2xl"
+          transition:name="site-title">Kalyan J. Borah's</a
         >
         <div
-          class="text-sm gap-x-2.5 flex items-center text-muted-foreground [&>a]:hover:text-background [&>a]:cursor-pointer] [&>a]:select-none"
+          class="text-sm gap-x-2.5 flex items-center text-muted-foreground [&>a]:hover:text-background [&>a]:cursor-pointer [&>a]:select-none"
+          transition:name="nav"
         >
-          <a href="/about">About</a>
-          <a href="/works">Works</a>
-          <a href="/experiences">Experience</a>
+          <a href="/about" class={cn(isActive("/about") && "text-background")}
+            >About</a
+          >
+          <a href="/works" class={cn(isActive("/works") && "text-background")}
+            >Works</a
+          >
+          <!--<a href="/experiences">Experience</a>-->
         </div>
       </nav>
       <slot />

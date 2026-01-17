@@ -1,0 +1,34 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { cn } from "@lib/utils.ts";
+const entry = await getCollection("about");
+const { Content } = await render(entry[0]);
+
+const title = "Kalyan Jyoti Borah";
+const description = "About Kalyan";
+const permalink = "https://kalyanjyotiborah.pro/about";
+const ograph = "";
+---
+
+<Layout {title} {description} {permalink} {ograph}>
+  <script src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-PK4HB89SDH");
+  </script>
+  <div
+    class={cn(
+      "mt-0 md:mt-12 px-4 md:px-0 [&>h2]:text-lg [&>h2]:md:text-xl [&>h2]:font-semibold tracking-wide [&>p]:text-neutral-600 [&>p]:leading-6.5 [&>h2]:my-4  [&>h2]:md:mt-8",
+      "[&>ul>li]:mt-4 [&>ul>li>ul]:list-disc [&>ul>li>ul>li]:list-inside  [&>ul>li>ul>li]:text-neutral-600",
+    )}
+  >
+    <Content />
+  </div>
+</Layout>
