@@ -1,7 +1,7 @@
 import markdoc from "@astrojs/markdoc";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-
+import sitemap from "@astrojs/sitemap";
 import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
@@ -10,7 +10,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [markdoc()],
+  integrations: [markdoc(), sitemap()],
   output: "server",
   adapter: netlify({
     devFeatures: {
