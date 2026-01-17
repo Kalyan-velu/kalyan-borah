@@ -14,9 +14,11 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
 const title = "Projects & Portfolio | Kalyan Jyoti Borah - Freelancer in Assam";
 const description =
   "Explore the professional portfolio of Kalyan Jyoti Borah, featuring a diverse range of websites and software projects built as a freelancer and software engineer in Assam, India.";
+const permalink = "https://kalyanjyotiborah.pro/works";
+const ograph = "";
 ---
 
-<Layout {title} {description} permalink="https://kalyanjyotiborah.pro/works">
+<Layout {title} {description} {permalink} {ograph}>
   <Section title="Works" id="works" headingTag="h1">
     <div class="mb-8">
       <p class="text-sm text-neutral-600 mb-4">Filter by technology:</p>
