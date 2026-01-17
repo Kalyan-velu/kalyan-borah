@@ -20,8 +20,8 @@ interface Props {
 const { project } = Astro.props;
 const { Content } = await project.render();
 
-const title = `${project.data.name} | Kalyan Jyoti Borah`;
-const description = project.data.description;
+const title = `${project.data.name} | Project by Kalyan Jyoti Borah`;
+const description = `${project.data.description} - A project developed by Kalyan Jyoti Borah, a software engineer and freelancer in Assam.`;
 ---
 
 <Layout {title} {description}>
