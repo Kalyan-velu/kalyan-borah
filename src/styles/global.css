@@ -52,11 +52,23 @@
 }
 
 @layer base {
+    *{
+        @apply rounded-xl;
+        scrollbar-width: thin;
+    }
+    ::-webkit-scrollbar{
+        width: 1px;
+    }
     html,
     body {
         overflow-y: auto;
         font-family: "Alata", sans-serif;
     }
+    iconify-icon{
+        height:1.7em;
+        width:1.7em;
+    }
+
 }
 
 @layer components {
@@ -68,5 +80,8 @@
         backdrop-filter: blur(13px);
         -webkit-backdrop-filter: blur(13px);
         border: 1px solid rgba(16, 19, 24, 0.25);
+    }
+    .dark{
+        color-scheme: light;
     }
 }

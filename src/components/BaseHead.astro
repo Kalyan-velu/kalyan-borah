@@ -55,7 +55,7 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
     href="https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata:wght@200;300;400&display=swap"
     rel="stylesheet"
   />
-
+  <script src="../scripts/reset.js"></script>
   <script is:inline type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -70,7 +70,6 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
       y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "hkt70dc655");
   </script>
-  <!-- Google Tag Manager -->
   <script is:inline>
     (function (w, d, s, l, i) {
       w[l] = w[l] || [];
@@ -83,16 +82,7 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
       f.parentNode.insertBefore(j, f);
     })(window, document, "script", "dataLayer", "GTM-P3ZGF3GZ");
   </script>
-  <script is:inline>
-    document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches),
-    );
-  </script>
   <script>
     import "iconify-icon";
   </script>
-  <!-- End Google Tag Manager -->
 </head>

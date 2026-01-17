@@ -7,6 +7,7 @@
     "image": "https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg",
     "link": "https://jobs.kalyanjyotiborah.pro/",
     "bgColor": "bg-pink-500",
+    "github": "job-portal",
     "tags": [
       "Railway",
       "Typescript",
@@ -42,6 +43,7 @@
     "type": "web-application",
     "image": "https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg",
     "link": "https://chat.kalyanjyotiborah.pro/",
+    "github": "Chat-Application",
     "bgColor": "bg-violet-500",
     "tags": [
       "TypeScript",
@@ -70,6 +72,7 @@
     "type": "web-application",
     "image": "https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg",
     "link": "https://resume-builder-kamh.onrender.com/",
+    "github": "Resume-Builder-using-GPT3",
     "tags": [
       "CRA",
       "React",
@@ -83,15 +86,23 @@
   },
   {
     "name": "Smart Inbox: An AI powered email client",
-    "description": "A job search engine",
+    "description": "An AI powered email client that send automated email replies.",
     "bgColor": "bg-red-300",
     "associated": {
-      "company": "Atozdebug",
+      "company": "A to Z debug",
       "link": "https://atozdebug.com/"
     },
     "type": "web-application",
     "image": "https://",
-    "link": "/projects/your-next-job",
-    "tags": ["React", "Typescript", "Tailwind CSS"]
+    "link": "https://smartinbox.ai",
+    "tags": [
+      "React",
+      "Typescript",
+      "Tailwind CSS",
+      "Redux",
+      "Shadcn UI",
+      "RTK Query",
+      "Dashboard"
+    ]
   }
 ]
