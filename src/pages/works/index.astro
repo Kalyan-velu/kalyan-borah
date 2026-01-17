@@ -66,7 +66,6 @@ const description = "Projects built by Kalyan Jyoti Borah";
         button.addEventListener("click", () => {
           const tag = button.getAttribute("data-tag");
 
-          // Update button styles
           buttons.forEach((btn) => {
             btn.classList.remove("bg-neutral-200", "active-filter");
             btn.classList.add("bg-white");
@@ -74,7 +73,6 @@ const description = "Projects built by Kalyan Jyoti Borah";
           button.classList.remove("bg-white");
           button.classList.add("bg-neutral-200", "active-filter");
 
-          // Filter projects
           projects.forEach((project) => {
             const htmlProject = project as HTMLElement;
             if (tag === "all") {
@@ -106,7 +104,6 @@ const description = "Projects built by Kalyan Jyoti Borah";
       });
     }
 
-    // Initialize on every page load
     document.addEventListener("astro:page-load", setupFilters);
   </script>
 </Layout>
