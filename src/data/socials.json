@@ -2,17 +2,37 @@
   {
     "name": "Linkedin",
     "url": "https://linkedin.com/in/kalyan-jyoti-borah",
-    "logo": "linkedin"
+    "logo": "mynaui:linkedin"
   },
 
   {
     "name": "Github",
     "url": "https://github.com/Kalyan-velu",
-    "logo": "github"
+    "logo": "ri:github-fill"
   },
   {
     "name": "Twitter",
     "url": "https://twitter.com/kalyan_borah_RR",
-    "logo": "twitter"
+    "logo": "ri:twitter-x-line"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://instagram.com/ochinaki_",
+    "logo": "line-md:instagram"
+  },
+  {
+    "name": "Facebook",
+    "url": "https://facebook.com/kalyanjyotiborah.dev",
+    "logo": "proicons:facebook"
+  },
+  {
+    "name": "Email",
+    "url": "mailto:kalyanborah456@gmail.com",
+    "logo": "proicons:mail"
+  },
+  {
+    "name": "Whatsapp",
+    "url": "https://wa.me/+919101725446",
+    "logo": "ri:whatsapp-fill"
   }
 ]
