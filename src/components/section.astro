@@ -5,8 +5,9 @@ export interface Props {
   class?: string;
   title?: string;
   titleClasses?: string;
+  headingTag?: "h1" | "h2" | "h3";
 }
-const props = Astro.props;
+const { headingTag: Tag = "h2", ...props } = Astro.props;
 ---
 
 <section
@@ -15,14 +16,14 @@ const props = Astro.props;
 >
   {
     props.title ? (
-      <h1
+      <Tag
         class={cn(
-          "font-semibold md:mt-7 mb-4 text-neutral-700 tracking-wider text-xl",
+          "font-semibold md:mt-7 mt-5 mb-2 md:mb-4 text-neutral-700 tracking-wider text-xl",
           props.titleClasses,
         )}
       >
         {props.title}
-      </h1>
+      </Tag>
     ) : undefined
   }
   <slot />

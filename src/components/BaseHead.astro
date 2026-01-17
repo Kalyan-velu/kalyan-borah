@@ -6,14 +6,20 @@ export interface Props {
   description: string;
   permalink: string;
   canonicalUrl?: string;
-  ograph: string;
+  ograph?: string;
+  keywords?: string;
 }
-const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
+const { title, description, permalink, canonicalUrl, ograph, keywords } =
+  Astro.props;
+
+const ogImage = new URL(ograph || "/pic.jpg", Astro.site || permalink);
+
+const defaultKeywords =
+  "freelancer in assam, assam, kalyan, kalyan jyoti borah, atozdebug, website, software engineer";
 ---
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Astro description" />
   <meta name="viewport" content="width=device-width" />
   <link
     rel="icon"
@@ -30,9 +36,18 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index, follow" />
   <meta name="generator" content={Astro.generator} />
+  <link rel="canonical" href={canonicalUrl || permalink} />
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  <meta name="keywords" content={keywords || defaultKeywords} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={permalink} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -40,7 +55,7 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
   <meta property="twitter:url" content={permalink} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={ograph} />
+  <meta property="twitter:image" content={ogImage} />
   <meta property="twitter:creator" content="@kalyan_borah_RR" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
