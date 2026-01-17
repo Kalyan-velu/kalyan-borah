@@ -1,0 +1,29 @@
+---
+import { cn } from "@lib/utils.ts";
+export interface Props {
+  id?: string;
+  class?: string;
+  title?: string;
+  titleClasses?: string;
+}
+const props = Astro.props;
+---
+
+<section
+  id={props.id}
+  class={cn("bg-white/80 px-2.5 first-of-type:mt-8 md:px-0", props.class)}
+>
+  {
+    props.title ? (
+      <h1
+        class={cn(
+          "font-semibold md:mt-8 mb-6 text-neutral-700 tracking-wider text-xl",
+          props.titleClasses,
+        )}
+      >
+        {props.title}
+      </h1>
+    ) : undefined
+  }
+  <slot />
+</section>

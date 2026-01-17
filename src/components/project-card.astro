@@ -5,67 +5,77 @@ export interface Props {
   description: string;
   tags: string[];
   image: string;
+  github?: string;
   type:
     | "web-application"
     | "mobile-application"
     | "desktop-application"
     | "website"
-    | "other";
+    | "other"
+    | (string & {});
   bgColor: string;
   link: string;
   associated: string | { company: string; link: string };
 }
-const { name, description, bgColor, type, tags, image, link, associated } =
-  Astro.props;
+const {
+  name,
+  description,
+  bgColor,
+  type,
+  tags,
+  image,
+  link,
+  associated,
+  ...props
+} = Astro.props;
 const projectType = type
   .replace(/-/gm, " ")
   .split(" ")
   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
   .join(" ");
-const visibleTags = tags.slice(0, 2);
-const hiddenTags = tags.slice(2);
+const visibleTags = tags.slice(0, 3);
+const hiddenTags = tags.slice(3);
 ---
 
 <div
-  class="max-w-[20rem] w-full dark:bg-white/10 cursor-pointer overflow-hidden rounded-xl transition-shadow hover:shadow-sm"
+  class="flex gap-x-4 first:mt-4 last:mb-0 mb-2 text-muted-foreground items-center"
 >
-  <a href={link} class="w-full">
-    <div class="relative h-48 w-full overflow-hidden">
-      <div class={cn("absolute  inset-0 text-white", bgColor)}>
-        <div class="flex items-stretch justify-center h-full">
-          <span class="self-center text-3xl font-bold">
-            {name.toUpperCase()}
-          </span>
-        </div>
+  <!--<a-->
+  <!--  href={link}-->
+  <!--  target="_blank"-->
+  <!--  class="aspect-video hidden md:flex bg-gray-300 min-h-28 items-center justify-center p-2"-->
+  <!--&gt;-->
+  <!--  {name.split(":")?.[0]}-->
+  <!--</a>-->
+  <div class="self-start">
+    <div class="flex items-center gap-x-2">
+      <h3 class="font-semibold text-neutral-700 text-base">{name}</h3>
+      <div class="text-[60%] inline text-muted bg-muted-foreground px-1">
+        {projectType}
       </div>
     </div>
-    <div class="flex flex-col gap-2 p-3">
-      <div class="flex flex-col">
-        <h3 class="text-base font-medium">{name}</h3>
-        <h5 class="text-muted-foreground text-xs font-medium">{projectType}</h5>
-      </div>
-      <p class="line-clamp-3 text-sm">
-        {description}
-      </p>
-      <div class="mt-1 mb-1.5 flex flex-row items-center gap-2">
-        {
-          visibleTags.map((tag) => (
-            <div class="bg-card dark:bg-muted-foreground/20 rounded-full px-1.5 py-[3px] text-[10px] font-medium whitespace-nowrap md:px-2.5 md:text-xs">
-              {tag}
-            </div>
-          ))
-        }
-        {
-          hiddenTags.length > 0 && (
-            <div
-              title={hiddenTags.join(", ")}
-              class="bg-card dark:bg-muted-foreground/20 rounded-full px-1.5 py-[3px] text-[10px] font-medium whitespace-nowrap md:px-2.5 md:text-xs"
-            >
-              + {hiddenTags.length} more
-            </div>
-          )
-        }
-      </div>
+    <p class="line-clamp-2 text-sm">{description}</p>
+    <div class="max-w-full space-x-1">
+      {
+        visibleTags.map((tag) => (
+          <div class="text-[80%] inline border px-1">{tag}</div>
+        ))
+      }
+      <div class="text-[80%] inline border px-1">+ {hiddenTags.length}</div>
     </div>
-  </a>
+    <div>
+      <a
+        href={`https://github.com/kalyan-velu/${props.github}`}
+        target="_blank"
+        title=`Source Code of ${name}`
+        class={cn(
+          "group hover:text-background",
+          props.github ? "inline-block" : "hidden",
+        )}
+      >
+        <iconify-icon icon="prime:github" width="1.7em" height="1.7em"
+        ></iconify-icon>
+      </a>
+    </div>
+  </div>
 </div>
