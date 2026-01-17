@@ -40,16 +40,13 @@ const hiddenTags = tags.slice(3);
 <div
   class="flex gap-x-4 first:mt-4 last:mb-0 mb-2 text-muted-foreground items-center"
 >
-  <!--<a-->
-  <!--  href={link}-->
-  <!--  target="_blank"-->
-  <!--  class="aspect-video hidden md:flex bg-gray-300 min-h-28 items-center justify-center p-2"-->
-  <!--&gt;-->
-  <!--  {name.split(":")?.[0]}-->
-  <!--</a>-->
   <div class="self-start">
     <div class="flex items-center gap-x-2">
-      <h3 class="font-semibold text-neutral-700 text-base">{name}</h3>
+      <h3
+        class="font-semibold text-neutral-700 hover:text-neutral-500 text-base"
+      >
+        <a href={link} title={`Visit ${name}`} target="_blank">{name}</a>
+      </h3>
       <div class="text-[60%] inline text-muted bg-muted-foreground px-1">
         {projectType}
       </div>
