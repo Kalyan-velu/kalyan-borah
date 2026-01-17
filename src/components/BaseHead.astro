@@ -1,4 +1,5 @@
 ---
+import "@styles-global";
 export interface Props {
   title: string;
   description: string;
@@ -6,7 +7,6 @@ export interface Props {
   canonicalUrl?: string;
   ograph: string;
 }
-import "@styles-global";
 const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
 ---
 
@@ -17,13 +17,13 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
   <link
     rel="icon"
     type="image/svg+xml"
-    href="/icons8/icons8-skull-gradient-16.png"
+    href="/icons8/logo-new.png"
     sizes="16x16"
   />
   <link
     rel="icon"
     type="image/svg+xml"
-    href="/icons8/icons8-skull-gradient-32.png"
+    href="/icons8/logo-new.png"
     sizes="32x32"
   />
   <meta name="theme-color" content="#ffffff" />
@@ -55,6 +55,7 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
     href="https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata:wght@200;300;400&display=swap"
     rel="stylesheet"
   />
+
   <script is:inline type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -81,6 +82,17 @@ const { title, description, permalink, canonicalUrl, ograph } = Astro.props;
       j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, "script", "dataLayer", "GTM-P3ZGF3GZ");
+  </script>
+  <script is:inline>
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+  </script>
+  <script>
+    import "iconify-icon";
   </script>
   <!-- End Google Tag Manager -->
 </head>

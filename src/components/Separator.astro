@@ -1,14 +1,12 @@
 ---
 interface Props {
-  state: string
+  state: string;
 }
-const { state } = Astro.props
+const { state } = Astro.props;
 ---
 
 <div class=`relative ${state} w-full md:w-[80%] m-auto`></div>
 <style>
-  @tailwind base;
-  @tailwind components;
   @layer components {
     .separator {
       border-top-width: 1px;
