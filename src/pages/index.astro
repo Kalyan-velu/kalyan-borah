@@ -67,10 +67,10 @@ const ograph = "";
   </script>
   <Section id="overview" class="bg-white/80 px-2.5 md:px-0">
     <div
-      class="flex-col-reverse flex md:flex-row gap-y-4 md:gap-y-0 items-center mt-2 px-0"
+      class="flex-col-reverse flex md:flex-row gap-y-4 md:gap-y-0  mt-2 px-0"
     >
       <div class="flex flex-col basis-3/4">
-        <h1 class="text-xl md:text-2xl font-semibold text-neutral-800">
+        <h1 class="text-lg  font-semibold text-neutral-800">
           A software engineer and freelancer from Sivasagar, Assam, India. I
           specialize in building high-quality websites and software that help
           both clients and users.
@@ -87,11 +87,12 @@ const ograph = "";
             class="underline">building hobby projects</a
           >, listening to music and reading blogs. Currently expanding my skill
           set to include backend systems and system design.
+            <br/>
           <strong>I am actively seeking freelance or full-time opportunities and available to start immediately.</strong>
         </p>
       </div>
       <div
-        class="relative flex-1 items-center justify-center flex basis-1/4 overflow-hidden"
+        class="relative flex-1  items-start selt-start justify-center flex basis-1/4 overflow-hidden"
       >
         <Image
           loading="eager"
@@ -117,7 +118,7 @@ const ograph = "";
     </ul>
   </Section>
  
-  <Section title="Works (Completed)" id="overview-works">
+    <Section title="Projects I'm Proud Of" id="overview-works">
     {
       projects
         .slice(0, 2)

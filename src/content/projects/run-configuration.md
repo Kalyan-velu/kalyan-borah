@@ -3,7 +3,7 @@ name: Run Configuration
 description: A VS Code extension that simplifies run configuration management for development projects.
 associated: Personal Project
 type: VS Code Extension
-image: https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg
+image: ""
 link: https://marketplace.visualstudio.com/items?itemName=KalyanJyotiBorah.run-configuration
 bgColor: bg-pink-500
 github: run-configuration-extension

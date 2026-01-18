@@ -1,0 +1,43 @@
+---
+interface Props {
+  images: string[];
+  alt: string;
+}
+
+const { images, alt } = Astro.props;
+---
+
+<div class="embla overflow-hidden rounded-xl border bg-neutral-100">
+  <div class="embla__container flex">
+    {
+      images.map((image) => (
+        <div class="embla__slide flex-[0_0_100%] min-w-0 aspect-video">
+          <img src={image} alt={alt} class="h-full w-full object-fit" />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+  import Autoplay from "embla-carousel-autoplay";
+
+  const setupEmbla = () => {
+    const emblaNodes = document.querySelectorAll(".embla");
+    emblaNodes.forEach((emblaNode) => {
+      const viewportNode = emblaNode as HTMLElement;
+      EmblaCarousel(viewportNode, { loop: true }, [Autoplay()]);
+    });
+  };
+
+  // Handle both initial load and view transitions
+  setupEmbla();
+  document.addEventListener("astro:after-swap", setupEmbla);
+</script>
+
+<style>
+  .embla__slide {
+    backface-visibility: hidden;
+  }
+</style>

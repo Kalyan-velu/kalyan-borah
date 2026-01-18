@@ -4,6 +4,11 @@ description: A job portal is designed to simplify the process of finding and cre
 associated: Personal Project
 type: web-application
 image: https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg
+images:
+  - "/projects/job-portal/Screenshot 2025-12-23 222614.png"
+  - "/projects/job-portal/login.png"
+  - "/projects/job-portal/dashboard.png"
+  - "/projects/job-portal/Screenshot 2025-12-14 213358.png"
 link: https://jobs.kalyanjyotiborah.pro/
 bgColor: bg-pink-500
 github: job-portal

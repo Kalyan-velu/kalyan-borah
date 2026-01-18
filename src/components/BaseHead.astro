@@ -15,7 +15,7 @@ const { title, description, permalink, canonicalUrl, ograph, keywords } =
 const ogImage = new URL(ograph || "/pic.jpg", Astro.site || permalink);
 
 const defaultKeywords =
-  "freelancer in assam, assam, kalyan, kalyan jyoti borah, atozdebug, website, software engineer";
+  "freelancer in assam, assam,indian developer, kalyan, kalyan jyoti borah, atozdebug, website, software engineer, namti, sivasagar, sibsagar developer, website builder";
 ---
 
 <head>
@@ -64,7 +64,19 @@ const defaultKeywords =
     rel="stylesheet"
   />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <script src="../scripts/reset.js" data-astro-rerun></script>
+  <script is:inline defer type="text/javascript">
+    (() => {
+      if (typeof window === "undefined") {
+        return;
+      }
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: light)").matches),
+      );
+    })();
+  </script>
   <script is:inline type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] =

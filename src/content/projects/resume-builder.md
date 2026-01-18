@@ -4,7 +4,8 @@ description: I developed this web application to empower users to effortlessly b
 associated: Personal Project
 bgColor: bg-green-500
 type: web-application
-image: https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg
+image:  "/projects/resume-builder/img.png"
+
 link: https://resume-builder-kamh.onrender.com/
 github: Resume-Builder-using-GPT3
 tags: ["CRA", "React", "JavaScript", "Tailwind CSS", "OPENAI API", "GPT-3.5 API", "ExpressJS", "Git"]
