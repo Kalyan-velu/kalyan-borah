@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Section from "@components/section.astro";
+import ProjectCarousel from "@components/carousel/ProjectCarousel.astro";
 
 export const prerender = true;
 
@@ -19,7 +20,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
-
+console.log("Project", project.data);
 const title = `${project.data.name} | Project by Kalyan Jyoti Borah`;
 const description = `${project.data.description} - A project developed by Kalyan Jyoti Borah, a software engineer and freelancer in Assam.`;
 const permalink = `https://kalyanjyotiborah.pro/works/${project.slug}`;
@@ -56,16 +57,23 @@ const ograph = project.data.image;
         </div>
       </div>
 
-      <div
-        class="aspect-video w-full overflow-hidden rounded-xl border bg-neutral-100"
-      >
-        <img
-          src={project.data.image}
-          alt={project.data.name}
-          class="h-full w-full object-cover"
-          transition:name={`${project.slug}-image`}
-        />
-      </div>
+      {
+        project.data.images && project.data.images.length > 0 ? (
+          <ProjectCarousel
+            images={project.data.images}
+            alt={project.data.name}
+          />
+        ) : project.data.image && project.data.image !== "" ? (
+          <div class="aspect-video w-full overflow-hidden rounded-xl border bg-neutral-100">
+            <img
+              src={project.data.image}
+              alt={project.data.name}
+              class="h-full w-full object-fit"
+              transition:name={`${project.slug}-image`}
+            />
+          </div>
+        ) : undefined
+      }
 
       <div
         class="flex flex-wrap gap-x-8 gap-y-4 text-sm border-y rounded-none py-4"

@@ -18,7 +18,7 @@ const { headingTag: Tag = "h2", ...props } = Astro.props;
     props.title ? (
       <Tag
         class={cn(
-          "font-semibold md:mt-7 mt-5 mb-2 md:mb-4 text-neutral-700 tracking-wider text-xl",
+          "font-semibold first-letter:underline md:mt-7 mt-5 mb-2 md:mb-4 text-neutral-700 tracking-wider text-xl",
           props.titleClasses,
         )}
       >

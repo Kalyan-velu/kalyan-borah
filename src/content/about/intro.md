@@ -9,7 +9,7 @@ I’ve explored projects ranging from real-time applications and dashboards to t
 I value clean code, strong typing, security by default, and thoughtful UX, and I’m continuously unlearning bad habits picked up from tutorials and replacing them with first-principle thinking.
 Still learning. Still building. More intentional than before.
 
-## Experience
+## Professional Experiences
 
 - **Frontend Developer Intern, Nullclass** (Nov 2022 - Dec 2022)
   - Worked on a Stack Overflow clone, mastering React, Express.js, and MongoDB, while also mentoring fellow interns and refining my understanding of authentication, NoSQL optimization, and collaboration.

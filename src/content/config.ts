@@ -25,6 +25,7 @@ const projects = defineCollection({
     ]),
     type: z.string(),
     image: z.string(),
+    images: z.array(z.string()).optional(),
     link: z.string().url().or(z.string().optional()),
     bgColor: z.string(),
     github: z.string().optional(),

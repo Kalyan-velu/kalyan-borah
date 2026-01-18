@@ -7,6 +7,11 @@ associated:
   link: https://atozdebug.com/
 type: web-application
 image: https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg
+images:
+  - "/projects/smartinbox/Screenshot 2024-10-06 201654.png"
+  - "/projects/smartinbox/Screenshot 2024-10-19 114832.png"
+  - "/projects/smartinbox/Screenshot 2024-11-01 110039.png"
+  - "/projects/smartinbox/Screenshot 2024-11-14 105142.png"
 link: https://smartinbox.ai
 tags: ["React", "Typescript", "Tailwind CSS", "Redux", "Shadcn UI", "RTK Query", "Dashboard"]
 status: completed
