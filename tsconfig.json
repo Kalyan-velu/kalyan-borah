@@ -1,12 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "plugins": [
       {
@@ -16,12 +11,8 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@*": [
-        "src/*"
-      ],
-      "@styles-global": [
-        "src/styles/global.css"
-      ]
+      "@*": ["src/*"],
+      "@styles-global": ["src/styles/global.css"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

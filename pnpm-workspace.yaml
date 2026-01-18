@@ -1,5 +1,5 @@
 packages:
   - .
 onlyBuiltDependencies:
-  - '@parcel/watcher'
+  - "@parcel/watcher"
   - protobufjs

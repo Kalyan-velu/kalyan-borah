@@ -1,6 +1,7 @@
 ---
 title: About
 ---
+
 Hi, I’m Kalyan Jyoti Borah, a frontend-focused software engineer from Assam, India, who cares deeply about building performant, secure, and user-respecting web products.
 I hold a BCA from Sibsagar Commerce College (CGPA 7.2) and have grown from building feature-driven apps into thinking in terms of systems, trade-offs, and long-term maintainability.
 My core strength lies in the modern frontend ecosystem — working extensively with TypeScript, React, Next.js, and state management patterns, while paying close attention to performance, accessibility, and developer experience. Over time, I’ve learned that shipping UI is easy — shipping reliable UI is not.
@@ -26,7 +27,7 @@ Still learning. Still building. More intentional than before.
   - Optimised Redux store using redux middleware and selectors for better performance and maintainability.
   - Fixed bugs related to websocket connections and improved performance of the dashboard.
   - Refactored codebase to improve maintainability and scalability.
-  - Moved a codebase of a CDN based chatbot from vanilla JS to *React* and *Rollup* Bundler, improving maintainability and performance.
+  - Moved a codebase of a CDN based chatbot from vanilla JS to _React_ and _Rollup_ Bundler, improving maintainability and performance.
 
 ## Github Status
 
