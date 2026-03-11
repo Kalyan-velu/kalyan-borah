@@ -12,7 +12,10 @@ const { headingTag: Tag = "h2", ...props } = Astro.props;
 
 <section
   id={props.id}
-  class={cn("bg-white/80 px-2.5 first-of-type:mt-8 md:px-0", props.class)}
+  class={cn(
+    "bg-white/80 w-full max-w-2xl mx-auto px-2.5 first-of-type:mt-8 md:px-0",
+    props.class,
+  )}
 >
   {
     props.title ? (
