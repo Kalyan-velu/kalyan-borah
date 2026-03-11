@@ -1,226 +1,555 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import ProjectCard from "@components/project-card.astro";
-import { Image } from "astro:assets";
-import Section from "@components/section.astro";
-import Socials from "@components/Socials.astro";
-import socials from "@data/socials.json";
-import type { Social } from "@scripts/types.ts";
-import skillsData from "@data/skills.json";
 
-const { skills } = skillsData;
-interface Skill {
-  name: string;
-  imageUrl: string;
-  color: string;
-  rgbColor: string;
-}
-
-const formatSkillName = (name: string) => {
-  const specials: Record<string, string> = {
-    js: "JavaScript",
-    html: "HTML",
-    css: "CSS",
-    mongoDB: "MongoDB",
-    next: "Next.js",
-    nodejs: "Node.js",
-    postgre: "PostgreSQL",
-    framerMotion: "Framer Motion",
-    githubActions: "GitHub Actions",
-    mysql: "MySQL",
-    graphql: "GraphQL",
-    github: "GitHub",
-    gitlab: "GitLab",
-    typescript: "TypeScript",
-    nestjs: "NestJS",
-  };
-  return specials[name] || name.charAt(0).toUpperCase() + name.slice(1);
-};
-
-const allProjects = await getCollection("projects");
-const projects = allProjects
-  .filter((p) => p.data.status === "completed")
-  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
-
-const onGoingProjects = allProjects
-  .filter((p) => p.data.status === "ongoing")
-  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
-
-const title = "Kalyan Jyoti Borah | Software Engineer & Freelancer in Assam";
+const title =
+  "Freelance Software Engineer in Assam, India | Kalyan – Website Developer Sivasagar & Guwahati";
 const description =
-  "Portfolio of Kalyan Jyoti Borah, a full stack software engineer and freelancer based in Assam, India. Specializing in building performant websites and applications. Formerly at A to Z Debug.";
+  "Kalyan Jyoti Borah is a freelance software engineer and website developer based in Sivasagar, Assam, India. Available for freelance projects in Guwahati, Assam, and globally. Custom websites, software engineering, and scalable solutions for businesses.";
 const permalink = "https://kalyanjyotiborah.pro/";
-const ograph = "";
+const keywords =
+  "freelance developer sivasagar, software engineer assam, website developer guwahati, freelance software engineer india, web developer sivasagar, hire freelance developer assam, kalyan jyoti borah, website developer assam, software developer northeast india, freelance web developer guwahati, custom software development assam";
 ---
 
-<Layout {title} {description} {permalink} {ograph}>
-  <script src="https://www.googletagmanager.com/gtag/js?id=G-PK4HB89SDH"
-  ></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-PK4HB89SDH");
-  </script>
-  <Section id="overview" class="bg-white/80 px-2.5 md:px-0">
-    <div class="flex-col-reverse flex md:flex-row gap-y-4 md:gap-y-0 mt-2 px-0">
-      <div class="flex flex-col basis-3/4">
-        <h1 class="text-lg font-semibold text-neutral-800">
-          A software engineer and freelancer from Sivasagar, Assam, India. I
-          specialize in building high-quality websites and software that help
-          both clients and users.
-        </h1>
-        <p class="text-sm my-2 tracking-wide text-neutral-600">
-          I have <b>two(2) years of experience</b> building full stack applications.
-          My last working place was <b>A to Z Debug (2023 - 2025)</b>, where I
-          was developing and delivering amazing products using <b>React</b>, <b
-            >Next JS</b
-          >, <b>NodeJS</b> and <b>ExpressJs</b> etc.
-          <br />
-          Outside of my office hours you will find me <a
-            href="https://github.com/kalyan-velu"
-            class="underline">building hobby projects</a
-          >, listening to music and reading blogs. Currently expanding my skill
-          set to include backend systems and system design.
-          <br />
-          <strong
-            >I am actively seeking freelance or full-time opportunities and
-            available to start immediately.</strong
-          >
-        </p>
-      </div>
+<Layout {title} {description} {permalink} {keywords}>
+  <section
+    class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[92vh] flex flex-col px-5 md:px-10 pt-6 pb-14 overflow-hidden"
+  >
+    <div class="flex justify-between items-center z-10 gap-3">
       <div
-        class="relative flex-1 items-start selt-start justify-center flex basis-1/4 overflow-hidden"
+        class="text-[9px] md:text-[11px] uppercase tracking-[0.18em] font-light leading-snug text-neutral-400"
       >
-        <Image
-          loading="eager"
-          alt="Kalyan Jyoti Borah - Software Engineer and Freelancer in Assam"
-          height={186}
-          width={128}
-          class="w-32 h-44 rounded-xl object-cover"
-          src="/pic.jpg"
-        />
+        INDIA Based /<br />Working Globally
+      </div>
+
+      <div class="flex items-center gap-2 md:gap-4">
+        <div
+          class="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full"
+        >
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <span
+            class="text-[9px] text-foreground uppercase tracking-widest font-medium"
+            >Freelancer • Available</span
+          >
+        </div>
+        <a
+          href="https://wa.me/917578969729"
+          class="pill-button bg-white text-black text-[10px] md:text-xs uppercase tracking-widest hover:bg-neutral-200 font-semibold"
+        >
+          Get in touch
+        </a>
       </div>
     </div>
-  </Section>
-  <Section>
-    <ul class="flex flex-wrap gap-5">
-      {
-        socials.map(
-          (social): Social => (
-            <li title={social.name}>
-              <a
-                href={social.url}
-                aria-label={`${social.name} link`}
-                target="_blank"
-                class="social-link hover:animate-spin"
-              >
-                <iconify-icon
-                  class={`text-zinc-500 hover:text-zinc-600`}
-                  icon={social.logo}
-                  width="24"
-                  height="24"
-                />
-              </a>
-            </li>
-          ),
-        )
-      }
-    </ul>
-  </Section>
 
-  <Section title="Skills & Expertise" id="skills" class="mb-8">
-    <div class="flex flex-wrap gap-2">
-      {
-        skills
-          .filter((skill: any) => skill.isExpert)
-          .map((skill: any) => (
-            <div class="flex items-center gap-x-2 px-2 py-1 bg-white border border-neutral-200 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-              {skill.imageUrl.startsWith("/") ? (
-                <Image
-                  height={20}
-                  width={20}
-                  src={skill.imageUrl}
-                  alt={skill.name}
-                  class="object-contain"
-                  loading="lazy"
-                />
-              ) : (
-                <iconify-icon
-                  icon={skill.imageUrl}
-                  width="24"
-                  height="24"
-                  style={`color: ${skill.color}`}
-                />
-              )}
-              <span class="text-xs font-medium text-neutral-600">
-                {formatSkillName(skill.name)}
-              </span>
-            </div>
-          ))
-      }
-    </div>
-    <div class="mt-4 text-sm text-neutral-500">
-      <a
-        href="/about#skills"
-        class="underline underline-offset-4 hover:text-neutral-800 transition-colors"
+    <iconify-icon icon="logos:aws" class="floating-icon floating-icon--aws"
+    ></iconify-icon>
+    <iconify-icon
+      icon="logos:docker-icon"
+      class="floating-icon floating-icon--docker"></iconify-icon>
+    <iconify-icon
+      icon="logos:wordpress-icon"
+      class="floating-icon floating-icon--wordpress"></iconify-icon>
+    <iconify-icon icon="mdi:github" class="floating-icon floating-icon--github"
+    ></iconify-icon>
+    <iconify-icon
+      icon="lucide:sparkles"
+      class="floating-icon floating-icon--sparkles"></iconify-icon>
+    <iconify-icon
+      icon="lucide:settings"
+      class="floating-icon floating-icon--settings"></iconify-icon>
+
+    <div
+      class="flex-1 flex flex-col items-center justify-center text-center relative z-10 mt-8 md:mt-0"
+    >
+      <p
+        class="text-lg md:text-xl font-light text-foreground italic mb-3 opacity-85"
       >
-        View all skills →
+        Hi, I am Kalyan.
+      </p>
+      <h1 class="font-bebas halftone-text hero-heading uppercase">
+        SOFTWARE<br />ENGINEER
+      </h1>
+      <p
+        class="mt-5 text-neutral-400 text-[10px] md:text-sm uppercase tracking-[0.18em] md:tracking-[0.3em] max-w-xs md:max-w-none gsap-reveal"
+      >
+        Freelance Website Developer &amp; Software Engineer • Sivasagar, Assam,
+        India
+      </p>
+    </div>
+
+    <div class="max-w-lg mx-auto text-center mt-10 z-10 gsap-reveal">
+      <p
+        class="text-neutral-400 text-sm md:text-base leading-relaxed font-light"
+      >
+        Based in Sivasagar, Assam, India — available for freelance projects in
+        Guwahati, across Assam, India and globally. I specialise in
+        high-performance websites and scalable software that drives real
+        business growth.
+      </p>
+    </div>
+  </section>
+
+  <section
+    id="services"
+    class="service-section px-5 md:px-16 lg:px-20 py-16 md:py-24 lg:py-32"
+  >
+    <div class="flex items-end justify-between mb-10 md:mb-0">
+      <div>
+        <h2
+          class="font-bebas text-7xl sm:text-8xl md:text-[110px] lg:text-[130px] leading-none gsap-reveal"
+        >
+          SERVICES
+        </h2>
+        <div class="flex gap-3 mt-3 gsap-reveal">
+          <button class="outline-button">PREVIOUS</button>
+          <button class="outline-button">NEXT</button>
+        </div>
+      </div>
+      <a
+        href="mailto:kalyanborah456@gmail.com"
+        class="pill-button bg-black text-white inline-flex items-center text-[10px] md:text-xs uppercase tracking-[0.18em] gap-2 group mb-1 gsap-reveal"
+      >
+        Need Assistance?
       </a>
     </div>
-  </Section>
-  <Section title="Projects I'm Proud Of" id="overview-works">
-    {
-      projects
-        .slice(0, 2)
-        .map((project) => (
-          <ProjectCard
-            {...project.data}
-            link={`/works/${project.slug}`}
-            slug={project.slug}
-          />
-        ))
-    }
-    {
-      projects.length > 2 ? (
-        <div class="mt-4 text-sm text-neutral-500">
-          <a
-            href="/about#skills"
-            class="underline underline-offset-4 hover:text-neutral-800 transition-colors"
-          >
-            View all →
-          </a>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-8 md:mt-12">
+      <div
+        class="service-item border-t border-black/10 pt-8 pb-12 md:pb-0 gsap-reveal"
+      >
+        <div
+          class="font-bebas text-[7rem] md:text-[9rem] leading-none select-none text-black/10 mb-2"
+        >
+          01
         </div>
-      ) : undefined
-    }
-  </Section>
-  <Section title="What I am working on" id="overview-current">
-    {
-      onGoingProjects
-        .slice(0, 2)
-        .map((project) => (
-          <ProjectCard
-            {...project.data}
-            link={`/works/${project.slug}`}
-            slug={project.slug}
-          />
-        ))
-    }
-    {
-      onGoingProjects.length > 2 ? (
-        <div class="mt-4 text-sm text-neutral-500">
-          <a
-            href="/about#skills"
-            class="underline underline-offset-4 hover:text-neutral-800 transition-colors"
-          >
-            View all →
-          </a>
+        <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Custom Website Development
+        </h3>
+        <ul
+          class="space-y-3 text-sm uppercase tracking-wide font-medium text-neutral-600"
+        >
+          <li class="flex items-center gap-3">
+            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
+            ></span>
+            High-performance, mobile-first websites
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
+            ></span>
+            SEO-optimized architecture for search rankings
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
+            ></span>
+            E-commerce &amp; Custom CMS Solutions
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="service-item border-t border-black/10 pt-8 pb-12 md:pb-0 gsap-reveal"
+      >
+        <div
+          class="font-bebas text-[7rem] md:text-[9rem] leading-none select-none text-black/10 mb-2"
+        >
+          02
         </div>
-      ) : undefined
-    }
-  </Section>
+        <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Software Engineering
+        </h3>
+        <ul
+          class="space-y-3 text-sm uppercase tracking-wide font-medium text-neutral-600"
+        >
+          <li class="flex items-center gap-3">
+            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
+            ></span>
+            Scalable Backend Systems &amp; API Integration
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
+            ></span>
+            Admin Dashboards &amp; Internal Tools
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
+            ></span>
+            Cloud Deployment (AWS / Docker)
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
+    <div class="max-w-5xl mx-auto">
+      <h2
+        class="font-bebas text-5xl sm:text-6xl md:text-8xl mb-10 md:mb-16 text-center leading-tight gsap-reveal"
+      >
+        WHY HIRE ME AS YOUR<br class="hidden sm:block" /> FREELANCE DEVELOPER?
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
+        <div class="gsap-reveal">
+          <div
+            class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
+          >
+            <iconify-icon icon="lucide:zap" class="icon-sm-white"
+            ></iconify-icon>
+          </div>
+          <h4
+            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight"
+          >
+            Performance First
+          </h4>
+          <p class="text-neutral-600 text-sm font-light leading-relaxed">
+            I build websites that load in milliseconds. Speed is a feature — it
+            improves SEO rankings and user retention directly.
+          </p>
+        </div>
+        <div class="gsap-reveal">
+          <div
+            class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
+          >
+            <iconify-icon icon="lucide:layers" class="icon-sm-white"
+            ></iconify-icon>
+          </div>
+          <h4
+            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight"
+          >
+            Scalable Software
+          </h4>
+          <p class="text-neutral-600 text-sm font-light leading-relaxed">
+            From simple landing pages to complex SaaS apps, I engineer solutions
+            that grow with your business — whether you're in Guwahati, Assam, or
+            anywhere globally.
+          </p>
+        </div>
+        <div class="gsap-reveal">
+          <div
+            class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
+          >
+            <iconify-icon icon="lucide:message-circle" class="icon-sm-white"
+            ></iconify-icon>
+          </div>
+          <h4
+            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight"
+          >
+            Direct Communication
+          </h4>
+          <p class="text-neutral-600 text-sm font-light leading-relaxed">
+            As a freelance software engineer in Sivasagar, Assam, I work
+            directly with you. No middlemen — just clear, goal-oriented
+            collaboration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="case-studies-section px-5 md:px-10 py-16 md:py-28 flex flex-col items-center text-center"
+  >
+    <p
+      class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-5"
+    >
+      READY TO START?
+    </p>
+    <h2
+      class="font-bebas cta-heading leading-none text-foreground mb-10 tracking-wide gsap-reveal"
+    >
+      LET'S BUILD YOUR<br />NEXT BIG PROJECT
+    </h2>
+    <div
+      class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center w-full sm:w-auto"
+    >
+      <a
+        href="mailto:kalyanborah456@gmail.com"
+        class="pill-button bg-white text-black text-xs uppercase tracking-widest hover:scale-105 font-semibold w-full sm:w-auto justify-center"
+      >
+        Start a Conversation
+      </a>
+      <a
+        href="/works"
+        class="text-white/60 hover:text-white inline-flex uppercase tracking-widest text-[10px] md:text-xs items-center justify-center gap-2"
+      >
+        View Case Studies
+        <iconify-icon icon="lucide:arrow-right" height="2em" width="2em"
+        ></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <footer
+    class="px-5 md:px-16 py-10 md:py-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-neutral-500"
+  >
+    <div class="text-center md:text-left">
+      © 2026 KALYAN's PORTFOLIO — ENGINEERED FOR PERFORMANCE
+    </div>
+    <div class="flex items-center gap-6 md:gap-10">
+      <a
+        href="https://twitter.com/kalyan_borah_RR"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-neutral-500/80 transition-colors">TWITTER</a
+      >
+      <a
+        href="https://linkedin.com/in/kalyan-jyoti-borah"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-neutral-500/80 transition-colors">LINKEDIN</a
+      >
+      <a
+        href="https://github.com/Kalyan-velu"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-neutral-500/80 transition-colors">GITHUB</a
+      >
+    </div>
+  </footer>
+
+  <!--<script-->
+  <!--  is:inline-->
+  <!--  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"-->
+  <!--  defer></script>-->
+  <!--<script-->
+  <!--  is:inline-->
+  <!--  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"-->
+  <!--  defer></script>-->
+  <!--<script is:inline>-->
+  <!--  window.addEventListener("load", function () {-->
+  <!--    if (typeof gsap === "undefined") return;-->
+
+  <!--    gsap.registerPlugin(ScrollTrigger);-->
+
+  <!--    // Hero entrance-->
+  <!--    gsap.from(".halftone-text", {-->
+  <!--      opacity: 0,-->
+  <!--      y: 80,-->
+  <!--      duration: 1.2,-->
+  <!--      ease: "power4.out",-->
+  <!--      delay: 0.15,-->
+  <!--    });-->
+
+  <!--    // Floating icons — gentle y-bob, no layout-shifting random values-->
+  <!--    var icons = document.querySelectorAll(".floating-icon");-->
+  <!--    icons.forEach(function (icon, i) {-->
+  <!--      gsap.to(icon, {-->
+  <!--        y: i % 2 === 0 ? -12 : 12,-->
+  <!--        duration: 2.5 + i * 0.3,-->
+  <!--        repeat: -1,-->
+  <!--        yoyo: true,-->
+  <!--        ease: "sine.inOut",-->
+  <!--        delay: i * 0.4,-->
+  <!--      });-->
+  <!--    });-->
+
+  <!--    // Scroll reveal-->
+  <!--    gsap.utils.toArray(".gsap-reveal").forEach(function (el) {-->
+  <!--      gsap.from(el, {-->
+  <!--        scrollTrigger: {-->
+  <!--          trigger: el,-->
+  <!--          start: "top 88%",-->
+  <!--          toggleActions: "play none none none",-->
+  <!--        },-->
+  <!--        opacity: 0,-->
+  <!--        y: 40,-->
+  <!--        duration: 0.9,-->
+  <!--        ease: "power3.out",-->
+  <!--      });-->
+  <!--    });-->
+  <!--  });-->
+  <!--</script>-->
 </Layout>
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+  :root {
+    --bg-dark: #111;
+    --bg-light: #f5f5f5;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .font-bebas {
+    font-family: "Bebas Neue", cursive;
+  }
+
+  /* Mobile-first: solid white, upgrade to halftone on larger screens */
+  .halftone-text {
+    display: inline-block;
+    line-height: 0.9;
+    color: #ffffff;
+  }
+
+  @media (min-width: 640px) {
+    .halftone-text {
+      background-image: radial-gradient(circle, #fff 1px, transparent 1.5px);
+      background-size: 3.5px 3.5px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  /* Hero heading fluid size */
+  .hero-heading {
+    font-size: clamp(3.5rem, 8vw, 13rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* CTA heading fluid size */
+  .cta-heading {
+    font-size: clamp(2.8rem, 10vw, 7rem);
+  }
+
+  .pill-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .pill-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  }
+
+  .outline-button {
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .outline-button:hover {
+    background: black;
+    color: white;
+  }
+
+  /* Floating icon base — hidden on mobile */
+  .floating-icon {
+    position: absolute;
+    opacity: 0.25;
+    transition: all 0.5s ease;
+    filter: grayscale(1) brightness(2);
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .floating-icon {
+      display: block;
+    }
+
+    .floating-icon:hover {
+      opacity: 1;
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.25);
+    }
+  }
+
+  /* Individual floating icon positions & sizes */
+  .floating-icon--aws {
+    top: 12%;
+    left: 8%;
+    font-size: 2.5rem;
+  }
+
+  .floating-icon--docker {
+    top: 35%;
+    right: 12%;
+    font-size: 3rem;
+  }
+
+  .floating-icon--wordpress {
+    bottom: 22%;
+    left: 12%;
+    font-size: 2.5rem;
+  }
+
+  .floating-icon--github {
+    top: 18%;
+    right: 28%;
+    font-size: 2rem;
+  }
+
+  .floating-icon--sparkles {
+    bottom: 38%;
+    right: 8%;
+    font-size: 1.8rem;
+    opacity: 0.8;
+    filter: none;
+    color: #facc15;
+  }
+
+  .floating-icon--settings {
+    top: 58%;
+    left: 4%;
+    font-size: 1.8rem;
+  }
+
+  /* Small inline icon (arrow, etc.) */
+  .icon-xs {
+    font-size: 0.85rem;
+  }
+
+  /* Small white icon inside filled circles */
+  .icon-sm-white {
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  .service-section {
+    background-color: var(--bg-light);
+    color: black;
+  }
+
+  .case-studies-section {
+    background-color: black;
+    border-radius: 2rem;
+    margin: 0 0.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .case-studies-section {
+      border-radius: 4rem;
+      margin: 0 1rem;
+    }
+  }
+
+  .case-studies-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .gsap-reveal {
+    will-change: transform, opacity;
+  }
+</style>

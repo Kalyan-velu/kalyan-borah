@@ -54,7 +54,6 @@
 
 @layer base {
   * {
-    @apply rounded-xl;
     scrollbar-width: thin;
   }
   ::-webkit-scrollbar {
