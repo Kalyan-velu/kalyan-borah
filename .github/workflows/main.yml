@@ -1,11 +1,11 @@
 name: Metrics
 on:
   # Schedule daily updates
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: [{ cron: "0 0 * * *" }]
   # (optional) Run workflow manually
   workflow_dispatch:
   # (optional) Run workflow when pushing on master/main
-  push: {branches: ["master", "main"]}
+  push: { branches: ["master", "main"] }
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           committer_message: "build: update `${filename}`"
-          
+
           #Options
           user: Kalyan-velu
           template: classic
@@ -39,7 +39,7 @@ jobs:
           template: classic
           base: ""
           config_display: large
-          config_timezone: 	Asia/Kolkata
+          config_timezone: Asia/Kolkata
           config_output: svg
           config_padding: 0, 30
           filename: notable.svg
@@ -62,7 +62,7 @@ jobs:
           template: classic
           base: ""
           config_display: large
-          config_timezone: 	Asia/Kolkata
+          config_timezone: Asia/Kolkata
           config_output: svg
           filename: achievements.svg
           repositories_batch: 5
@@ -88,7 +88,7 @@ jobs:
           template: classic
           base: ""
           config_display: large
-          config_timezone: 	Asia/Kolkata
+          config_timezone: Asia/Kolkata
           config_output: svg
           filename: metrics.plugin.topics.svg
           repositories_batch: 5
@@ -112,7 +112,7 @@ jobs:
           template: classic
           base: ""
           config_display: large
-          config_timezone: 	Asia/Kolkata
+          config_timezone: Asia/Kolkata
           config_output: svg
           filename: metrics.plugin.topics.icons.svg
 

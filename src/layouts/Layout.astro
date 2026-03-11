@@ -6,7 +6,7 @@ import Socials from "@components/Socials.astro";
 import { cn } from "@lib/utils.ts";
 
 export interface Props extends BaseHeadProps {}
-const props = Astro.props;
+const { title, description, permalink, keywords } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = (path: string) =>
@@ -15,7 +15,7 @@ const isActive = (path: string) =>
 
 <!doctype html>
 <html lang="en" class="light">
-  <BaseHead {...props} />
+  <BaseHead {title} {description} {permalink} {keywords} />
   <body
     class="dark:bg-background scheme-only-light bg-foreground text-background dark:text-foreground"
   >
@@ -26,31 +26,8 @@ const isActive = (path: string) =>
         width="0"
         style="display:none;visibility:hidden"></iframe></noscript
     >
-    <main class="min-h-dvh max-w-2xl w-full mx-auto relative">
-      <nav
-        class="flex justify-between px-2 md:px-0 items-center-safe flex-no-wrap"
-      >
-        <a
-          href="/"
-          title="Overview of Kalyan Jyoti Borah"
-          class="py-4 text-xl md:text-2xl"
-          transition:name="site-title">Kalyan J. Borah's</a
-        >
-        <div
-          class="text-sm gap-x-2.5 flex items-center text-muted-foreground [&>a]:hover:text-background [&>a]:cursor-pointer [&>a]:select-none"
-          transition:name="nav"
-        >
-          <a href="/about" class={cn(isActive("/about") && "text-background")}
-            >About</a
-          >
-          <a href="/works" class={cn(isActive("/works") && "text-background")}
-            >Works</a
-          >
-          <!--<a href="/experiences">Experience</a>-->
-        </div>
-      </nav>
+    <main class="min-h-dvh w-full mx-auto relative">
       <slot />
-      <!--<Socials />-->
     </main>
   </body>
 </html>
