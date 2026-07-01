@@ -1,6 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const featuredProjects = projects
+  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  .slice(0, 3);
 
 const title =
   "Freelance Software Engineer in Assam, India | Kalyan – Website Developer Sivasagar & Guwahati";
@@ -13,51 +18,8 @@ const keywords =
 
 <Layout {title} {description} {permalink} {keywords}>
   <section
-    class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[92vh] flex flex-col px-5 md:px-10 pt-6 pb-14 overflow-hidden"
+    class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[95vh] flex flex-col px-5 md:px-10 pt-24 md:pt-32 pb-14 overflow-hidden"
   >
-    <div class="flex justify-between items-center z-10 gap-3">
-      <div
-        class="text-[9px] md:text-[11px] uppercase tracking-[0.18em] font-light leading-snug text-neutral-400"
-      >
-        INDIA Based /<br />Working Globally
-      </div>
-
-      <div class="flex items-center gap-2 md:gap-4">
-        <div
-          class="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full"
-        >
-          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-          <span
-            class="text-[9px] text-foreground uppercase tracking-widest font-medium"
-            >Freelancer • Available</span
-          >
-        </div>
-        <a
-          href="https://wa.me/917578969729"
-          class="pill-button bg-white text-black text-[10px] md:text-xs uppercase tracking-widest hover:bg-neutral-200 font-semibold"
-        >
-          Get in touch
-        </a>
-      </div>
-    </div>
-
-    <iconify-icon icon="logos:aws" class="floating-icon floating-icon--aws"
-    ></iconify-icon>
-    <iconify-icon
-      icon="logos:docker-icon"
-      class="floating-icon floating-icon--docker"></iconify-icon>
-    <iconify-icon
-      icon="logos:wordpress-icon"
-      class="floating-icon floating-icon--wordpress"></iconify-icon>
-    <iconify-icon icon="mdi:github" class="floating-icon floating-icon--github"
-    ></iconify-icon>
-    <iconify-icon
-      icon="lucide:sparkles"
-      class="floating-icon floating-icon--sparkles"></iconify-icon>
-    <iconify-icon
-      icon="lucide:settings"
-      class="floating-icon floating-icon--settings"></iconify-icon>
-
     <div
       class="flex-1 flex flex-col items-center justify-center text-center relative z-10 mt-8 md:mt-0"
     >
@@ -70,123 +32,266 @@ const keywords =
         SOFTWARE<br />ENGINEER
       </h1>
       <p
-        class="mt-5 text-neutral-400 text-[10px] md:text-sm uppercase tracking-[0.18em] md:tracking-[0.3em] max-w-xs md:max-w-none gsap-reveal"
+        class="mt-5 text-neutral-400 text-[10px] md:text-sm uppercase tracking-[0.18em] md:tracking-[0.3em] max-w-xs md:max-w-none"
       >
-        Freelance Website Developer &amp; Software Engineer • Sivasagar, Assam,
-        India
+        Freelance Website Developer &amp; Full-Stack Systems Engineer
       </p>
     </div>
 
-    <div class="max-w-lg mx-auto text-center mt-10 z-10 gsap-reveal">
+    <div class="max-w-xl mx-auto text-center mt-10 z-10">
       <p
         class="text-neutral-400 text-sm md:text-base leading-relaxed font-light"
       >
-        Based in Sivasagar, Assam, India — available for freelance projects in
-        Guwahati, across Assam, India and globally. I specialise in
-        high-performance websites and scalable software that drives real
-        business growth.
+        Based in Assam, India — available for freelance projects globally. I
+        engineer high-performance web products that solve real business
+        problems, load in milliseconds, and remain maintainable as your business
+        scales.
       </p>
     </div>
   </section>
 
+
   <section
     id="services"
-    class="service-section px-5 md:px-16 lg:px-20 py-16 md:py-24 lg:py-32"
+    class="service-section px-5 md:px-16 lg:px-20 py-16 md:py-24 lg:py-32 overflow-hidden"
   >
-    <div class="flex items-end justify-between mb-10 md:mb-0">
+    <div
+      class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16"
+    >
       <div>
+        <p
+          class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
+        >
+          HOW I HELP
+        </p>
         <h2
-          class="font-bebas text-7xl sm:text-8xl md:text-[110px] lg:text-[130px] leading-none gsap-reveal"
+          class="font-bebas text-6xl sm:text-7xl md:text-[100px] leading-none"
         >
           SERVICES
         </h2>
-        <div class="flex gap-3 mt-3 gsap-reveal">
-          <button class="outline-button">PREVIOUS</button>
-          <button class="outline-button">NEXT</button>
-        </div>
       </div>
-      <a
-        href="mailto:kalyanborah456@gmail.com"
-        class="pill-button bg-black text-white inline-flex items-center text-[10px] md:text-xs uppercase tracking-[0.18em] gap-2 group mb-1 gsap-reveal"
-      >
-        Need Assistance?
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-8 md:mt-12">
-      <div
-        class="service-item border-t border-black/10 pt-8 pb-12 md:pb-0 gsap-reveal"
-      >
-        <div
-          class="font-bebas text-[7rem] md:text-[9rem] leading-none select-none text-black/10 mb-2"
+      <div class="flex items-center gap-4 mt-6 md:mt-0">
+        <button
+          id="service-prev"
+          class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors cursor-pointer border border-black/10"
+          aria-label="Previous Service"
         >
-          01
-        </div>
-        <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-6">
-          Custom Website Development
-        </h3>
-        <ul
-          class="space-y-3 text-sm uppercase tracking-wide font-medium text-neutral-600"
+          <iconify-icon icon="lucide:arrow-left" width="20" height="20"
+          ></iconify-icon>
+        </button>
+        <button
+          id="service-next"
+          class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors cursor-pointer border border-black/10"
+          aria-label="Next Service"
         >
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
-            ></span>
-            High-performance, mobile-first websites
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
-            ></span>
-            SEO-optimized architecture for search rankings
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
-            ></span>
-            E-commerce &amp; Custom CMS Solutions
-          </li>
-        </ul>
-      </div>
-
-      <div
-        class="service-item border-t border-black/10 pt-8 pb-12 md:pb-0 gsap-reveal"
-      >
-        <div
-          class="font-bebas text-[7rem] md:text-[9rem] leading-none select-none text-black/10 mb-2"
-        >
-          02
-        </div>
-        <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-6">
-          Software Engineering
-        </h3>
-        <ul
-          class="space-y-3 text-sm uppercase tracking-wide font-medium text-neutral-600"
-        >
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"
-            ></span>
-            Scalable Backend Systems &amp; API Integration
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
-            Admin Dashboards &amp; Internal Tools
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
-            Cloud Deployment (AWS / Docker)
-          </li>
-        </ul>
+          <iconify-icon icon="lucide:arrow-right" width="20" height="20"
+          ></iconify-icon>
+        </button>
       </div>
     </div>
+
+    <div class="relative w-full">
+      <div
+        id="services-track"
+        class="flex transition-transform duration-500 ease-in-out"
+      >
+
+        <div class="w-full md:w-1/2 shrink-0 pr-0 md:pr-12 pt-8 pb-4">
+          <div
+            class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2"
+          >
+            01
+          </div>
+          <h3
+            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
+          >
+            Custom Web App & Website Development
+          </h3>
+          <p class="text-neutral-600 text-sm font-light mb-6">
+            High-performance, secure, and SEO-optimized sites that load
+            instantly. I combine beautiful frontend interfaces with solid
+            backend systems.
+          </p>
+          <ul
+            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
+          >
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Next.js, React, Astro & TypeScript Frontends
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Headless CMS & Custom Admin Dashboards
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              SEO Architecture & Page Speed Optimization
+            </li>
+          </ul>
+        </div>
+
+        <div class="w-full md:w-1/2 shrink-0 pr-0 md:pr-12 pt-8 pb-4">
+          <div
+            class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2"
+          >
+            02
+          </div>
+          <h3
+            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
+          >
+            Systems Engineering & Automation
+          </h3>
+          <p class="text-neutral-600 text-sm font-light mb-6">
+            Robust backend business logic, database migrations, real-time
+            communications, and automated scraping workflows.
+          </p>
+          <ul
+            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
+          >
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Node.js, Express, Go & Python APIs
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              WebSockets, Stripe Payments & Auth Providers
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Playwright Scraping, Automation & Queue Systems
+            </li>
+          </ul>
+        </div>
+
+        <div class="w-full md:w-1/2 shrink-0 pr-0 md:pr-12 pt-8 pb-4">
+          <div
+            class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2"
+          >
+            03
+          </div>
+          <h3
+            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
+          >
+            SEO Optimization & Content Strategy
+          </h3>
+          <p class="text-neutral-600 text-sm font-light mb-6">
+            Technical SEO audits, semantic HTML architecture, structured data,
+            and content strategies designed to rank your business higher.
+          </p>
+          <ul
+            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
+          >
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Core Web Vitals & Loading Performance
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Schema Markup & Technical Audits
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              On-Page Content Strategy
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="w-full md:w-1/2 shrink-0 pr-0 md:pr-12 pt-8 pb-4">
+          <div
+            class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2"
+          >
+            04
+          </div>
+          <h3
+            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
+          >
+            No-Code Website Development
+          </h3>
+          <p class="text-neutral-600 text-sm font-light mb-6">
+            Rapid launch landing pages and marketing websites using visual
+            development tools, perfect for validating ideas or tight timelines.
+          </p>
+          <ul
+            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
+          >
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              Framer & Webflow Development
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              High-Converting Landing Pages
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
+              CMS Integration & Handoff
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function setupServiceSlider() {
+        const track = document.getElementById("services-track");
+        const prevBtn = document.getElementById("service-prev");
+        const nextBtn = document.getElementById("service-next");
+        if (!track || !prevBtn || !nextBtn) return;
+
+        let currentIndex = 0;
+        const slides = track.children;
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+          const isMobile = window.innerWidth < 768;
+          const slidesVisible = isMobile ? 1 : 2;
+          const maxIndex = Math.max(0, totalSlides - slidesVisible);
+
+          if (currentIndex > maxIndex) currentIndex = maxIndex;
+          if (currentIndex < 0) currentIndex = 0;
+
+          const percentage = isMobile ? currentIndex * 100 : currentIndex * 50;
+          if (track) {
+            track.style.transform = `translateX(-${percentage}%)`;
+          }
+
+          prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
+          prevBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+
+          nextBtn.style.opacity = currentIndex >= maxIndex ? "0.3" : "1";
+          nextBtn.style.pointerEvents =
+            currentIndex >= maxIndex ? "none" : "auto";
+        }
+
+        prevBtn.addEventListener("click", () => {
+          currentIndex--;
+          updateSlider();
+        });
+
+        nextBtn.addEventListener("click", () => {
+          currentIndex++;
+          updateSlider();
+        });
+
+        window.addEventListener("resize", updateSlider);
+        updateSlider();
+      }
+
+      document.addEventListener("DOMContentLoaded", setupServiceSlider);
+      document.addEventListener("astro:page-load", setupServiceSlider);
+    </script>
   </section>
 
   <section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
     <div class="max-w-5xl mx-auto">
       <h2
-        class="font-bebas text-5xl sm:text-6xl md:text-8xl mb-10 md:mb-16 text-center leading-tight gsap-reveal"
+        class="font-bebas text-5xl sm:text-6xl md:text-8xl mb-12 text-center leading-tight"
       >
-        HOW CAN I HELP YOUR BUSINESS AS <br class="hidden sm:block" /> A DEVELOPER?
+        WHAT YOU GET AS MY CLIENT
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
-        <div class="gsap-reveal">
+        <div>
           <div
             class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
           >
@@ -197,16 +302,17 @@ const keywords =
               width="1.4em"></iconify-icon>
           </div>
           <h4
-            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight"
+            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800"
           >
-            Performance First
+            Speed & Search Visibility
           </h4>
           <p class="text-neutral-600 text-sm font-light leading-relaxed">
-            I build websites that load in milliseconds. Speed is a feature — it
-            improves SEO rankings and user retention directly.
+            I build pages designed to score 100 on Google Lighthouse. Faster
+            loading times lead directly to higher Google search rankings and
+            better customer retention.
           </p>
         </div>
-        <div class="gsap-reveal">
+        <div>
           <div
             class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
           >
@@ -217,17 +323,17 @@ const keywords =
               width="1.4em"></iconify-icon>
           </div>
           <h4
-            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight"
+            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800"
           >
-            Scalable Software
+            SaaS Built to Scale
           </h4>
           <p class="text-neutral-600 text-sm font-light leading-relaxed">
-            From simple landing pages to complex SaaS apps, I engineer solutions
-            that grow with your business — whether you're in Guwahati, Assam, or
-            anywhere globally.
+            Your system will be built using clean architecture and proper
+            database design, ensuring it scales seamlessly to handle spikes in
+            traffic without slowing down or crashing.
           </p>
         </div>
-        <div class="gsap-reveal">
+        <div>
           <div
             class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
           >
@@ -238,14 +344,14 @@ const keywords =
               width="1.4em"></iconify-icon>
           </div>
           <h4
-            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight"
+            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800"
           >
-            Direct Communication
+            Direct & Clear Partnership
           </h4>
           <p class="text-neutral-600 text-sm font-light leading-relaxed">
-            As a freelance software engineer in Sivasagar, Assam, I work
-            directly with you. No middlemen — just clear, goal-oriented
-            collaboration.
+            You deal directly with me, the engineer. No account managers, no
+            communication lag. We align on your business workflow before writing
+            code, saving time and resources.
           </p>
         </div>
       </div>
@@ -253,35 +359,329 @@ const keywords =
   </section>
 
   <section
-    class="case-studies-section px-5 md:px-10 py-16 md:py-28 flex flex-col items-center text-center"
+    class="px-5 md:px-16 lg:px-20 py-16 md:py-24 bg-neutral-50 text-black"
+  >
+    <div class="max-w-7xl mx-auto">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <p
+            class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
+          >
+            MY WORK
+          </p>
+          <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
+            FEATURED PROJECTS
+          </h2>
+        </div>
+        <a href="/works" class="outline-button">VIEW ALL</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          featuredProjects.map((project) => (
+            <a
+              href={`/works/${project.id}`}
+              class="group flex flex-col bg-white rounded-xl overflow-hidden transition-all duration-300"
+            >
+              <div class="aspect-video w-full overflow-hidden bg-neutral-100 relative">
+                {project.data.image ||
+                (project.data.images ?? [])?.length > 0 ? (
+                  <img
+                    src={project.data.image || project.data.images[0]}
+                    alt={project.data.name}
+                    class="h-full w-full object-cover group-hover:scale-103 transition-transform duration-300"
+                  />
+                ) : (
+                  <div class="h-full w-full flex items-center justify-center bg-neutral-100 text-neutral-400">
+                    <iconify-icon icon="lucide:image" width="32" height="32" />
+                  </div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <span class="text-[9px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
+                  {project.data.type.replace("-", " ")}
+                </span>
+                <h3 class="text-base font-bold text-neutral-800 mb-2 group-hover:text-neutral-600 transition-colors leading-tight">
+                  {project.data.name}
+                </h3>
+                <p class="text-neutral-600 text-sm font-light line-clamp-2 mb-4 leading-relaxed">
+                  {project.data.description}
+                </p>
+                <div class="flex flex-wrap gap-1.5 mt-auto">
+                  {project.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-[8px] px-1.5 py-0.5 border border-neutral-200 rounded text-neutral-500 bg-neutral-50">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p
+          class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
+        >
+          MY APPROACH
+        </p>
+        <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
+          ENGINEERING PHILOSOPHY
+        </h2>
+        <p
+          class="text-neutral-600 text-sm font-light max-w-xl mx-auto mt-4 leading-relaxed"
+        >
+          I believe software should solve problems, not create new ones. I build
+          websites and systems based on clear design tenets.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <div
+          class="p-6 border border-neutral-100 rounded-xl bg-neutral-50/50 hover:shadow-xs transition-shadow"
+        >
+          <span
+            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+            >01. User First</span
+          >
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            I prioritize clean, friction-free UX over unnecessary engineering
+            complexity.
+          </p>
+        </div>
+        <div
+          class="p-6 border border-neutral-100 rounded-xl bg-neutral-50/50 hover:shadow-xs transition-shadow"
+        >
+          <span
+            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+            >02. Security</span
+          >
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            Responsible data handling, secure storage, and strict authentication
+            boundaries.
+          </p>
+        </div>
+        <div
+          class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50"
+        >
+          <span
+            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+            >03. Maintenance</span
+          >
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            Clean codebase structures and clear models instead of quick hacks.
+          </p>
+        </div>
+        <div
+          class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50"
+        >
+          <span
+            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+            >04. Scalability</span
+          >
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            Designing systems that grow seamlessly as user demands and
+            integrations expand.
+          </p>
+        </div>
+        <div
+          class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50"
+        >
+          <span
+            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+            >05. First-Principles</span
+          >
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            Understanding the real business workflows before planning system
+            designs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section
+    class="bg-neutral-50 px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black"
+  >
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p
+          class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
+        >
+          MY WORKFLOW
+        </p>
+        <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
+          HOW WE BUILD TOGETHER
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="relative pl-6 border-l border-neutral-200">
+          <span
+            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
+            >01</span
+          >
+          <h4
+            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
+          >
+            Understand Workflows
+          </h4>
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            We map your operational flow. I ask better questions early to
+            prevent scope creep and ensure we build exactly what you need.
+          </p>
+        </div>
+        <div class="relative">
+          <span
+            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
+            >02</span
+          >
+          <h4
+            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
+          >
+            System Architecture
+          </h4>
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            I outline clean interfaces, database structures, and backend service
+            boundaries, ensuring maintainable growth paths.
+          </p>
+        </div>
+        <div class="relative">
+          <span
+            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
+            >03</span
+          >
+          <h4
+            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
+          >
+            Incremental Delivery
+          </h4>
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            Features are implemented in small, testable milestones. You see
+            progress in real time rather than waiting for one big launch.
+          </p>
+        </div>
+        <div class="relative">
+          <span
+            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
+            >04</span
+          >
+          <h4
+            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
+          >
+            Refine & Deploy
+          </h4>
+          <p class="text-neutral-600 text-xs font-light leading-relaxed">
+            We review performance metrics, finalize caching structures, run
+            audits, and launch securely on robust servers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section
+    class="case-studies-section px-5 md:px-10 py-16 md:py-24 flex flex-col items-center text-center text-white"
   >
     <p
-      class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-5"
+      class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-4"
     >
       READY TO START?
     </p>
     <h2
-      class="font-bebas cta-heading leading-none text-foreground mb-10 tracking-wide gsap-reveal"
+      class="font-bebas cta-heading leading-none text-foreground mb-4 tracking-wide"
     >
       LET'S BUILD YOUR<br />NEXT BIG PROJECT
     </h2>
-    <div
-      class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center w-full sm:w-auto"
+    <p
+      class="text-neutral-400 text-xs md:text-sm max-w-md mx-auto mb-8 font-light leading-relaxed"
     >
+      Submit your details below for a free consultation. I will review your
+      requirements and get back to you within 24 hours.
+    </p>
+
+
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      action="/success"
+      class="max-w-md w-full mx-auto text-left bg-neutral-900/50 backdrop-blur-xs border border-white/10 p-6 md:p-8 rounded-2xl flex flex-col gap-5"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <div>
+        <label
+          for="form-name"
+          class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
+          >Your Name</label
+        >
+        <input
+          type="text"
+          id="form-name"
+          name="name"
+          required
+          class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors"
+          placeholder="John Doe"
+        />
+      </div>
+      <div>
+        <label
+          for="form-email"
+          class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
+          >Your Email</label
+        >
+        <input
+          type="email"
+          id="form-email"
+          name="email"
+          required
+          class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors"
+          placeholder="john@example.com"
+        />
+      </div>
+      <div>
+        <label
+          for="form-message"
+          class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
+          >Describe Your Project</label
+        >
+        <textarea
+          id="form-message"
+          name="message"
+          rows="4"
+          required
+          class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors resize-none"
+          placeholder="I need a SaaS dashboard built using Next.js..."
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="pill-button bg-white text-black text-[10px] md:text-xs uppercase tracking-widest hover:scale-[1.02] font-bold justify-center py-3 w-full transition-all mt-2 cursor-pointer shadow-md"
+      >
+        Send Inquiry
+      </button>
+    </form>
+
+    <div
+      class="mt-8 flex items-center justify-center gap-2 text-xs text-neutral-500"
+    >
+      <span>Or reach out directly via:</span>
+      <a
+        href="https://wa.me/91757896729"
+        target="_blank"
+        class="text-white hover:underline font-medium">WhatsApp</a
+      >
+      <span>•</span>
       <a
         href="mailto:kalyanborah456@gmail.com"
-        class="pill-button bg-white text-black text-xs uppercase tracking-widest hover:scale-105 font-semibold w-full sm:w-auto justify-center"
+        class="text-white hover:underline font-medium">Email</a
       >
-        Start a Conversation
-      </a>
-      <a
-        href="/works"
-        class="text-white/60 hover:text-white inline-flex uppercase tracking-widest text-[10px] md:text-xs items-center justify-center gap-2"
-      >
-        View Case Studies
-        <iconify-icon icon="lucide:arrow-right" height="1.8em" width="1.8em"
-        ></iconify-icon>
-      </a>
     </div>
   </section>
 
@@ -312,60 +712,8 @@ const keywords =
       >
     </div>
   </footer>
-
-  <!--<script-->
-  <!--  is:inline-->
-  <!--  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"-->
-  <!--  defer></script>-->
-  <!--<script-->
-  <!--  is:inline-->
-  <!--  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"-->
-  <!--  defer></script>-->
-  <!--<script is:inline>-->
-  <!--  window.addEventListener("load", function () {-->
-  <!--    if (typeof gsap === "undefined") return;-->
-
-  <!--    gsap.registerPlugin(ScrollTrigger);-->
-
-  <!--    // Hero entrance-->
-  <!--    gsap.from(".halftone-text", {-->
-  <!--      opacity: 0,-->
-  <!--      y: 80,-->
-  <!--      duration: 1.2,-->
-  <!--      ease: "power4.out",-->
-  <!--      delay: 0.15,-->
-  <!--    });-->
-
-  <!--    // Floating icons — gentle y-bob, no layout-shifting random values-->
-  <!--    var icons = document.querySelectorAll(".floating-icon");-->
-  <!--    icons.forEach(function (icon, i) {-->
-  <!--      gsap.to(icon, {-->
-  <!--        y: i % 2 === 0 ? -12 : 12,-->
-  <!--        duration: 2.5 + i * 0.3,-->
-  <!--        repeat: -1,-->
-  <!--        yoyo: true,-->
-  <!--        ease: "sine.inOut",-->
-  <!--        delay: i * 0.4,-->
-  <!--      });-->
-  <!--    });-->
-
-  <!--    // Scroll reveal-->
-  <!--    gsap.utils.toArray(".gsap-reveal").forEach(function (el) {-->
-  <!--      gsap.from(el, {-->
-  <!--        scrollTrigger: {-->
-  <!--          trigger: el,-->
-  <!--          start: "top 88%",-->
-  <!--          toggleActions: "play none none none",-->
-  <!--        },-->
-  <!--        opacity: 0,-->
-  <!--        y: 40,-->
-  <!--        duration: 0.9,-->
-  <!--        ease: "power3.out",-->
-  <!--      });-->
-  <!--    });-->
-  <!--  });-->
-  <!--</script>-->
 </Layout>
+
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&display=swap");
 
@@ -391,7 +739,6 @@ const keywords =
     font-family: "Bebas Neue", cursive;
   }
 
-  /* Mobile-first: solid white, upgrade to halftone on larger screens */
   .halftone-text {
     display: inline-block;
     line-height: 0.9;
@@ -408,13 +755,11 @@ const keywords =
     }
   }
 
-  /* Hero heading fluid size */
   .hero-heading {
     font-size: clamp(3.5rem, 8vw, 13rem);
     letter-spacing: -0.01em;
   }
 
-  /* CTA heading fluid size */
   .cta-heading {
     font-size: clamp(2.8rem, 10vw, 7rem);
   }
@@ -452,73 +797,12 @@ const keywords =
     color: white;
   }
 
-  /* Floating icon base — hidden on mobile */
-  .floating-icon {
-    position: absolute;
-    opacity: 0.25;
-    transition: all 0.5s ease;
-    filter: grayscale(1) brightness(2);
-    display: none;
-  }
 
-  @media (min-width: 768px) {
-    .floating-icon {
-      display: block;
-    }
 
-    .floating-icon:hover {
-      opacity: 1;
-      filter: grayscale(0) brightness(1);
-      transform: scale(1.25);
-    }
-  }
-
-  /* Individual floating icon positions & sizes */
-  .floating-icon--aws {
-    top: 12%;
-    left: 8%;
-    font-size: 2.5rem;
-  }
-
-  .floating-icon--docker {
-    top: 35%;
-    right: 12%;
-    font-size: 3rem;
-  }
-
-  .floating-icon--wordpress {
-    bottom: 22%;
-    left: 12%;
-    font-size: 2.5rem;
-  }
-
-  .floating-icon--github {
-    top: 18%;
-    right: 28%;
-    font-size: 2rem;
-  }
-
-  .floating-icon--sparkles {
-    bottom: 38%;
-    right: 8%;
-    font-size: 1.8rem;
-    opacity: 0.8;
-    filter: none;
-    color: #facc15;
-  }
-
-  .floating-icon--settings {
-    top: 58%;
-    left: 4%;
-    font-size: 1.8rem;
-  }
-
-  /* Small inline icon (arrow, etc.) */
   .icon-xs {
     font-size: 0.85rem;
   }
 
-  /* Small white icon inside filled circles */
   .icon-sm-white {
     color: white;
     font-size: 0.9rem;
@@ -554,9 +838,5 @@ const keywords =
       transparent 70%
     );
     pointer-events: none;
-  }
-
-  .gsap-reveal {
-    will-change: transform, opacity;
   }
 </style>

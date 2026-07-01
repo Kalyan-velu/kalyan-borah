@@ -6,7 +6,7 @@ associated: Takshasheela School of Civil Services
 type: web-application
 images:
   - "/projects/current-affairs/img_1.png"
-  - "/projects/current-affairs/img_2.png"
+  - "/projects/current-affairs/img.png"
 link: "https://currentaffairs.takshashilascs.com/"
 github: "private"
 bgColor: bg-blue-600

@@ -34,7 +34,18 @@ const ograph = project.data.image;
 ---
 
 <Layout {title} {description} {permalink} {ograph}>
-  <Section id="project-detail">
+  <section class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[40vh] flex flex-col justify-center px-5 md:px-10 pt-28 pb-14 overflow-hidden text-center text-white">
+    <div class="z-10 mt-6">
+      <h1 class="font-bebas halftone-text text-5xl md:text-7xl uppercase leading-none" transition:name={`${project.id}-title`}>
+        {project.data.name}
+      </h1>
+      <p class="text-neutral-400 text-[10px] md:text-xs uppercase tracking-[0.25em] mt-3">
+        {project.data.type.replace("-", " ")} • {project.data.status}
+      </p>
+    </div>
+  </section>
+
+  <Section id="project-detail" class="mt-8 md:mt-12">
     <div class="mb-8">
       <a
         href="/works"
@@ -45,22 +56,14 @@ const ograph = project.data.image;
     </div>
 
     <div class="flex flex-col gap-y-6">
-      <div class="flex flex-col gap-y-2">
-        <h1
-          class="text-3xl font-bold text-neutral-800"
-          transition:name={`${project.id}-title`}
-        >
-          {project.data.name}
-        </h1>
-        <div class="flex flex-wrap gap-2">
-          {
-            project.data.tags.map((tag) => (
-              <span class="px-2 py-0.5 text-xs border rounded-md bg-neutral-50 text-neutral-600">
-                {tag}
-              </span>
-            ))
-          }
-        </div>
+      <div class="flex flex-wrap gap-2">
+        {
+          project.data.tags.map((tag) => (
+            <span class="px-2 py-0.5 text-xs border rounded-md bg-neutral-50 text-neutral-600">
+              {tag}
+            </span>
+          ))
+        }
       </div>
 
       {
@@ -82,7 +85,7 @@ const ograph = project.data.image;
       }
 
       <div
-        class="flex flex-wrap gap-x-8 gap-y-4 text-sm border-y rounded-none py-4"
+        class="flex flex-wrap gap-x-8 gap-y-4 text-sm bg-neutral-50 rounded-xl px-6 py-4"
       >
         <div class="flex flex-col">
           <span class="text-neutral-500 font-medium">Type</span>

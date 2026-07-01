@@ -2,33 +2,63 @@
 title: About
 ---
 
-Hi, I’m Kalyan Jyoti Borah, a frontend-focused software engineer from Assam, India, who cares deeply about building performant, secure, and user-respecting web products.
-I hold a BCA from Sibsagar Commerce College (CGPA 7.2) and have grown from building feature-driven apps into thinking in terms of systems, trade-offs, and long-term maintainability.
-My core strength lies in the modern frontend ecosystem — working extensively with TypeScript, React, Next.js, and state management patterns, while paying close attention to performance, accessibility, and developer experience. Over time, I’ve learned that shipping UI is easy — shipping reliable UI is not.
-On the backend, I’ve worked with Node.js, Go (Gin), Laravel, and NestJS, designing APIs, authentication services, and early-stage microservice architectures. I’ve spent significant time understanding auth flows, RBAC/ABAC, token strategies, data modeling, and service boundaries, especially while planning and building SaaS and platform-style products.
-I’ve explored projects ranging from real-time applications and dashboards to travel-tech and seller platforms, often starting small and intentionally focusing on MVPs, scalability paths, and cost-awareness rather than overengineering.
-I value clean code, strong typing, security by default, and thoughtful UX, and I’m continuously unlearning bad habits picked up from tutorials and replacing them with first-principle thinking.
-Still learning. Still building. More intentional than before.
+I’m a software engineer who enjoys building products that solve real problems rather than simply shipping features. My work has primarily focused on frontend engineering, but over time I've grown into full-stack development, working across user interfaces, backend services, databases, automation, and cloud infrastructure.
 
-## Professional Experiences
+My career has taken me through startups, internal SaaS products, AI-powered applications, and educational technology. Along the way, I've built everything from modern web applications and automation tools to scraping platforms, developer utilities, and learning management systems.
 
-- **Frontend Developer Intern, Nullclass** (Nov 2022 - Dec 2022)
-  - Worked on a Stack Overflow clone, mastering React, Express.js, and MongoDB, while also mentoring fellow interns and refining my understanding of authentication, NoSQL optimization, and collaboration.
-- **Full Stack Developer, A to Z Debug** (Sept 2023 - Sept 2025)
-  - Developed pixel perfect frontend for a startup fund-raising company from Figma design to production using Next.js. Also integrated backend APIs to perform fund-raising,with cashfree payment gateway integration. (Dec 2023)
-  - Developed a web application and android application which allows users to generate captions using image for various platforms using React and React Native. (Jan 2024)
-  - Developed complete frontends for AI Chatbot products using React, TypeScript, Redux, RTK Query, Tailwind CSS, and Framer Motion.
-  - Integrated WebSocket connections for real-time interactions between users and chatbot.
-  - Developed MVP for SmartInbox in 2 months.
-  - Redesigned Blubuddy's dashboard with improved user experience and performance. Used code splitting and lazy loading to improve performance.
-  - Developed both backend and frontend for Design Hub.
-  - Implemented a custom queue system for handling scraping of multiple sites in Design Hub.
-  - Built dynamic dashboard for Smart Inbox with Kanban Boards and Mail Viewer.
-  - Optimised Redux store using redux middleware and selectors for better performance and maintainability.
-  - Fixed bugs related to websocket connections and improved performance of the dashboard.
-  - Refactored codebase to improve maintainability and scalability.
-  - Moved a codebase of a CDN based chatbot from vanilla JS to _React_ and _Rollup_ Bundler, improving maintainability and performance.
+What drives me isn't a particular framework—it's understanding how a system should work, why users need it, and how to build it in a way that remains maintainable as it grows.
 
-## Github Status
+---
 
-![Profile Details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kalyan-velu)
+## Professional Experience
+
+I began my professional journey as a frontend developer, spending much of my early career building responsive, performant interfaces with React, Next.js, and TypeScript. As my responsibilities expanded, I gradually moved into full-stack development, designing APIs, working with databases, implementing authentication systems, and building production-ready backend services.
+
+Across both organizations, my work has consistently focused on building production-grade web applications, frontend engineering, automation, and system architecture. My role has evolved from implementing features to understanding business processes, designing systems, and shaping products before writing code.
+
+### **IT Support & Web Developer**
+**Takshasheela School of Civil Services** | *2026 – Present*
+* **Learning Management System (LMS) Planning**: Gathered requirements, designed workflows, and planned the architecture for a custom LMS supporting student applications, teacher workflows, course/batch management, live classes, recordings, notifications, and an admin dashboard. Focus was on understanding the coaching institute's actual operational workflow so the software reflects how the organization functions.
+* **Internal Tools**: Developed a subscription renewal dashboard, schedule management systems, a recording upload pipeline, Cloudflare integrations, and a student notification system.
+* **Website & Operations**: Managed the main WordPress site, implemented SEO improvements, handled blog publishing and content migration, optimized lead collection, and oversaw Google Workspace administration and student communications.
+
+### **Full Stack Developer**
+**A to Z Debug** | *Aug 2023 – Sep 2025*
+* **SmartInbox AI**: Developed the frontend dashboard and backend APIs for an AI-powered email management platform. Implemented secure authentication, Stripe billing/subscriptions, and real-time communications using WebSockets and Server-Sent Events (SSE).
+* **Hub Platform**: Built and maintained a discovery platform for websites featuring automated scraping, screenshot generation, metadata extraction, AI-generated summaries, color palette extraction, and automatic category classification.
+* **BlueBuddy**: Developed the frontend for an AI chatbot platform tailored for the real estate industry.
+* **Automation & Scraping**: Engineered browser automation using Playwright, handling large-scale website scraping with custom queue systems, proxy support, and rate-limiting.
+* **Internal SaaS Products**: Developed dashboards and backend APIs, optimized state management (Redux Toolkit & RTK Query), and improved performance through code splitting and lazy loading.
+
+---
+
+## Engineering Philosophy
+
+I believe software should solve problems, not create new ones. Whenever I work on a product, I try to understand the workflow before thinking about implementation. Features make more sense when they are designed around how people actually work.
+
+* **User Experience over Complexity**: Intuitive, friction-free interfaces that hide the underlying complexity.
+* **Security & Privacy by Default**: Responsible handling of user data and secure authentication workflows.
+* **Long-Term Maintainability**: Writing clear, self-documenting code and choosing solid architecture instead of short-term hacks.
+* **Scalable Systems**: Building applications designed to scale with traffic and changing business requirements.
+* **Clear Architecture over Clever Code**: Keeping code readable, maintainable, and aligned with standard patterns.
+
+---
+
+## Building Products
+
+One of the things I enjoy most is taking an idea from its early stages and turning it into a working product. Rather than viewing software as isolated pages or APIs, I think in terms of complete systems where every part supports the overall experience.
+
+1. **Understanding the Business Problem**: Researching the workflow and target audience.
+2. **System Decomposition**: Breaking large systems into manageable, cohesive components.
+3. **Designing User Flows**: Mapping out intuitive paths for different user personas.
+4. **Creating Technical Architecture**: Choosing the right data models, service boundaries, and APIs.
+5. **Incremental Implementation**: Shipping features in digestible, testable cycles.
+6. **Refinement**: Continuously gathering feedback and optimizing performance.
+
+---
+
+## Continuous Learning & Looking Forward
+
+Technology changes constantly, and I enjoy learning by building. Many of the concepts I've explored came from solving practical problems—whether that meant implementing real-time systems, experimenting with AI integrations, understanding browser internals, improving application performance, or exploring new architectural patterns.
+
+As I continue growing, my goal is to create applications that are reliable, maintainable, and genuinely useful—software that users trust because it consistently solves the problems it was designed to solve.
