@@ -9,14 +9,15 @@ export default defineConfig({
   site: "https://kalyanjyotiborah.pro",
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      tsconfigPaths: true,
+    },
   },
   integrations: [markdoc(), sitemap()],
   output: "server",
   adapter: netlify({
     devFeatures: {
-      // Enable Netlify Image CDN support in dev. Defaults to true.
-      images: false,
-      // Inject Netlify environment variables in dev. Defaults to false.
+      images: true,
       environmentVariables: true,
     },
   }),
