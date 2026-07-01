@@ -1,5 +1,6 @@
 ---
 name: Peaky Editor
+slug: peaky-editor
 description: Peaky is a lightweight, high-performance desktop code editor built with a focus on simplicity, speed, and ease of use. It leverages the power of Wails to provide a native desktop experience with a modern web-based frontend.
 associated: Personal Project
 type: Desktop Application

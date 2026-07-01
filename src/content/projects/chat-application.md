@@ -1,5 +1,6 @@
 ---
 name: Chat Application
+slug: chat-application
 description: The Chat-Application is a real-time chat application built using React, Node.js, Express.js, and Socket.IO. It provides users with a platform to engage in instant messaging, enabling them to have real-time conversations with other users.
 associated: Personal Project
 type: web-application

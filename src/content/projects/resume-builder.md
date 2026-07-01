@@ -1,5 +1,6 @@
 ---
 name: Resume Builder
+slug: resume-builder
 description: I developed this web application to empower users to effortlessly build their resumes using OpenAI's API. Leveraging the MERN (MongoDB, Express, React, and Node) stack and OpenAI's GPT-3 API, the application provides a streamlined resume-building experience.
 associated: Personal Project
 bgColor: bg-green-500

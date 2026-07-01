@@ -1,5 +1,6 @@
 ---
 name: Your Next Job
+slug: your-next-job
 description: A job portal is designed to simplify the process of finding and creating jobs for both employers and applicants. The platform aims to streamline employment opportunities and candidate management.
 associated: Personal Project
 type: web-application

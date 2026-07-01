@@ -1,5 +1,6 @@
 ---
 name: Run Configuration
+slug: run-configuration
 description: A VS Code extension that simplifies run configuration management for development projects.
 associated: Personal Project
 type: VS Code Extension

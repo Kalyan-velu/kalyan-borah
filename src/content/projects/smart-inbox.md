@@ -1,5 +1,6 @@
 ---
 name: "Smart Inbox: An AI powered email client"
+slug: smart-inbox-ai
 description: An AI powered email client that send automated email replies.
 bgColor: bg-red-300
 associated:
