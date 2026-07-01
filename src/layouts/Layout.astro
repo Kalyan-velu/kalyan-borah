@@ -2,15 +2,14 @@
 import BaseHead, {
   type Props as BaseHeadProps,
 } from "@components/BaseHead.astro";
-import Socials from "@components/Socials.astro";
+import Header from "@components/Header.astro";
 import { cn } from "@lib/utils.ts";
 
 export interface Props extends BaseHeadProps {}
 const { title, description, permalink, keywords } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = (path: string) =>
-  pathname === path || pathname.startsWith(`${path}/`);
+const isHome = pathname === "/" || pathname === "/index.html";
 ---
 
 <!doctype html>
@@ -26,6 +25,7 @@ const isActive = (path: string) =>
         width="0"
         style="display:none;visibility:hidden"></iframe></noscript
     >
+    <Header />
     <main class="min-h-dvh w-full mx-auto relative">
       <slot />
     </main>

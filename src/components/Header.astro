@@ -1,0 +1,184 @@
+---
+import socials from "@data/socials.json";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Works", href: "/works" },
+  { name: "About", href: "/about" },
+];
+
+const whatsapp = "https://wa.me/91757896729";
+---
+
+<header
+  id="global-header"
+  class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-5 md:px-10 transition-all duration-300 bg-transparent text-white border-b border-transparent"
+>
+  <div class="w-full flex justify-between items-center gap-3">
+    <a href="/" class="flex flex-col text-left group">
+      <span
+        class="text-[9px] md:text-[11px] uppercase tracking-[0.18em] font-light leading-snug text-neutral-400 group-hover:text-white transition-colors"
+      >
+        INDIA Based /<br />Working Globally
+      </span>
+    </a>
+
+    <div class="flex items-center gap-2 md:gap-4">
+      <div
+        class="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full"
+      >
+        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        <span
+          class="text-[9px] text-foreground uppercase tracking-widest font-medium"
+        >
+          Freelancer • Available
+        </span>
+      </div>
+
+      <a
+        href={whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pill-button bg-white text-black text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-neutral-200 font-semibold py-1.5 px-3.5 md:py-2 md:px-4 transition-all"
+      >
+        Get in touch
+      </a>
+
+      <button
+        id="menu-trigger"
+        class="flex items-center justify-center gap-x-1 border border-white/10 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-semibold transition-all cursor-pointer"
+        aria-label="Open Menu"
+      >
+        <span>Menu</span>
+        <iconify-icon icon="lucide:menu" width="12" height="12"></iconify-icon>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="full-screen-menu"
+    class="fixed inset-0 w-full h-screen bg-black/95 backdrop-blur-xl z-50 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300"
+  >
+    <button
+      id="menu-close"
+      class="absolute top-6 right-6 text-neutral-400 hover:text-white flex items-center justify-center w-12 h-12 border border-white/15 rounded-full transition-colors cursor-pointer"
+      aria-label="Close Menu"
+    >
+      <iconify-icon icon="lucide:x" width="24" height="24"></iconify-icon>
+    </button>
+
+    <nav class="flex flex-col items-center gap-y-6 md:gap-y-8">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="font-bebas text-6xl md:text-8xl text-neutral-400 hover:text-white uppercase tracking-wider transition-colors duration-250 menu-link"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="h-px w-24 bg-white/10 my-8"></div>
+
+    <div class="flex flex-col items-center gap-y-3">
+      <a
+        href={whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pill-button bg-white text-black text-xs uppercase tracking-widest font-bold px-8 py-3 inline-flex items-center gap-x-2 hover:bg-neutral-200 transition-colors"
+      >
+        <iconify-icon icon="ri:whatsapp-line" width="16" height="16"
+        ></iconify-icon>
+        Start a Conversation
+      </a>
+      <span class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mt-2">
+        Available for projects globally
+      </span>
+    </div>
+  </div>
+</header>
+
+<script>
+  function setupHeader() {
+    const header = document.getElementById("global-header");
+    const menuTrigger = document.getElementById("menu-trigger");
+    const menuClose = document.getElementById("menu-close");
+    const fullScreenMenu = document.getElementById("full-screen-menu");
+
+    if (header) {
+      const handleScroll = () => {
+        if (window.scrollY > 40) {
+          header.classList.add(
+            "bg-black/85",
+            "backdrop-blur-md",
+            "border-white/5",
+            "py-3",
+          );
+          header.classList.remove(
+            "bg-transparent",
+            "border-transparent",
+            "py-4",
+            "md:py-6",
+          );
+        } else {
+          header.classList.add(
+            "bg-transparent",
+            "border-transparent",
+            "py-4",
+            "md:py-6",
+          );
+          header.classList.remove(
+            "bg-black/85",
+            "backdrop-blur-md",
+            "border-white/5",
+            "py-3",
+          );
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+    }
+
+    if (menuTrigger && fullScreenMenu && menuClose) {
+      const closeMenu = () => {
+        fullScreenMenu.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "";
+      };
+
+      menuTrigger.addEventListener("click", () => {
+        fullScreenMenu.classList.remove("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "hidden";
+      });
+
+      menuClose.addEventListener("click", closeMenu);
+
+      const links = fullScreenMenu.querySelectorAll(".menu-link");
+      links.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !fullScreenMenu.classList.contains("opacity-0")) {
+          closeMenu();
+        }
+      });
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", setupHeader);
+  document.addEventListener("astro:page-load", setupHeader);
+</script>
+
+<style>
+  .menu-link {
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+  }
+  .menu-link:hover {
+    transform: scale(1.05);
+  }
+</style>

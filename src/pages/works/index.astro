@@ -19,7 +19,14 @@ const ograph = "";
 ---
 
 <Layout {title} {description} {permalink} {ograph}>
-  <Section title="Works" id="works" headingTag="h1">
+  <section class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[40vh] flex flex-col justify-center px-5 md:px-10 pt-28 pb-14 overflow-hidden text-center text-white">
+    <div class="z-10 mt-6">
+      <h1 class="font-bebas halftone-text text-6xl md:text-8xl uppercase leading-none">CASE STUDIES</h1>
+      <p class="text-neutral-400 text-[10px] md:text-xs uppercase tracking-[0.25em] mt-3">Selected software projects and custom website builds</p>
+    </div>
+  </section>
+
+  <Section id="works" class="mt-8 md:mt-12">
     <div class="mb-8">
       <p class="text-sm text-neutral-600 mb-4">Filter by technology:</p>
       <div class="flex flex-wrap gap-2" id="tag-filters">
