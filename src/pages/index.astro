@@ -1,19 +1,19 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import Layout from '@layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const projects = await getCollection("projects");
+const projects = await getCollection('projects');
 const featuredProjects = projects
   .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
   .slice(0, 3);
 
 const title =
-  "Freelance Software Engineer in Assam, India | Kalyan – Website Developer Sivasagar & Guwahati";
+  'Freelance Software Engineer in Assam, India | Kalyan – Website Developer Sivasagar & Guwahati';
 const description =
-  "Kalyan Jyoti Borah is a freelance software engineer and website developer based in Sivasagar, Assam, India. Available for freelance projects in Guwahati, Assam, and globally. Custom websites, software engineering, and scalable solutions for businesses. Most trusted Website Design, Mobile App, Web Application Development, eCommerce, SEO developer in Assam.";
-const permalink = "https://kalyanjyotiborah.pro/";
+  'Kalyan Jyoti Borah is a freelance software engineer and website developer based in Sivasagar, Assam, India. Available for freelance projects in Guwahati, Assam, and globally. Custom websites, software engineering, and scalable solutions for businesses. Most trusted Website Design, Mobile App, Web Application Development, eCommerce, SEO developer in Assam.';
+const permalink = 'https://kalyanjyotiborah.pro/';
 const keywords =
-  "freelance developer sivasagar,website, software engineer assam, website developer guwahati, freelance software engineer india, web developer sivasagar, hire freelance developer assam, kalyan jyoti borah, website developer assam, software developer North East Asia, freelance web developer guwahati, custom software development assam,";
+  'freelance developer sivasagar, website, software engineer assam, website developer guwahati, freelance software engineer india, web developer sivasagar, hire freelance developer assam, kalyan jyoti borah, website developer assam, software developer North East Asia, freelance web developer guwahati, custom software development assam,';
 ---
 
 <Layout {title} {description} {permalink} {keywords}>
@@ -23,9 +23,7 @@ const keywords =
     <div
       class="flex-1 flex flex-col items-center justify-center text-center relative z-10 mt-8 md:mt-0"
     >
-      <p
-        class="text-lg md:text-xl font-light text-foreground italic mb-3 opacity-85"
-      >
+      <p class="text-lg md:text-xl font-light text-foreground italic mb-3 opacity-85">
         Hi, I am Kalyan.
       </p>
       <h1 class="font-bebas halftone-text hero-heading uppercase">
@@ -39,36 +37,24 @@ const keywords =
     </div>
 
     <div class="max-w-xl mx-auto text-center mt-10 z-10">
-      <p
-        class="text-neutral-400 text-sm md:text-base leading-relaxed font-light"
-      >
-        Based in Assam, India — available for freelance projects globally. I
-        engineer high-performance web products that solve real business
-        problems, load in milliseconds, and remain maintainable as your business
-        scales.
+      <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
+        Based in Assam, India — available for freelance projects globally. I engineer
+        high-performance web products that solve real business problems, load in milliseconds, and
+        remain maintainable as your business scales.
       </p>
     </div>
   </section>
-
 
   <section
     id="services"
     class="service-section px-5 md:px-16 lg:px-20 py-16 md:py-24 lg:py-32 overflow-hidden"
   >
-    <div
-      class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16"
-    >
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16">
       <div>
-        <p
-          class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
-        >
+        <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
           HOW I HELP
         </p>
-        <h2
-          class="font-bebas text-6xl sm:text-7xl md:text-[100px] leading-none"
-        >
-          SERVICES
-        </h2>
+        <h2 class="font-bebas text-6xl sm:text-7xl md:text-[100px] leading-none">SERVICES</h2>
       </div>
       <div class="flex items-center gap-4 mt-6 md:mt-0">
         <button
@@ -76,45 +62,34 @@ const keywords =
           class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors cursor-pointer border border-black/10"
           aria-label="Previous Service"
         >
-          <iconify-icon icon="lucide:arrow-left" width="20" height="20"
-          ></iconify-icon>
+          <iconify-icon icon="lucide:arrow-left" width="20" height="20"></iconify-icon>
         </button>
         <button
           id="service-next"
           class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors cursor-pointer border border-black/10"
           aria-label="Next Service"
         >
-          <iconify-icon icon="lucide:arrow-right" width="20" height="20"
-          ></iconify-icon>
+          <iconify-icon icon="lucide:arrow-right" width="20" height="20"></iconify-icon>
         </button>
       </div>
     </div>
 
     <div class="relative w-full">
-      <div
-        id="services-track"
-        class="flex transition-transform duration-500 ease-in-out"
-      >
-
+      <div id="services-track" class="flex transition-transform duration-500 ease-in-out">
         <div class="w-full md:w-1/2 shrink-0 pr-0 md:pr-12 pt-8 pb-4">
           <div
             class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2"
           >
             01
           </div>
-          <h3
-            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
-          >
+          <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800">
             Custom Web App & Website Development
           </h3>
           <p class="text-neutral-600 text-sm font-light mb-6">
-            High-performance, secure, and SEO-optimized sites that load
-            instantly. I combine beautiful frontend interfaces with solid
-            backend systems.
+            High-performance, secure, and SEO-optimized sites that load instantly. I combine
+            beautiful frontend interfaces with solid backend systems.
           </p>
-          <ul
-            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
-          >
+          <ul class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500">
             <li class="flex items-center gap-3">
               <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
               Next.js, React, Astro & TypeScript Frontends
@@ -136,18 +111,14 @@ const keywords =
           >
             02
           </div>
-          <h3
-            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
-          >
+          <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800">
             Systems Engineering & Automation
           </h3>
           <p class="text-neutral-600 text-sm font-light mb-6">
-            Robust backend business logic, database migrations, real-time
-            communications, and automated scraping workflows.
+            Robust backend business logic, database migrations, real-time communications, and
+            automated scraping workflows.
           </p>
-          <ul
-            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
-          >
+          <ul class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500">
             <li class="flex items-center gap-3">
               <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
               Node.js, Express, Go & Python APIs
@@ -169,18 +140,14 @@ const keywords =
           >
             03
           </div>
-          <h3
-            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
-          >
+          <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800">
             SEO Optimization & Content Strategy
           </h3>
           <p class="text-neutral-600 text-sm font-light mb-6">
-            Technical SEO audits, semantic HTML architecture, structured data,
-            and content strategies designed to rank your business higher.
+            Technical SEO audits, semantic HTML architecture, structured data, and content
+            strategies designed to rank your business higher.
           </p>
-          <ul
-            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
-          >
+          <ul class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500">
             <li class="flex items-center gap-3">
               <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
               Core Web Vitals & Loading Performance
@@ -196,25 +163,20 @@ const keywords =
           </ul>
         </div>
 
-
         <div class="w-full md:w-1/2 shrink-0 pr-0 md:pr-12 pt-8 pb-4">
           <div
             class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2"
           >
             04
           </div>
-          <h3
-            class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800"
-          >
+          <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800">
             No-Code Website Development
           </h3>
           <p class="text-neutral-600 text-sm font-light mb-6">
-            Rapid launch landing pages and marketing websites using visual
-            development tools, perfect for validating ideas or tight timelines.
+            Rapid launch landing pages and marketing websites using visual development tools,
+            perfect for validating ideas or tight timelines.
           </p>
-          <ul
-            class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500"
-          >
+          <ul class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500">
             <li class="flex items-center gap-3">
               <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0"></span>
               Framer & Webflow Development
@@ -234,9 +196,9 @@ const keywords =
 
     <script>
       function setupServiceSlider() {
-        const track = document.getElementById("services-track");
-        const prevBtn = document.getElementById("service-prev");
-        const nextBtn = document.getElementById("service-next");
+        const track = document.getElementById('services-track');
+        const prevBtn = document.getElementById('service-prev');
+        const nextBtn = document.getElementById('service-next');
         if (!track || !prevBtn || !nextBtn) return;
 
         let currentIndex = 0;
@@ -256,117 +218,89 @@ const keywords =
             track.style.transform = `translateX(-${percentage}%)`;
           }
 
-          prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
-          prevBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+          prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+          prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
 
-          nextBtn.style.opacity = currentIndex >= maxIndex ? "0.3" : "1";
-          nextBtn.style.pointerEvents =
-            currentIndex >= maxIndex ? "none" : "auto";
+          nextBtn.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+          nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
         }
 
-        prevBtn.addEventListener("click", () => {
+        prevBtn.addEventListener('click', () => {
           currentIndex--;
           updateSlider();
         });
 
-        nextBtn.addEventListener("click", () => {
+        nextBtn.addEventListener('click', () => {
           currentIndex++;
           updateSlider();
         });
 
-        window.addEventListener("resize", updateSlider);
+        window.addEventListener('resize', updateSlider);
         updateSlider();
       }
 
-      document.addEventListener("DOMContentLoaded", setupServiceSlider);
-      document.addEventListener("astro:page-load", setupServiceSlider);
+      document.addEventListener('DOMContentLoaded', setupServiceSlider);
+      document.addEventListener('astro:page-load', setupServiceSlider);
     </script>
   </section>
 
   <section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
     <div class="max-w-5xl mx-auto">
-      <h2
-        class="font-bebas text-5xl sm:text-6xl md:text-8xl mb-12 text-center leading-tight"
-      >
+      <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl mb-12 text-center leading-tight">
         WHAT YOU GET AS MY CLIENT
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
         <div>
-          <div
-            class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
-          >
-            <iconify-icon
-              icon="lucide:zap"
-              class="icon-sm-white"
-              height="1.4em"
-              width="1.4em"></iconify-icon>
+          <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4">
+            <iconify-icon icon="lucide:zap" class="icon-sm-white" height="1.4em" width="1.4em"
+            ></iconify-icon>
           </div>
-          <h4
-            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800"
-          >
+          <h4 class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800">
             Speed & Search Visibility
           </h4>
           <p class="text-neutral-600 text-sm font-light leading-relaxed">
-            I build pages designed to score 100 on Google Lighthouse. Faster
-            loading times lead directly to higher Google search rankings and
-            better customer retention.
+            I build pages designed to score 100 on Google Lighthouse. Faster loading times lead
+            directly to higher Google search rankings and better customer retention.
           </p>
         </div>
         <div>
-          <div
-            class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
-          >
-            <iconify-icon
-              icon="lucide:layers"
-              class="icon-sm-white"
-              height="1.4em"
-              width="1.4em"></iconify-icon>
+          <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4">
+            <iconify-icon icon="lucide:layers" class="icon-sm-white" height="1.4em" width="1.4em"
+            ></iconify-icon>
           </div>
-          <h4
-            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800"
-          >
+          <h4 class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800">
             SaaS Built to Scale
           </h4>
           <p class="text-neutral-600 text-sm font-light leading-relaxed">
-            Your system will be built using clean architecture and proper
-            database design, ensuring it scales seamlessly to handle spikes in
-            traffic without slowing down or crashing.
+            Your system will be built using clean architecture and proper database design, ensuring
+            it scales seamlessly to handle spikes in traffic without slowing down or crashing.
           </p>
         </div>
         <div>
-          <div
-            class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4"
-          >
+          <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4">
             <iconify-icon
               icon="lucide:message-circle"
               class="icon-sm-white"
               height="1.4em"
               width="1.4em"></iconify-icon>
           </div>
-          <h4
-            class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800"
-          >
+          <h4 class="text-base md:text-lg font-bold mb-3 uppercase tracking-tight text-neutral-800">
             Direct & Clear Partnership
           </h4>
           <p class="text-neutral-600 text-sm font-light leading-relaxed">
-            You deal directly with me, the engineer. No account managers, no
-            communication lag. We align on your business workflow before writing
-            code, saving time and resources.
+            You deal directly with me, the engineer. No account managers, no communication lag. We
+            align on your business workflow before writing code, saving time and resources.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section
-    class="px-5 md:px-16 lg:px-20 py-16 md:py-24 bg-neutral-50 text-black"
-  >
+  <section class="px-5 md:px-16 lg:px-20 py-16 md:py-24 bg-neutral-50 text-black">
     <div class="max-w-7xl mx-auto">
       <div class="flex justify-between items-end mb-12">
         <div>
-          <p
-            class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
-          >
+          <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
             MY WORK
           </p>
           <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
@@ -383,8 +317,7 @@ const keywords =
               class="group flex flex-col bg-white rounded-xl overflow-hidden transition-all duration-300"
             >
               <div class="aspect-video w-full overflow-hidden bg-neutral-100 relative">
-                {project.data.image ||
-                (project.data.images ?? [])?.length > 0 ? (
+                {project.data.image || (project.data.images ?? [])?.length > 0 ? (
                   <img
                     src={project.data.image || project.data.images[0]}
                     alt={project.data.name}
@@ -398,7 +331,7 @@ const keywords =
               </div>
               <div class="p-6 flex flex-col flex-1">
                 <span class="text-[9px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
-                  {project.data.type.replace("-", " ")}
+                  {project.data.type.replace('-', ' ')}
                 </span>
                 <h3 class="text-base font-bold text-neutral-800 mb-2 group-hover:text-neutral-600 transition-colors leading-tight">
                   {project.data.name}
@@ -424,19 +357,15 @@ const keywords =
   <section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <p
-          class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
-        >
+        <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
           MY APPROACH
         </p>
         <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
           ENGINEERING PHILOSOPHY
         </h2>
-        <p
-          class="text-neutral-600 text-sm font-light max-w-xl mx-auto mt-4 leading-relaxed"
-        >
-          I believe software should solve problems, not create new ones. I build
-          websites and systems based on clear design tenets.
+        <p class="text-neutral-600 text-sm font-light max-w-xl mx-auto mt-4 leading-relaxed">
+          I believe software should solve problems, not create new ones. I build websites and
+          systems based on clear design tenets.
         </p>
       </div>
 
@@ -444,75 +373,55 @@ const keywords =
         <div
           class="p-6 border border-neutral-100 rounded-xl bg-neutral-50/50 hover:shadow-xs transition-shadow"
         >
-          <span
-            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+          <span class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
             >01. User First</span
           >
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            I prioritize clean, friction-free UX over unnecessary engineering
-            complexity.
+            I prioritize clean, friction-free UX over unnecessary engineering complexity.
           </p>
         </div>
         <div
           class="p-6 border border-neutral-100 rounded-xl bg-neutral-50/50 hover:shadow-xs transition-shadow"
         >
-          <span
-            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+          <span class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
             >02. Security</span
           >
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            Responsible data handling, secure storage, and strict authentication
-            boundaries.
+            Responsible data handling, secure storage, and strict authentication boundaries.
           </p>
         </div>
-        <div
-          class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50"
-        >
-          <span
-            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+        <div class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50">
+          <span class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
             >03. Maintenance</span
           >
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
             Clean codebase structures and clear models instead of quick hacks.
           </p>
         </div>
-        <div
-          class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50"
-        >
-          <span
-            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+        <div class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50">
+          <span class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
             >04. Scalability</span
           >
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            Designing systems that grow seamlessly as user demands and
-            integrations expand.
+            Designing systems that grow seamlessly as user demands and integrations expand.
           </p>
         </div>
-        <div
-          class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50"
-        >
-          <span
-            class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
+        <div class="p-6 bg-neutral-50/50 rounded-xl transition-colors hover:bg-neutral-100/50">
+          <span class="text-xs font-bold text-neutral-800 uppercase tracking-widest block mb-3"
             >05. First-Principles</span
           >
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            Understanding the real business workflows before planning system
-            designs.
+            Understanding the real business workflows before planning system designs.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <section
-    class="bg-neutral-50 px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black"
-  >
+  <section class="bg-neutral-50 px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <p
-          class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2"
-        >
+        <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
           MY WORKFLOW
         </p>
         <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
@@ -522,90 +431,62 @@ const keywords =
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="relative pl-6 border-l border-neutral-200">
-          <span
-            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
-            >01</span
-          >
-          <h4
-            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
-          >
+          <span class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none">01</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800">
             Understand Workflows
           </h4>
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            We map your operational flow. I ask better questions early to
-            prevent scope creep and ensure we build exactly what you need.
+            We map your operational flow. I ask better questions early to prevent scope creep and
+            ensure we build exactly what you need.
           </p>
         </div>
         <div class="relative">
-          <span
-            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
-            >02</span
-          >
-          <h4
-            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
-          >
+          <span class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none">02</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800">
             System Architecture
           </h4>
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            I outline clean interfaces, database structures, and backend service
-            boundaries, ensuring maintainable growth paths.
+            I outline clean interfaces, database structures, and backend service boundaries,
+            ensuring maintainable growth paths.
           </p>
         </div>
         <div class="relative">
-          <span
-            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
-            >03</span
-          >
-          <h4
-            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
-          >
+          <span class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none">03</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800">
             Incremental Delivery
           </h4>
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            Features are implemented in small, testable milestones. You see
-            progress in real time rather than waiting for one big launch.
+            Features are implemented in small, testable milestones. You see progress in real time
+            rather than waiting for one big launch.
           </p>
         </div>
         <div class="relative">
-          <span
-            class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none"
-            >04</span
-          >
-          <h4
-            class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800"
-          >
+          <span class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none">04</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-2 text-neutral-800">
             Refine & Deploy
           </h4>
           <p class="text-neutral-600 text-xs font-light leading-relaxed">
-            We review performance metrics, finalize caching structures, run
-            audits, and launch securely on robust servers.
+            We review performance metrics, finalize caching structures, run audits, and launch
+            securely on robust servers.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-
   <section
     class="case-studies-section px-5 md:px-10 py-16 md:py-24 flex flex-col items-center text-center text-white"
   >
-    <p
-      class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-4"
-    >
+    <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-4">
       READY TO START?
     </p>
-    <h2
-      class="font-bebas cta-heading leading-none text-foreground mb-4 tracking-wide"
-    >
+    <h2 class="font-bebas cta-heading leading-none text-foreground mb-4 tracking-wide">
       LET'S BUILD YOUR<br />NEXT BIG PROJECT
     </h2>
-    <p
-      class="text-neutral-400 text-xs md:text-sm max-w-md mx-auto mb-8 font-light leading-relaxed"
-    >
-      Submit your details below for a free consultation. I will review your
-      requirements and get back to you within 24 hours.
+    <p class="text-neutral-400 text-xs md:text-sm max-w-md mx-auto mb-8 font-light leading-relaxed">
+      Submit your details below for a free consultation. I will review your requirements and get
+      back to you within 24 hours.
     </p>
-
 
     <form
       name="contact"
@@ -619,8 +500,9 @@ const keywords =
         <label
           for="form-name"
           class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
-          >Your Name</label
         >
+          Your Name
+        </label>
         <input
           type="text"
           id="form-name"
@@ -634,8 +516,9 @@ const keywords =
         <label
           for="form-email"
           class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
-          >Your Email</label
         >
+          Your Email
+        </label>
         <input
           type="email"
           id="form-email"
@@ -649,16 +532,16 @@ const keywords =
         <label
           for="form-message"
           class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
-          >Describe Your Project</label
         >
+          Describe Your Project
+        </label>
         <textarea
           id="form-message"
           name="message"
           rows="4"
           required
           class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors resize-none"
-          placeholder="I need a SaaS dashboard built using Next.js..."
-        ></textarea>
+          placeholder="I need a SaaS dashboard built using Next.js..."></textarea>
       </div>
       <button
         type="submit"
@@ -668,9 +551,7 @@ const keywords =
       </button>
     </form>
 
-    <div
-      class="mt-8 flex items-center justify-center gap-2 text-xs text-neutral-500"
-    >
+    <div class="mt-8 flex items-center justify-center gap-2 text-xs text-neutral-500">
       <span>Or reach out directly via:</span>
       <a
         href="https://wa.me/91757896729"
@@ -678,9 +559,8 @@ const keywords =
         class="text-white hover:underline font-medium">WhatsApp</a
       >
       <span>•</span>
-      <a
-        href="mailto:kalyanborah456@gmail.com"
-        class="text-white hover:underline font-medium">Email</a
+      <a href="mailto:kalyanborah456@gmail.com" class="text-white hover:underline font-medium"
+        >Email</a
       >
     </div>
   </section>
@@ -715,7 +595,7 @@ const keywords =
 </Layout>
 
 <style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&display=swap');
 
   :root {
     --bg-dark: #111;
@@ -729,14 +609,14 @@ const keywords =
   }
 
   body {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
 
   .font-bebas {
-    font-family: "Bebas Neue", cursive;
+    font-family: 'Bebas Neue', cursive;
   }
 
   .halftone-text {
@@ -797,8 +677,6 @@ const keywords =
     color: white;
   }
 
-
-
   .icon-xs {
     font-size: 0.85rem;
   }
@@ -829,14 +707,10 @@ const keywords =
   }
 
   .case-studies-section::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.05) 0%,
-      transparent 70%
-    );
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
     pointer-events: none;
   }
 </style>
