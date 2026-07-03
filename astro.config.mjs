@@ -48,7 +48,7 @@ export default defineConfig({
     },
   },
   integrations: [markdoc(), sitemap()],
-  output: 'server',
+  output: 'static',
   adapter: netlify({
     devFeatures: {
       images: true,
