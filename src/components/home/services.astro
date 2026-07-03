@@ -1,0 +1,153 @@
+---
+const services = [
+  {
+    id: '01',
+    title: 'Custom Web App & Website Development',
+    description:
+      'High-performance, secure, and SEO-optimized sites that load instantly. I combine beautiful frontend interfaces with solid backend systems.',
+    features: [
+      'Next.js, React, Astro & TypeScript Frontends',
+      'Headless CMS & Custom Admin Dashboards',
+      'SEO Architecture & Page Speed Optimization',
+    ],
+  },
+  {
+    id: '02',
+    title: 'Systems Engineering & Automation',
+    description:
+      'Robust backend business logic, database migrations, real-time communications, and automated scraping workflows.',
+    features: [
+      'Node.js, Express, Go & Python APIs',
+      'WebSockets, Stripe Payments & Auth Providers',
+      'Playwright Scraping, Automation & Queue Systems',
+    ],
+  },
+  {
+    id: '03',
+    title: 'SEO Optimization & Content Strategy',
+    description:
+      'Technical SEO audits, semantic HTML architecture, structured data, and content strategies designed to rank your business higher.',
+    features: [
+      'Core Web Vitals & Loading Performance',
+      'Schema Markup & Technical Audits',
+      'On-Page Content Strategy',
+    ],
+  },
+  {
+    id: '04',
+    title: 'No-Code Website Development',
+    description:
+      'Rapid launch landing pages and marketing websites using visual development tools, perfect for validating ideas or tight timelines.',
+    features: [
+      'Framer & Webflow Development',
+      'High-Converting Landing Pages',
+      'CMS Integration & Handoff',
+    ],
+  },
+];
+---
+
+<section
+  id="services"
+  class="service-section px-5 md:px-16 lg:px-20 py-16 md:py-24 lg:py-32 overflow-hidden"
+>
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16">
+    <div>
+      <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
+        HOW I HELP
+      </p>
+      <h2 class="font-bebas text-6xl sm:text-7xl md:text-[100px] leading-none">SERVICES</h2>
+    </div>
+    <div class="flex items-center gap-4 mt-6 md:mt-0">
+      <button
+        id="service-prev"
+        class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors cursor-pointer border border-black/10"
+        aria-label="Previous Service"
+      >
+        <iconify-icon icon="lucide:arrow-left" width="24" height="24"></iconify-icon>
+      </button>
+      <button
+        id="service-next"
+        class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors cursor-pointer border border-black/10"
+        aria-label="Next Service"
+      >
+        <iconify-icon icon="lucide:arrow-right" width="24" height="24"></iconify-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="relative w-full">
+    <div id="services-track" class="flex transition-transform duration-500 ease-in-out">
+      {
+        services.map((service) => (
+          <div class="w-full  md:w-1/2 shrink-0 pr-4 md:pr-12 pt-8 pb-4">
+            <div class="font-bebas text-[5rem] md:text-[7rem] leading-none select-none text-black/5 mb-2">
+              {service.id}
+            </div>
+            <h3 class="text-lg md:text-2xl font-bold uppercase tracking-wider mb-4 text-neutral-800">
+              {service.title}
+            </h3>
+            <p class="text-neutral-600 text-sm font-light mb-6">{service.description}</p>
+            <ul class="space-y-3 text-xs uppercase tracking-wider font-semibold text-neutral-500">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 bg-black rounded-full shrink-0" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <script>
+    function setupServiceSlider() {
+      const track = document.getElementById('services-track');
+      const prevBtn = document.getElementById('service-prev');
+      const nextBtn = document.getElementById('service-next');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      let currentIndex = 0;
+      const slides = track.children;
+      const totalSlides = slides.length;
+
+      function updateSlider() {
+        const isMobile = window.innerWidth < 768;
+        const slidesVisible = isMobile ? 1 : 2;
+        const maxIndex = Math.max(0, totalSlides - slidesVisible);
+
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        const percentage = isMobile ? currentIndex * 100 : currentIndex * 50;
+        if (track) {
+          track.style.transform = `translateX(-${percentage}%)`;
+        }
+        if (prevBtn) {
+          prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+          prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+        }
+        if (nextBtn) {
+          nextBtn.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+          nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+        }
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex--;
+        updateSlider();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex++;
+        updateSlider();
+      });
+
+      window.addEventListener('resize', updateSlider);
+      updateSlider();
+    }
+
+    document.addEventListener('astro:page-load', setupServiceSlider);
+  </script>
+</section>

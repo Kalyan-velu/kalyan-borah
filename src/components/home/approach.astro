@@ -1,0 +1,64 @@
+---
+const approaches = [
+  {
+    id: '01.',
+    title: 'User First',
+    description: 'I prioritize clean, friction-free UX over unnecessary engineering complexity.',
+    styleClass: 'border border-neutral-100 hover:shadow-xs',
+  },
+  {
+    id: '02.',
+    title: 'Security',
+    description: 'Responsible data handling, secure storage, and strict authentication boundaries.',
+    styleClass: 'border border-neutral-100 hover:shadow-xs',
+  },
+  {
+    id: '03.',
+    title: 'Maintenance',
+    description: 'Clean codebase structures and clear models instead of quick hacks.',
+    styleClass: 'transition-colors hover:bg-neutral-100/50',
+  },
+  {
+    id: '04.',
+    title: 'Scalability',
+    description: 'Designing systems that grow seamlessly as user demands and integrations expand.',
+    styleClass: 'transition-colors hover:bg-neutral-100/50',
+  },
+  {
+    id: '05.',
+    title: 'First-Principles',
+    description: 'Understanding the real business workflows before planning system designs.',
+    styleClass: 'transition-colors hover:bg-neutral-100/50',
+  },
+];
+---
+
+<section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
+        MY APPROACH
+      </p>
+      <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
+        ENGINEERING PHILOSOPHY
+      </h2>
+      <p class="text-neutral-600 text-base font-medium max-w-xl mx-auto mt-4 leading-relaxed">
+        I believe software should solve problems, not create new ones. I build websites and systems
+        based on clear design tenets.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap w-full justify-center">
+      {
+        approaches.map((item) => (
+          <div class={`p-6 basis-full md:basis-1/3 rounded-xl bg-neutral-50/50 ${item.styleClass}`}>
+            <span class="text-base font-bold text-neutral-800 uppercase tracking-widest block mb-3">
+              {item.id} {item.title}
+            </span>
+            <p class="text-neutral-600 text-base font-light leading-relaxed">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

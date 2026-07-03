@@ -1,13 +1,13 @@
 ---
-import socials from "@data/socials.json";
+import socials from '@data/socials.json';
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Works", href: "/works" },
-  { name: "About", href: "/about" },
+  { name: 'Home', href: '/' },
+  { name: 'Works', href: '/works' },
+  { name: 'About', href: '/about' },
 ];
 
-const whatsapp = "https://wa.me/91757896729";
+const whatsapp = 'https://wa.me/91757896729';
 ---
 
 <header
@@ -28,9 +28,7 @@ const whatsapp = "https://wa.me/91757896729";
         class="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full"
       >
         <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-        <span
-          class="text-[9px] text-foreground uppercase tracking-widest font-medium"
-        >
+        <span class="text-[9px] text-foreground uppercase tracking-widest font-medium">
           Freelancer • Available
         </span>
       </div>
@@ -39,7 +37,7 @@ const whatsapp = "https://wa.me/91757896729";
         href={whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        class="pill-button bg-white text-black text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-neutral-200 font-semibold py-1.5 px-3.5 md:py-2 md:px-4 transition-all"
+        class="pill-button text-nowrap bg-white text-black text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-neutral-200 font-semibold py-1.5 px-3.5 md:py-2 md:px-4 transition-all"
       >
         Get in touch
       </a>
@@ -89,8 +87,7 @@ const whatsapp = "https://wa.me/91757896729";
         rel="noopener noreferrer"
         class="pill-button bg-white text-black text-xs uppercase tracking-widest font-bold px-8 py-3 inline-flex items-center gap-x-2 hover:bg-neutral-200 transition-colors"
       >
-        <iconify-icon icon="ri:whatsapp-line" width="16" height="16"
-        ></iconify-icon>
+        <iconify-icon icon="ri:whatsapp-line" width="16" height="16"></iconify-icon>
         Start a Conversation
       </a>
       <span class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mt-2">
@@ -102,74 +99,54 @@ const whatsapp = "https://wa.me/91757896729";
 
 <script>
   function setupHeader() {
-    const header = document.getElementById("global-header");
-    const menuTrigger = document.getElementById("menu-trigger");
-    const menuClose = document.getElementById("menu-close");
-    const fullScreenMenu = document.getElementById("full-screen-menu");
+    const header = document.getElementById('global-header');
+    const menuTrigger = document.getElementById('menu-trigger');
+    const menuClose = document.getElementById('menu-close');
+    const fullScreenMenu = document.getElementById('full-screen-menu');
 
     if (header) {
       const handleScroll = () => {
         if (window.scrollY > 40) {
-          header.classList.add(
-            "bg-black/85",
-            "backdrop-blur-md",
-            "border-white/5",
-            "py-3",
-          );
-          header.classList.remove(
-            "bg-transparent",
-            "border-transparent",
-            "py-4",
-            "md:py-6",
-          );
+          header.classList.add('bg-black/85', 'backdrop-blur-md', 'border-white/5', 'py-3');
+          header.classList.remove('bg-transparent', 'border-transparent', 'py-4', 'md:py-6');
         } else {
-          header.classList.add(
-            "bg-transparent",
-            "border-transparent",
-            "py-4",
-            "md:py-6",
-          );
-          header.classList.remove(
-            "bg-black/85",
-            "backdrop-blur-md",
-            "border-white/5",
-            "py-3",
-          );
+          header.classList.add('bg-transparent', 'border-transparent', 'py-4', 'md:py-6');
+          header.classList.remove('bg-black/85', 'backdrop-blur-md', 'border-white/5', 'py-3');
         }
       };
 
-      window.addEventListener("scroll", handleScroll);
+      window.addEventListener('scroll', handleScroll);
       handleScroll();
     }
 
     if (menuTrigger && fullScreenMenu && menuClose) {
       const closeMenu = () => {
-        fullScreenMenu.classList.add("opacity-0", "pointer-events-none");
-        document.body.style.overflow = "";
+        fullScreenMenu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
       };
 
-      menuTrigger.addEventListener("click", () => {
-        fullScreenMenu.classList.remove("opacity-0", "pointer-events-none");
-        document.body.style.overflow = "hidden";
+      menuTrigger.addEventListener('click', () => {
+        fullScreenMenu.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
       });
 
-      menuClose.addEventListener("click", closeMenu);
+      menuClose.addEventListener('click', closeMenu);
 
-      const links = fullScreenMenu.querySelectorAll(".menu-link");
+      const links = fullScreenMenu.querySelectorAll('.menu-link');
       links.forEach((link) => {
-        link.addEventListener("click", closeMenu);
+        link.addEventListener('click', closeMenu);
       });
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !fullScreenMenu.classList.contains("opacity-0")) {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !fullScreenMenu.classList.contains('opacity-0')) {
           closeMenu();
         }
       });
     }
   }
 
-  document.addEventListener("DOMContentLoaded", setupHeader);
-  document.addEventListener("astro:page-load", setupHeader);
+  document.addEventListener('DOMContentLoaded', setupHeader);
+  document.addEventListener('astro:page-load', setupHeader);
 </script>
 
 <style>

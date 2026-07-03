@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+const projects = await getCollection('projects');
+const featuredProjects = projects
+  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  .slice(0, 3);
+---
+
+<section class="px-5 md:px-16 lg:px-20 py-16 md:py-24 bg-neutral-50 text-black">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
+          MY WORK
+        </p>
+        <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">FEATURED PROJECTS</h2>
+      </div>
+      <a href="/works" class="outline-button">VIEW ALL</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        featuredProjects.map((project) => (
+          <a
+            href={`/works/${project.id}`}
+            class="group flex flex-col bg-white rounded-xl overflow-hidden transition-all duration-300"
+          >
+            <div class="aspect-video w-full overflow-hidden bg-neutral-100 relative">
+              {project.data.image || (project.data.images ?? [])?.length > 0 ? (
+                <img
+                  src={project.data.image || project.data.images[0]}
+                  alt={project.data.name}
+                  class="h-full w-full object-cover group-hover:scale-103 transition-transform duration-300"
+                />
+              ) : (
+                <div class="h-full w-full flex items-center justify-center bg-neutral-100 text-neutral-400">
+                  <iconify-icon icon="lucide:image" width="32" height="32" />
+                </div>
+              )}
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-[9px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
+                {project.data.type.replace('-', ' ')}
+              </span>
+              <h3 class="text-base font-bold text-neutral-800 mb-2 group-hover:text-neutral-600 transition-colors leading-tight">
+                {project.data.name}
+              </h3>
+              <p class="text-neutral-600 text-sm font-light line-clamp-2 mb-4 leading-relaxed">
+                {project.data.description}
+              </p>
+              <div class="flex flex-wrap gap-1.5 mt-auto">
+                {project.data.tags.slice(0, 3).map((tag) => (
+                  <span class="text-[8px] px-1.5 py-0.5 border border-neutral-200 rounded text-neutral-500 bg-neutral-50">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

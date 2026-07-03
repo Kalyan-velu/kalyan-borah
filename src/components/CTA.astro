@@ -1,0 +1,94 @@
+---
+
+---
+
+<section
+  class="case-studies-section px-5 md:px-10 py-16 md:py-24 mt-12 flex flex-col items-center text-center text-white"
+>
+  <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-4">
+    READY TO START?
+  </p>
+  <h2 class="font-bebas cta-heading leading-none text-foreground mb-4 tracking-wide">
+    LET'S BUILD YOUR<br />NEXT BIG PROJECT
+  </h2>
+  <p class="text-neutral-400 text-xs md:text-sm max-w-md mx-auto mb-8 font-light leading-relaxed">
+    Submit your details below for a free consultation. I will review your requirements and get back
+    to you within 24 hours.
+  </p>
+
+  <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    action="/success"
+    class="max-w-md w-full mx-auto text-left bg-neutral-900/50 backdrop-blur-xs border border-white/10 p-6 md:p-8 rounded-2xl flex flex-col gap-5"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    <div>
+      <label
+        for="form-name"
+        class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
+      >
+        Your Name
+      </label>
+      <input
+        type="text"
+        id="form-name"
+        name="name"
+        required
+        class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors"
+        placeholder="John Doe"
+      />
+    </div>
+    <div>
+      <label
+        for="form-email"
+        class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
+      >
+        Your Email
+      </label>
+      <input
+        type="email"
+        id="form-email"
+        name="email"
+        required
+        class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors"
+        placeholder="john@example.com"
+      />
+    </div>
+    <div>
+      <label
+        for="form-message"
+        class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 mb-2 font-semibold"
+      >
+        Describe Your Project
+      </label>
+      <textarea
+        id="form-message"
+        name="message"
+        rows="4"
+        required
+        class="w-full px-4 py-2.5 bg-neutral-950/80 border border-white/10 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-white/40 text-xs transition-colors resize-none"
+        placeholder="I need a SaaS dashboard built using Next.js..."></textarea>
+    </div>
+    <button
+      type="submit"
+      class="pill-button bg-white text-black text-[10px] md:text-xs uppercase tracking-widest hover:scale-[1.02] font-bold justify-center py-3 w-full transition-all mt-2 cursor-pointer shadow-md"
+    >
+      Send Inquiry
+    </button>
+  </form>
+
+  <div class="mt-8 flex items-center justify-center gap-2 text-xs text-neutral-500">
+    <span>Or reach out directly via:</span>
+    <a
+      href="https://wa.me/91757896729"
+      target="_blank"
+      class="text-white hover:underline font-medium">WhatsApp</a
+    >
+    <span>•</span>
+    <a href="mailto:kalyanborah456@gmail.com" class="text-white hover:underline font-medium"
+      >Email</a
+    >
+  </div>
+</section>

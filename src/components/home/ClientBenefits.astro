@@ -1,0 +1,50 @@
+---
+const benefits = [
+  {
+    icon: 'lucide:zap',
+    title: 'Speed & Search Visibility',
+    description:
+      'I build pages designed to score 100 on Google Lighthouse. Faster loading times lead directly to higher Google search rankings and better customer retention.',
+  },
+  {
+    icon: 'lucide:layers',
+    title: 'SaaS Built to Scale',
+    description:
+      'Your system will be built using clean architecture and proper database design, ensuring it scales seamlessly to handle spikes in traffic without slowing down or crashing.',
+  },
+  {
+    icon: 'lucide:message-circle',
+    title: 'Direct & Clear Partnership',
+    description:
+      'You deal directly with me, the engineer. No account managers, no communication lag. We align on your business workflow before writing code, saving time and resources.',
+  },
+];
+---
+
+<section class="bg-white px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl mb-12 text-center leading-tight">
+      WHAT YOU GET AS MY CLIENT
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
+      {
+        benefits.map((benefit) => (
+          <div>
+            <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center mb-4">
+              <iconify-icon
+                icon={benefit.icon}
+                class="icon-sm-white"
+                height="1.4em"
+                width="1.4em"
+              />
+            </div>
+            <h4 class="text-base md:text-lg  font-bold mb-3 uppercase tracking-tight text-neutral-800">
+              {benefit.title}
+            </h4>
+            <p class="text-neutral-600 text-sm font-light leading-relaxed">{benefit.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

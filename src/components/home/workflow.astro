@@ -1,0 +1,57 @@
+---
+const workflowItems = [
+  {
+    id: '01',
+    title: 'Understand Workflows',
+    description:
+      'We map your operational flow. I ask better questions early to prevent scope creep and ensure we build exactly what you need.',
+  },
+  {
+    id: '02',
+    title: 'System Architecture',
+    description:
+      'I outline clean interfaces, database structures, and backend service boundaries, ensuring maintainable growth paths.',
+  },
+  {
+    id: '03',
+    title: 'Incremental Delivery',
+    description:
+      'Features are implemented in small, testable milestones. You see progress in real time rather than waiting for one big launch.',
+  },
+  {
+    id: '04',
+    title: 'Refine & Deploy',
+    description:
+      'We review performance metrics, finalize caching structures, run audits, and launch securely on robust servers.',
+  },
+];
+---
+
+<section class="bg-neutral-50 px-5 md:px-16 lg:px-20 py-16 md:py-24 text-black">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-neutral-500 text-[10px] md:text-xs uppercase tracking-[0.35em] mb-2">
+        MY WORKFLOW
+      </p>
+      <h2 class="font-bebas text-5xl sm:text-6xl md:text-8xl leading-none">
+        HOW WE BUILD TOGETHER
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {
+        workflowItems.map((item, index) => (
+          <div class={`relative`}>
+            <span class="font-bebas text-4xl text-neutral-300 block mb-2 leading-none">
+              {item.id}
+            </span>
+            <h4 class="text-base font-bold uppercase tracking-wider mb-2 text-neutral-800">
+              {item.title}
+            </h4>
+            <p class="text-neutral-600 text-base font-light leading-relaxed">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

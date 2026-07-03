@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kalyanjyotiborah.pro/sitemap-index.xml
+Sitemap: https://kalyanjyotiborah.pro/sitemap-0.xml
