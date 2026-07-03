@@ -1,6 +1,7 @@
 ---
-import "@styles-global";
-import { ClientRouter } from "astro:transitions";
+import '@styles-global';
+import { Font } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
 export interface Props {
   title: string;
   description: string;
@@ -9,88 +10,79 @@ export interface Props {
   ograph?: string;
   keywords?: string;
 }
-const { title, description, permalink, canonicalUrl, ograph, keywords } =
-  Astro.props;
+const { title, description, permalink, canonicalUrl, ograph, keywords } = Astro.props;
 
-const ogImage = new URL(ograph || "/pic.jpg", Astro.site || permalink);
+const ogImage = new URL(ograph || '/pic.jpg', Astro.site || permalink);
 
 const defaultKeywords =
-  "freelance developer sivasagar, software engineer assam, website developer guwahati, freelance software engineer in assam, web developer sivasagar, hire freelance developer assam, web developer northeast india, freelance web developer guwahati, kalyan jyoti borah, software engineer india, custom software development assam, website developer india";
+  'freelance developer sivasagar, software engineer assam, website developer guwahati, freelance software engineer in assam, web developer sivasagar, hire freelance developer assam, web developer northeast india, freelance web developer guwahati, kalyan jyoti borah, software engineer india, custom software development assam, website developer india';
 
-const siteUrl = "https://kalyanjyotiborah.pro";
+const siteUrl = 'https://kalyanjyotiborah.pro';
 const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: "Kalyan Jyoti Borah",
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Kalyan Jyoti Borah',
       url: siteUrl,
-      jobTitle: "Freelance Software Engineer",
-      email: "mailto:kalyanborah456@gmail.com",
+      jobTitle: 'Freelance Software Engineer',
+      email: 'mailto:kalyanborah456@gmail.com',
       sameAs: [
-        "https://www.facebook.com/kalyanjyotiborah.dev",
-        "https://twitter.com/kalyan_borah_RR",
-        "https://instagram.com/ochinaki_",
-        "https://linkedin.com/in/kalyan-jyoti-borah",
-        "https://github.com/Kalyan-velu",
+        'https://www.facebook.com/kalyanjyotiborah.dev',
+        'https://twitter.com/kalyan_borah_RR',
+        'https://instagram.com/ochinaki_',
+        'https://linkedin.com/in/kalyan-jyoti-borah',
+        'https://github.com/Kalyan-velu',
       ],
       image: {
-        "@type": "ImageObject",
-        "@id": `${siteUrl}/#logo`,
+        '@type': 'ImageObject',
+        '@id': `${siteUrl}/#logo`,
         url: `${siteUrl}/icons8/logo-new.png`,
         contentUrl: `${siteUrl}/icons8/logo-new.png`,
-        caption: "Kalyan Jyoti Borah",
-        inLanguage: "en-US",
-        width: "1024",
-        height: "1024",
+        caption: 'Kalyan Jyoti Borah',
+        inLanguage: 'en-US',
+        width: '1024',
+        height: '1024',
       },
     },
     {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
       url: siteUrl,
-      name: "Kalyan Jyoti Borah",
-      publisher: { "@id": `${siteUrl}/#person` },
-      inLanguage: "en-US",
+      name: 'Kalyan Jyoti Borah',
+      publisher: { '@id': `${siteUrl}/#person` },
+      inLanguage: 'en-US',
     },
     {
-      "@type": "ImageObject",
-      "@id": `${siteUrl}/pic.jpg`,
+      '@type': 'ImageObject',
+      '@id': `${siteUrl}/pic.jpg`,
       url: `${siteUrl}/pic.jpg`,
-      width: "1480",
-      height: "3264",
-      inLanguage: "en-US",
+      width: '1480',
+      height: '3264',
+      inLanguage: 'en-US',
     },
     {
-      "@type": "WebPage",
-      "@id": `${permalink}#webpage`,
+      '@type': 'WebPage',
+      '@id': `${permalink}#webpage`,
       url: permalink,
       name: title,
-      about: { "@id": `${siteUrl}/#person` },
-      isPartOf: { "@id": `${siteUrl}/#website` },
-      primaryImageOfPage: { "@id": `${siteUrl}/pic.jpg` },
-      inLanguage: "en-US",
+      about: { '@id': `${siteUrl}/#person` },
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      primaryImageOfPage: { '@id': `${siteUrl}/pic.jpg` },
+      inLanguage: 'en-US',
     },
   ],
 };
 ---
 
 <head>
+  <Font cssVariable="--alata" preload />
+  <Font cssVariable="--bebas" preload />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link
-    rel="icon"
-    type="image/svg+xml"
-    href="/icons8/logo-new.png"
-    sizes="16x16"
-  />
-  <link
-    rel="icon"
-    type="image/svg+xml"
-    href="/icons8/logo-new.png"
-    sizes="32x32"
-  />
+  <link rel="icon" type="image/svg+xml" href="/icons8/logo-new.png" sizes="16x16" />
+  <link rel="icon" type="image/svg+xml" href="/icons8/logo-new.png" sizes="32x32" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index, follow" />
   <meta name="generator" content={Astro.generator} />
@@ -117,22 +109,18 @@ const jsonLd = {
   <meta property="twitter:creator" content="@kalyan_borah_RR" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata:wght@200;300;400&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="sitemap" href="/sitemap-index.xml" />
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <link rel="sitemap" href="/sitemap-0.xml" />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <script is:inline defer type="text/javascript">
     (() => {
-      if (typeof window === "undefined") {
+      if (typeof window === 'undefined') {
         return;
       }
       document.documentElement.classList.toggle(
-        "dark",
-        localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: light)").matches),
+        'dark',
+        localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: light)').matches),
       );
     })();
   </script>
@@ -145,25 +133,25 @@ const jsonLd = {
         };
       t = l.createElement(r);
       t.async = 1;
-      t.src = "https://www.clarity.ms/tag/" + i;
+      t.src = 'https://www.clarity.ms/tag/' + i;
       y = l.getElementsByTagName(r)[0];
       y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "hkt70dc655");
+    })(window, document, 'clarity', 'script', 'hkt70dc655');
   </script>
   <script is:inline>
     (function (w, d, s, l, i) {
       w[l] = w[l] || [];
-      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
       var f = d.getElementsByTagName(s)[0],
         j = d.createElement(s),
-        dl = l !== "dataLayer" ? "&l=" + l : "";
+        dl = l !== 'dataLayer' ? '&l=' + l : '';
       j.async = true;
-      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-P3ZGF3GZ");
+    })(window, document, 'script', 'dataLayer', 'GTM-P3ZGF3GZ');
   </script>
   <script>
-    import "iconify-icon";
+    import 'iconify-icon';
   </script>
   <ClientRouter />
 </head>
