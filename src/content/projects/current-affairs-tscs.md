@@ -24,7 +24,7 @@ tags:
     "Education Technology"
   ]
 status: completed
-order: 2
+order: 4
 ---
 # Current Affairs Publishing Platform
 
