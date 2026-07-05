@@ -10,7 +10,7 @@ images:
   - "/projects/link-lab/img_1.png"
   - "/projects/link-lab/img_2.png"
   - "/projects/link-lab/img_3.png"
-link: "https://link-lab.kalyanjyotiborah.pro"
+link: "https://links-lab.kalyanjyotiborah.pro/"
 github: "https://github.com/Kalyan-velu/link-lab"
 bgColor: bg-blue-800
 tags:
