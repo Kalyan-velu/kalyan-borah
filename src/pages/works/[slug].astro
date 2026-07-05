@@ -1,15 +1,14 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
-import Section from "@components/section.astro";
-import ProjectCarousel from "@components/carousel/ProjectCarousel.astro";
-import { getEntry, render } from "astro:content";
+import Layout from '@layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Section from '@components/section.astro';
+import ProjectCarousel from '@components/carousel/ProjectCarousel.astro';
+import { getEntry, render } from 'astro:content';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
-  console.log("Projects: ", projects);
+  const projects = await getCollection('projects');
   return projects.map((project) => ({
     params: { slug: project.id },
     props: { project },
@@ -17,14 +16,14 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  project: CollectionEntry<"projects">;
+  project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
 
-const data = await getEntry("projects", project.id);
+const data = await getEntry('projects', project.id);
 if (data === undefined) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404');
 }
 const { Content } = await render(data);
 const title = `${project.data.name} | Project by Kalyan Jyoti Borah`;
@@ -34,13 +33,18 @@ const ograph = project.data.image;
 ---
 
 <Layout {title} {description} {permalink} {ograph}>
-  <section class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[40vh] flex flex-col justify-center px-5 md:px-10 pt-28 pb-14 overflow-hidden text-center text-white">
+  <section
+    class="relative bg-[#111] rounded-b-[2.5rem] md:rounded-b-[4rem] min-h-[40vh] flex flex-col justify-center px-5 md:px-10 pt-28 pb-14 overflow-hidden text-center text-white"
+  >
     <div class="z-10 mt-6">
-      <h1 class="font-bebas halftone-text text-5xl md:text-7xl uppercase leading-none" transition:name={`${project.id}-title`}>
+      <h1
+        class="font-bebas halftone-text text-5xl md:text-7xl uppercase leading-none"
+        transition:name={`${project.id}-title`}
+      >
         {project.data.name}
       </h1>
       <p class="text-neutral-400 text-[10px] md:text-xs uppercase tracking-[0.25em] mt-3">
-        {project.data.type.replace("-", " ")} • {project.data.status}
+        {project.data.type.replace('-', ' ')} • {project.data.status}
       </p>
     </div>
   </section>
@@ -68,11 +72,8 @@ const ograph = project.data.image;
 
       {
         project.data.images && project.data.images.length > 0 ? (
-          <ProjectCarousel
-            images={project.data.images}
-            alt={project.data.name}
-          />
-        ) : project.data.image && project.data.image !== "" ? (
+          <ProjectCarousel images={project.data.images} alt={project.data.name} />
+        ) : project.data.image && project.data.image !== '' ? (
           <div class="aspect-video w-full overflow-hidden rounded-xl border bg-neutral-100">
             <img
               src={project.data.image}
@@ -84,27 +85,19 @@ const ograph = project.data.image;
         ) : undefined
       }
 
-      <div
-        class="flex flex-wrap gap-x-8 gap-y-4 text-sm bg-neutral-50 rounded-xl px-6 py-4"
-      >
+      <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm bg-neutral-50 rounded-xl px-6 py-4">
         <div class="flex flex-col">
           <span class="text-neutral-500 font-medium">Type</span>
-          <span class="text-neutral-800 capitalize"
-            >{project.data.type.replace("-", " ")}</span
-          >
+          <span class="text-neutral-800 capitalize">{project.data.type.replace('-', ' ')}</span>
         </div>
         <div class="flex flex-col">
           <span class="text-neutral-500 font-medium">Associated</span>
           <span class="text-neutral-800">
             {
-              typeof project.data.associated === "string" ? (
+              typeof project.data.associated === 'string' ? (
                 project.data.associated
               ) : (
-                <a
-                  href={project.data.associated.link}
-                  target="_blank"
-                  class="underline"
-                >
+                <a href={project.data.associated.link} target="_blank" class="underline">
                   {project.data.associated.company}
                 </a>
               )
@@ -115,11 +108,7 @@ const ograph = project.data.image;
           project.data.link && (
             <div class="flex flex-col">
               <span class="text-neutral-500 font-medium">Live</span>
-              <a
-                href={project.data.link}
-                target="_blank"
-                class="text-neutral-800 underline"
-              >
+              <a href={project.data.link} target="_blank" class="text-neutral-800 underline">
                 Visit Project
               </a>
             </div>

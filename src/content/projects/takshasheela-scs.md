@@ -39,7 +39,7 @@ order: 1
 
 **Role:** Full-Stack Developer (Contractual)
 **Duration:** 2026
-**Website:** https://takshasheelascs.com
+**Website:** https://takshashilascs.com
 
 ---
 
