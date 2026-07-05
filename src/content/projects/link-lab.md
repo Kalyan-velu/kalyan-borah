@@ -26,7 +26,7 @@ tags:
     "QR Codes",
     "Privacy-First"
   ]
-status: in-progress
+status: completed
 order: 2
 ---
 
