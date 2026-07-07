@@ -11,6 +11,7 @@ github: peaky
 tags: ["Typescript", "Golang", "Wails", "Vite", "CSS"]
 status: ongoing
 order: 6
+hidden: true
 ---
 
 ## Overview

@@ -42,6 +42,7 @@ export default defineConfig({
     },
   ],
   vite: {
+    port:3000,
     plugins: [tailwindcss()],
     resolve: {
       tsconfigPaths: true,
