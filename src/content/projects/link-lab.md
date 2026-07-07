@@ -11,7 +11,7 @@ images:
   - "/projects/link-lab/img_2.png"
   - "/projects/link-lab/img_3.png"
 link: "https://links-lab.kalyanjyotiborah.pro/"
-github: "https://github.com/Kalyan-velu/link-lab"
+github: link-lab
 bgColor: bg-blue-800
 tags:
   [
@@ -42,7 +42,7 @@ order: 2
 
 ## Overview
 
-LinkLab is a free browser-based tool that generates ready-to-share deep links ΓÇö for opening a direct chat, viewing a profile, or creating a post/share dialog ΓÇö across a wide range of messaging and social platforms: WhatsApp, Telegram, Signal, Facebook Messenger, Instagram, SMS, Phone, Email, Snapchat, LinkedIn, X (Twitter), and Google Maps.
+LinkLab is a free browser-based tool that generates ready-to-share deep links  for opening a direct chat, viewing a profile, or creating a post/share dialog  across a wide range of messaging and social platforms: WhatsApp, Telegram, Signal, Facebook Messenger, Instagram, SMS, Phone, Email, Snapchat, LinkedIn, X (Twitter), and Google Maps.
 
 Unlike most link-generator tools, which tend to hardcode one or two formats and stop maintaining them, LinkLab is built around a configuration-driven generator system, and every supported link format is verified against each platform's actual documented (or empirically confirmed) behavior rather than assumed from convention.
 
@@ -63,7 +63,7 @@ The goal was to build a tool that gets these details right platform-by-platform,
 
 ## My Responsibilities
 
-As the sole developer on this project, I owned the full stack ΓÇö architecture, UI, content, and platform research.
+As the sole developer on this project, I owned the full stack  architecture, UI, content, and platform research.
 
 My work included:
 
@@ -79,27 +79,27 @@ My work included:
 
 ### Configuration-Driven Generator System
 
-Each platform is defined as a single `GeneratorConfig` object ΓÇö its fields, validation rules, and a `generate()` function ΓÇö and registered in one place. Platforms that support more than one link type (e.g. WhatsApp DM vs. Facebook DM/profile/post-share) declare `typeFields`, `typeTemplates`, and `typeExplanations` per type, so the same UI (dynamic tabs, form fields, and technical-spec card) adapts automatically without any platform-specific UI code.
+Each platform is defined as a single `GeneratorConfig` object  its fields, validation rules, and a `generate()` function  and registered in one place. Platforms that support more than one link type (e.g. WhatsApp DM vs. Facebook DM/profile/post-share) declare `typeFields`, `typeTemplates`, and `typeExplanations` per type, so the same UI (dynamic tabs, form fields, and technical-spec card) adapts automatically without any platform-specific UI code.
 
-Adding a new platform, or a new link type for an existing one, is a matter of adding a config file ΓÇö not touching the form, validation engine, or results UI.
+Adding a new platform, or a new link type for an existing one, is a matter of adding a config file  not touching the form, validation engine, or results UI.
 
 ### Multi-Type Link Support
 
 Where a platform genuinely supports it, LinkLab generates:
 
-* **Direct message links** ΓÇö e.g. WhatsApp's Click-to-Chat (`wa.me`), Telegram's `t.me/{username}?text=`, Messenger's `m.me`
-* **Profile links** ΓÇö e.g. Instagram, LinkedIn, Snapchat's add-friend link
-* **Post/share links** ΓÇö e.g. X's Tweet Intent, Facebook's Share dialog, LinkedIn's share-offsite endpoint, Telegram's share dialog
+* **Direct message links**  e.g. WhatsApp's Click-to-Chat (`wa.me`), Telegram's `t.me/{username}?text=`, Messenger's `m.me`
+* **Profile links**  e.g. Instagram, LinkedIn, Snapchat's add-friend link
+* **Post/share links**  e.g. X's Tweet Intent, Facebook's Share dialog, LinkedIn's share-offsite endpoint, Telegram's share dialog
 
 Where a platform does *not* publicly expose one of these (for example, Instagram has no public "create post" URL, and WhatsApp has no profile-view link), the tool simply doesn't offer that option rather than faking a broken one.
 
 ### Technical Spec Explanations
 
-Every generated link ships with a "Technical Specs" panel showing the exact URL template and a plain-language explanation of the underlying protocol or API ΓÇö RFC references for `mailto:`/`tel:`/`sms:`, the relevant developer docs for platform-specific intents, and explicit callouts when a parameter is a well-known convention rather than an officially documented one.
+Every generated link ships with a "Technical Specs" panel showing the exact URL template and a plain-language explanation of the underlying protocol or API  RFC references for `mailto:`/`tel:`/`sms:`, the relevant developer docs for platform-specific intents, and explicit callouts when a parameter is a well-known convention rather than an officially documented one.
 
 ### QR Codes & Zero Persistence
 
-Every generated link is instantly rendered as a scannable QR code. Nothing typed into the form ΓÇö phone numbers, messages, usernames ΓÇö is ever persisted, even to `localStorage`; all state lives in memory for the current session only.
+Every generated link is instantly rendered as a scannable QR code. Nothing typed into the form  phone numbers, messages, usernames  is ever persisted, even to `localStorage`; all state lives in memory for the current session only.
 
 ### SEO-Optimized Per-Platform Pages
 
@@ -131,11 +131,11 @@ Each platform has its own dedicated route (`/generators/<id>`) with unique title
 
 ### Configuration Over Code
 
-Every platform's format lives in a typed config object rather than a switch statement or conditional UI. This kept the codebase flat and made it trivial to review platform-by-platform correctness ΓÇö and to remove a platform (Skype) cleanly when it stopped being relevant.
+Every platform's format lives in a typed config object rather than a switch statement or conditional UI. This kept the codebase flat and made it trivial to review platform-by-platform correctness  and to remove a platform (Skype) cleanly when it stopped being relevant.
 
 ### Verify, Don't Assume
 
-Rather than trusting commonly-copied link formats, each generator's link types were checked against current official developer documentation (or clearly labeled as a confirmed-but-undocumented convention). This surfaced and fixed real bugs ΓÇö like `mailto:` encoding spaces as `+` instead of the RFC-correct `%20`, and X's DM composer silently requiring a numeric user ID rather than a username.
+Rather than trusting commonly-copied link formats, each generator's link types were checked against current official developer documentation (or clearly labeled as a confirmed-but-undocumented convention). This surfaced and fixed real bugs  like `mailto:` encoding spaces as `+` instead of the RFC-correct `%20`, and X's DM composer silently requiring a numeric user ID rather than a username.
 
 ### Session-Only State
 

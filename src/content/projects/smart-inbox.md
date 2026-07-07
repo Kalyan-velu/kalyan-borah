@@ -7,7 +7,7 @@ associated:
   company: A to Z debug
   link: https://atozdebug.com/
 type: web-application
-image: https://ik.imagekit.io/c4nxqtjsj/projects/your-next-job/card.jpg
+image: ""
 images:
   - "/projects/smartinbox/Screenshot 2024-10-06 201654.png"
   - "/projects/smartinbox/Screenshot 2024-10-19 114832.png"
