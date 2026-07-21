@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/markdoc": "2.0.1",
-    "@astrojs/netlify": "8.0.0",
+    "@astrojs/netlify": "8.1.2",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/ts-plugin": "^1.10.9",
     "@supabase/supabase-js": "^2.108.2",
